@@ -48,3 +48,10 @@
 - `pkss`、`pics`、`pdf`、`kss`、`ksa`、`kda` は、現在使っていない。**PHPファイルが存在する。**
 - 対応（案）：`pkss`、`kss`、`ksa`、`kda` は、すべてのアクセスを禁止する。`pics`、`pdf` は、PHPの実行だけを禁止する（古い画像やPDFへのリンクが、残っている場合に備える）。どちらも、`.htaccess` を置くだけで、元に戻せる。
 - 削除は、サーバー全体のバックアップを取り、パソコン（GitHubではない場所）に控えを保存した後で、行う。
+
+## 総点検の結果（2026-11-18、`python3 -I tools/check_site.py` で再実行できる）
+- 検査：全102ページ、参照5,516件。リンク切れ0件、旧サイトのURL（`/kdhs/` 以外）への依存0件、旧サイトの全URLが新サイトに存在（0件の不足）。
+- 直したこと：旧WordPressが自動で転送していた「推測URL」（`/business_checkup_1/`、`/introduction/introduction/` など）を、正しいURLに直し、転送ページも用意。業務・財務の個別ページを追加。ページ内のこのサイト自身へのリンクを、相対に変更。`canonical`、`sitemap.xml`、`robots.txt` を追加。
+- スマホ幅（390px）：横にはみ出すページは0件。JSのエラーも0件。
+- 未解決：画像4点（`close.png`、`bx_loader.gif`、`prev_slider.png`、`next_slider.png`）が、テーマに入っていない。旧サーバーに残っているか、確認が必要。
+- 外部への依存：Googleフォント（CSSの読み込み）、Googleマップ、Google検索。8020推進財団など、外部サイトへのリンク。

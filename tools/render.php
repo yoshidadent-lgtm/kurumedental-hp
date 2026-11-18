@@ -33,6 +33,8 @@ if (in_array($q['kind'], ['page', 'post'])) $post = $posts[0];  // 単体ペー�
 function rel_url($s) {  // サイト内の画像・資料のURLを、相対パスにする
     global $R;
     $s = preg_replace('#https?://(?:www\.)?kurume-dental\.or\.jp/wp-content/#', $R . 'wp-content/', $s);
+    // 本文の中の、このサイト自身へのリンクも、相対にする（別サイト /kdhs/ は、そのまま）
+    $s = preg_replace('#(["\'])https?://(?:www\.)?kurume-dental\.or\.jp/(?!kdhs)#', '$1' . $R, $s);
     return $s;
 }
 function wpautop($text, $br = true) {
@@ -181,7 +183,15 @@ function dynamic_sidebar() { return false; } function do_action() {} function ge
 function wp_pagenavi() {} function pagination() {}
 function __($s, $d = '') { return $s; } function _e($s, $d = '') { echo $s; } function esc_attr__($s) { return $s; }
 function esc_url($u) { return $u === '' ? './' : $u; }
-function home_url($p = '') { global $R; return $R . ltrim($p, '/'); }
+function home_url($p = '') {
+    global $R;
+    // 旧WordPressが、自動で正しいURLへ転送していた「推測URL」を、最初から正しいURLにする
+    static $fix = ['/business_checkup_1/' => '/business_checkup/business_checkup_1/', '/business_checkup_2/' => '/business_checkup/business_checkup_2/',
+                   '/business_checkup_3/' => '/business_checkup/business_checkup_3/', '/business_checkup_4/' => '/business_checkup/business_checkup_4/',
+                   '/introduction/introduction/' => '/introduction/'];
+    $p = $fix[$p] ?? $p;
+    return $R . ltrim($p, '/');
+}
 function bloginfo($k) { echo get_bloginfo($k); }
 function get_bloginfo($k) { global $T; return $k === 'stylesheet_directory' ? $T : ''; }
 function get_stylesheet_directory_uri() { global $T; return $T; }
@@ -205,7 +215,7 @@ function get_header() {
     if ($header_done) return;  // 旧テンプレートが get_header() を2回呼ぶ（ヘッダーの二重表示）ため、1回にする
     $header_done = true;
     $h = file_get_contents(__DIR__ . '/../templates/header.html');
-    echo str_replace(['{{SLIDER}}', '{{R}}', '{{T}}', '{{TITLE}}'], ['', $R, $T, htmlspecialchars($spec['title'] ?? $SITE['title'])], $h);
+    echo str_replace(['{{SLIDER}}', '{{R}}', '{{T}}', '{{TITLE}}', '{{CANON}}'], ['', $R, $T, htmlspecialchars($spec['title'] ?? $SITE['title']), htmlspecialchars($SITE['origin'] . '/' . ($spec['canon'] ?? ''))], $h);
 }
 function get_footer() {
     global $R, $T;

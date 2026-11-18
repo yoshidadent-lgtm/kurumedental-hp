@@ -7,11 +7,11 @@ site = json.loads((ROOT/'data/site.json').read_text(encoding='utf-8'))
 tpl = lambda n: (ROOT/'templates'/n).read_text(encoding='utf-8')
 YEAR = str(datetime.date.today().year)
 
-def render(depth, title, body_html, slider=False):
+def render(depth, title, body_html, slider=False, canon=''):
     R = '../' * depth
     T = R + 'wp-content/themes/spacious-child'
     page = tpl('header.html').replace('{{SLIDER}}', tpl('slider.html') if slider else '') + body_html + tpl('footer.html')
-    return (page.replace('{{R}}', R).replace('{{T}}', T)
+    return (page.replace('{{CANON}}', site['origin'] + '/' + canon).replace('{{R}}', R).replace('{{T}}', T)
                 .replace('{{TITLE}}', html.escape(title)).replace('{{YEAR}}', YEAR))
 
 # 本文中の旧テーマ互換の置き換え（[hurl]、images/ のパス、誤ったリンクの補正）
@@ -41,7 +41,7 @@ def build_home():
             '<article id="post-%s" class="page"><div class="entry-content clearfix">%s</div></article>'
             '</div>' % (home['id'], c))
     # footer.html が .inner-wrap と #main を閉じる
-    (ROOT/'index.html').write_text(render(0, site['title'], body, slider=True), encoding='utf-8')
+    (ROOT/'index.html').write_text(render(0, site['title'], body, slider=True, canon=''), encoding='utf-8')
 
 import subprocess, shutil, urllib.parse
 
@@ -61,24 +61,44 @@ def build_all():
     for d in data:
         if d['type'] == 'page' and d['slug'] != 'home':
             path = d['path'].strip('/')
-            write(path + '/index.html', php_render(dict(kind='page', id=d['id'], depth=path.count('/') + 1, title=site['title']))); n += 1
-        elif d['type'] in ('post', 'event'):
+            write(path + '/index.html', php_render(dict(kind='page', id=d['id'], depth=path.count('/') + 1, title=site['title'], canon=path + '/'))); n += 1
+        elif d['type'] in ('post', 'event', 'finance'):
             path = d['link'].strip('/')
-            write(path + '/index.html', php_render(dict(kind='post', id=d['id'], depth=path.count('/') + 1, title=site['title']))); n += 1
-    write('event/index.html', php_render(dict(kind='archive', type='event', depth=1, title=site['title']))); n += 1
+            write(path + '/index.html', php_render(dict(kind='post', id=d['id'], depth=path.count('/') + 1, title=site['title'], canon=path + '/'))); n += 1
+    write('event/index.html', php_render(dict(kind='archive', type='event', depth=1, title=site['title'], canon='event/'))); n += 1
     names = {(t[0], t[1]): t[2] for t in json.loads((ROOT/'data/terms.json').read_text(encoding='utf-8'))}
     for (tax, term), name in names.items():
         if not tax.startswith('local_dentist') or '%' in term: continue
         path = 'local_dentist_top/%s/%s' % (tax, term)
-        write(path + '/index.html', php_render(dict(kind='tax', tax=tax, term=term, depth=3, title=site['title']))); n += 1
+        write(path + '/index.html', php_render(dict(kind='tax', tax=tax, term=term, depth=3, title=site['title'], canon=path + '/'))); n += 1
     write('404.html', php_render(dict(kind='404', depth=0, title=site['title']))); n += 1
-    # 旧URLから新URLへ移動する小さなページ（旧サイトの転送ルールのうち、会員向けを除く6件）
+    # 旧URLから新URLへ移動する小さなページ（旧サイトの転送ルールのうち、会員向けを除く6件と、旧WordPressが自動で転送していた推測URL）
+    import os
     redirects = {'business_checkup.html': 'business_checkup/', 'assistant_course.php': 'assistant_course/', 'event.php': 'event/',
-                 'holiday_clinic.php': 'holiday_clinic/', 'local_dentist.php': 'local_dentist_top/', 'introduction.html': 'introduction/'}
+                 'holiday_clinic.php': 'holiday_clinic/', 'local_dentist.php': 'local_dentist_top/', 'introduction.html': 'introduction/',
+                 'business_checkup_1/index.html': 'business_checkup/business_checkup_1/', 'business_checkup_2/index.html': 'business_checkup/business_checkup_2/',
+                 'business_checkup_3/index.html': 'business_checkup/business_checkup_3/', 'business_checkup_4/index.html': 'business_checkup/business_checkup_4/',
+                 'introduction_2/index.html': 'introduction/introduction_2/', 'introduction_3/index.html': 'introduction/introduction_3/',
+                 'introduction_4/index.html': 'introduction/introduction_4/', 'introduction_5/index.html': 'introduction/introduction_5/',
+                 'introduction/introduction/index.html': 'introduction/'}
     for old, new in redirects.items():
+        rel = os.path.relpath(new, os.path.dirname(old) or '.') + '/' if os.path.dirname(old) else new
+        rel = rel if rel != './' else './'
+        canon = site['origin'] + '/' + new
         write(old, '<!DOCTYPE html>\n<html lang="ja"><head><meta charset="utf-8"><title>ページが移動しました</title>'
                    '<link rel="canonical" href="%s"><meta http-equiv="refresh" content="0; url=%s"><meta name="robots" content="noindex">'
-                   '</head><body><p>ページが移動しました。<a href="%s">こちら</a>をご覧ください。</p></body></html>\n' % (new, new, new)); n += 1
+                   '</head><body><p>ページが移動しました。<a href="%s">こちら</a>をご覧ください。</p></body></html>\n' % (canon, rel, rel)); n += 1
+    # 検索エンジン向け：サイトマップと robots.txt
+    urls = ['']
+    for d in data:
+        if d['type'] == 'page' and d['slug'] != 'home': urls.append(d['path'].strip('/') + '/')
+        elif d['type'] in ('post', 'event', 'finance'): urls.append(d['link'].strip('/') + '/')
+    urls.append('event/')
+    for (tax, term), name in names.items():
+        if tax.startswith('local_dentist') and '%' not in term: urls.append('local_dentist_top/%s/%s/' % (tax, term))
+    write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+          + ''.join('<url><loc>%s/%s</loc></url>\n' % (site['origin'], u) for u in sorted(set(urls))) + '</urlset>\n')
+    write('robots.txt', 'User-agent: *\nAllow: /\nSitemap: %s/sitemap.xml\n' % site['origin'])
     write('.nojekyll', '')
     print('built', n, 'files')
 
