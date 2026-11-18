@@ -20,6 +20,9 @@ ServerSignature Off
 # 今までは、WordPress（Really Simple SSL）が、この役目をしていた可能性が高い。WordPressをやめると、なくなるため、ここで補う。
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  # www 付きのアドレスは、www なし・https に、一度で転送する（今は、WordPressが行っているとみられる）
+  RewriteCond %{HTTP_HOST} ^www\.kurume-dental\.or\.jp$ [NC]
+  RewriteRule ^(.*)$ https://kurume-dental.or.jp/$1 [R=301,L]
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP:X-Forwarded-Proto} !https
   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]

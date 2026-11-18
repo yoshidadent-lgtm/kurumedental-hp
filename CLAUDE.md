@@ -39,3 +39,5 @@
 - 古いフォルダ `backups`、`pkss`、`pics`、`pdf`、`kss`、`ksa`、`kda` は、現在使っていない（ユーザー確認済み）。PHPファイルが存在するため、アクセス禁止の `.htaccess` で止める。削除は、バックアップの後。
 - 画像4点（`close.png`、`bx_loader.gif`、`prev_slider.png`、`next_slider.png`）は、旧サーバーにも見つからない（ユーザー確認済み）。旧サイトでも表示されていないため、現状のままで公開してよい。後で、新しく作る（改善項目）。
 - 総点検は `python3 -I tools/check_site.py` で再実行できる。結果は `docs/deploy-plan.md`。
+- `www.kurume-dental.or.jp` は、www なしに転送されている（ユーザー確認済み）。新しい `.htaccess` で、同じ転送を補う。
+- `/kdhs/` の `.htaccess` は、入口に頼らず、自己完結している（確認済み）。ただし、入口の `DirectoryIndex` などは引き継がれるため、`index.html index.php` の両方を指定する。

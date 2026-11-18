@@ -71,3 +71,8 @@
 - ただし、入口の設定のうち、`DirectoryIndex`、`Header`、`ErrorDocument`、`Options` などは、`/kdhs/` に引き継がれる。
 - 発見：入口の `DirectoryIndex` を `index.html` だけにすると、`/kdhs/` の入口（`index.php`）が、表示されなくなる。→ `DirectoryIndex index.html index.php` にして、解決した。
 - 公開後の確認項目：`https://kurume-dental.or.jp/kdhs/` が、これまでどおり表示されること（トップ、下層ページ、ログイン画面、管理画面のURLを、学校の担当者に確認してもらう）。
+
+## www の扱い（2026-11-18、ユーザー確認済み）
+- `https://www.kurume-dental.or.jp/` を開くと、www なしのサイトに転送される。入口の `.htaccess` に、この規則はないため、WordPressが行っているとみられる。
+- WordPressをやめると、この転送がなくなるため、新しい `.htaccess` で補った（`deploy/htaccess-root.txt`）。
+- 公開後の確認項目：`www` 付きで開いて、www なしに転送されること。`http://` で開いて、https に転送されること。
