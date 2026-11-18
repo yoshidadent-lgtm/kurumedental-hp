@@ -36,3 +36,9 @@
 3. 入口の `index.php` は、削除せず、`index.php.bak` に名前を変える（または `.htaccess` の `DirectoryIndex` で、`index.html` を優先する）。元に戻せるようにする。
 4. 入口の `wp-config.php`（データベースの接続情報）、`wp-login.php`、`xmlrpc.php`、`readme.html`、`license.txt` は、公開後に、アクセスできないようにする（まず `.htaccess` で止める。数週間後に、削除を検討）。
 5. 入口のWordPressと、`/kdhs/` のWordPressが、部品を共有していないことを確認してから、入口のWordPressを片付ける。
+
+## `backups` フォルダの確認結果（2026-11-18）
+- 中身は、サーバー移行時の、古いサイトのファイル（92個、約4MB）。PHPファイル（`top.php`、`recruit.php`、`reunion.php`、`routing.php` など）、メール送信用とみられる `postmail`、`class` フォルダなどがある。
+- **公開フォルダの中にあるPHPは、URLを直接開かれると、実行される。** メール送信の仕組みが入っていれば、迷惑メールの踏み台に、悪用される恐れがある。
+- ユーザーの判断：不要。
+- 対応：(1) まず `backups` に、アクセスを禁止する `.htaccess` を置く（すぐ元に戻せる）。(2) サーバー全体のバックアップを取った後で、パソコン（GitHubではない場所）に4MBの控えを保存して、サーバーから削除する。(3) 同じ性質の古いフォルダ（`pkss`、`kss`、`ksa`、`kda`、`pics`、`pdf`）に、PHPファイルがないか、確認する。
