@@ -18,3 +18,9 @@
 - 次に必要な材料：WordPressのエクスポートXML、親テーマ `spacious`、プラグイン一覧。XMLに会員向けの投稿が含まれる場合は、公開側に取り込まない。
 - エクスポートXMLには、パスワード保護された投稿のパスワードと投稿者のメールアドレスが入る。**GitHubにアップロードしない。** チャットに添付してもらい、会員向け・パスワード・メールを取り除いた版だけをリポジトリに置く。
 - 旧URLの引き継ぎのため、Redirectionプラグインの規則（JSON）を書き出してもらう。
+
+## 作り方（静的サイトの生成）
+- `python3 tools/build.py` で、`data/public-content.json` と `templates/` から `index.html` を生成する。
+- テーマの部品（CSS、画像、スクリプト）は、旧サイトと同じパスで `wp-content/themes/` に置く（旧URLの互換のため）。会員向けの画像は置かない。
+- jQueryは、自前の 1.12.4 を `wp-content/themes/spacious-child/js/vendor/` に置いている（外部CDNに頼らない）。
+- 旧URL（`.html` / `.php`）は、新URLへ移動する小さなページを置いて対応する。Redirectionの規則は18件（会員向けを除く）。

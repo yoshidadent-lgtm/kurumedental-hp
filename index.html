@@ -1,25 +1,168 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>kurumedental-hp！！！</title>
-  <style>
-    body { margin: 0; padding: 32px 16px; font-family: -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif; background: #fff; }
-    h1 { color: blue; font-size: 2.4rem; margin: 0 0 32px; border-bottom: 1px solid #ddd; padding-bottom: 12px; }
-    .center { display: flex; justify-content: center; align-items: center; min-height: 50vh; }
-    .center img { max-width: 100%; height: auto; animation: swing 1s ease-in-out infinite alternate; }
-    @keyframes swing {
-      from { transform: translateX(-60px) rotate(-4deg); }
-      to   { transform: translateX(60px) rotate(4deg); }
-    }
-    @media (prefers-reduced-motion: reduce) { .center img { animation: none; } }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>久留米歯科医師会</title>
+<link rel="stylesheet" href="wp-content/themes/spacious/style.css" type="text/css" />
+<link rel="stylesheet" href="wp-content/themes/spacious-child/style.css" type="text/css" />
+<link rel="stylesheet" href="wp-content/themes/spacious-child/font-awesome/css/font-awesome.min.css" type="text/css" />
+<link rel="stylesheet" href="wp-content/themes/spacious-child/css/jquery.bxslider.css" type="text/css" />
+<link rel="stylesheet" href="wp-content/themes/spacious-child/css/lightbox.min.css" type="text/css" />
+<script src="wp-content/themes/spacious-child/js/vendor/jquery-1.12.4.min.js"></script>
+<script src="wp-content/themes/spacious-child/js/viewer.js"></script>
+<script src="wp-content/themes/spacious-child/js/jquery.imageNavigation.js"></script>
+<script src="wp-content/themes/spacious-child/js/local_dentist.js"></script>
+<script src="wp-content/themes/spacious-child/js/jquery.bxslider.min.js"></script>
+<script src="wp-content/themes/spacious-child/js/lightbox.min.js"></script>
+<script src="wp-content/themes/spacious-child/js/user.js"></script>
 </head>
 <body>
-  <h1>kurumedental-hp！！！</h1>
-  <div class="center">
-    <img src="images/toothbrush.svg" alt="歯ブラシ" width="480">
+<div id="header_wrapper">
+   <div id="header_contents">
+     <div id="header_logo"> <a href="./"><img src="wp-content/themes/spacious-child/images/logo.png" alt="久留米歯科医師会"></a>
+     </div>
+     <div id="header_tel">
+     〒830-0013 福岡県久留米市櫛原町98<br>
+      <div id="header_tel_text"><img src="wp-content/themes/spacious-child/images/tel_icon.png" alt="">0942-32-7063</div>
+     </div>
+     <div id="header_search">
+<div align="right" style="margin-bottom:10px;">
+<a href="link/"><img src="wp-content/themes/spacious-child/images/links_btn.png" alt="リンク"></a></div>
+     <form action="https://www.google.com/search" method="get" class="clearfix">
+							<input type="hidden" name="hl" value="ja">
+							<input type="hidden" name="as_sitesearch" value="kurume-dental.or.jp">
+							<div id="header_search_left"><input class="text" type="text" name="q" size="16" value="" style=" width:128px; height:16px;" placeholder="サイト内検索"></div>
+                            <div id="header_search_right">
+                            <input type="image" alt="検索" src="wp-content/themes/spacious-child/images/search.png">
+                            </div>
+                            </form>
+     </div>
+   </div>
+ </div>
+
+<div id="menu">
+<div class="header_nav">
+     <div class="header_nav_contents">
+      <ul>
+       <li><a href="introduction/"><img src="wp-content/themes/spacious-child/images/intoroduction.jpg" alt="歯科医師会のご紹介"></a></li>
+       <li><a href="visiting_dental/"><img src="wp-content/themes/spacious-child/images/visitingdental.jpg" alt="訪問歯科診療のご案内"></a></li>
+       <li><a href="holiday_clinic/"><img src="wp-content/themes/spacious-child/images/holidayclinic.jpg" alt="休日診療のご案内"></a></li>
+       <li><a href="business_checkup/"><img src="wp-content/themes/spacious-child/images/business_checkups.jpg" alt="健診事業のご案内"></a></li>
+       <li><a href="local_dentist_top/"><img src="wp-content/themes/spacious-child/images/local_doctor.jpg" alt="地域の歯医者さん"></a></li>
+      </ul>
+     </div>
+ </div>
+</div>
+<!--slider-->
+<div class="main_slider_wrapper">
+ <div class="main_slider_back">
+   <ul class="bxslider">
+    <li><img src="wp-content/themes/spacious-child/images/slider/img01.jpg" alt=""></li>
+    <li><img src="wp-content/themes/spacious-child/images/slider/img02.jpg" alt=""></li>
+    <li><img src="wp-content/themes/spacious-child/images/slider/img03.jpg" alt=""></li>
+    <li><img src="wp-content/themes/spacious-child/images/slider/img04.jpg" alt=""></li>
+    <li><img src="wp-content/themes/spacious-child/images/slider/img05.jpg" alt=""></li>
+   </ul>
+ </div>
+ <div class="main_slider_text">
+  <img src="wp-content/themes/spacious-child/images/slider_caption.png" alt="久留米地域の皆様とともに">
+ </div>
+ <div class="main_slider_button clearfix">
+  <div class="main_slider_button_left">
+  <a href="visiting_dental/"><img src="wp-content/themes/spacious-child/images/visiting_dental_button.png" alt="訪問歯科診療のご案内"></a>
   </div>
+  <div class="main_slider_button_left">
+  <a href="holiday_clinic/"><img src="wp-content/themes/spacious-child/images/holiday_clinick_button.png" alt="休日診療のご案内"></a>
+  </div>
+  <div class="main_slider_button_left">
+  <a href="business_checkup/"><img src="wp-content/themes/spacious-child/images/business_clinick_button.png" alt="健診事業のご案内"></a>
+  </div>
+  <div class="main_slider_button_right">
+  <a href="local_dentist_top/"><img src="wp-content/themes/spacious-child/images/local_doctor_button.png" alt="地域の歯医者さん"></a>
+  </div>
+ </div>
+</div>
+
+<div class="main_slider_bottom"></div>
+<!--slider-->
+
+<div id="main" class="clearfix"><div class="inner-wrap"><div id="content" class="clearfix"><article id="post-7" class="page"><div class="entry-content clearfix"><!--maincontents-->
+<div id="contents_wrapper">
+<p class="top"><a href="postar/"><img src="wp-content/themes/spacious-child/images/hanokenkoufesta.jpg" alt="歯の健康フェスタポスター展" /></a></p>
+
+<div id="main_contents" class="clearfix">
+<div id="main_contents_left"><a href="local_dentist_top/local_dentist_op1/"><img src="wp-content/themes/spacious-child/images/syounikenshin_button.jpg" alt="1歳児半・3歳児健診" /></a>
+<a href="local_dentist_top/local_dentist_op2/"><img src="wp-content/themes/spacious-child/images/fttso_button.jpg" alt="フッ素塗布受付医院" /></a>
+<a href="local_dentist_top/local_dentist_op3/"><img src="wp-content/themes/spacious-child/images/haapi_button.jpg" alt="歯っぴい健診" /></a>
+<a href="local_dentist_top/local_dentist_op4/"><img src="wp-content/themes/spacious-child/images/care_button.jpg" alt="周術期ケア" /></a>
+<a href="local_dentist_top/local_dentist_op5/"><img src="wp-content/themes/spacious-child/images/ninpu_button.jpg" alt="妊婦検診" /></a></div>
+<div id="main_contents_right">
+<div><a href="introduction/introduction_4/"><img class="mb_8" src="wp-content/themes/spacious-child/images/ishikai_banner.png" alt="久留米医師会入会のご案内" /></a></div>
+<div><a href="https://kurume-oral.com"><img class="mb_8" src="wp-content/themes/spacious-child/images/koukuu-banner3.png" alt="口腔管理推進室" /></a></div>
+<div class="main_banner_wrap">
+<div><a href="event/"><img class="mb_8" src="wp-content/themes/spacious-child/images/event_banner.jpg" alt="イベント情報" /></a></div>
+<div><a href="http://www.8020zaidan.or.jp/" target="_blank" rel="noopener noreferrer"><img src="wp-content/themes/spacious-child/images/zaidan_banner.jpg" alt="財団法人8020推進財団" /></a></div>
+<div><a href="http://kurume-dental.or.jp/kdhs/" target="_blank" rel="noopener noreferrer"><img class="mb_8" src="wp-content/themes/spacious-child/images/school_banner.jpg" alt="久留米歯科衛生専門学校" /></a></div>
+<div><a href="assistant_course/"><img src="wp-content/themes/spacious-child/images/kousyukai_banner.jpg" alt="歯科助手講習会のお知らせ" /></a></div>
+</div>
+</div>
+</div>
+</div>
+<div class="main_slider_bottom"></div>
+<div id="top_middle_contents_wrapper">
+<div id="top_middle_contents" class="clearfix">
+<div id="top_middle_topicks">
+<h3><img style="vertical-align: text-top;" src="wp-content/themes/spacious-child/images/topicks_icon.png" /> お知らせ・トピックス</h3>
+<ul id="top_middle_topicks_wrapper"><li class="getPost clearfix"><span class="day_date">2026年6月3日</span><p><a href="post-2926/">令和８年度歯科助手講習会のお知らせ</a></p></li><li class="getPost clearfix"><span class="day_date">2026年6月3日</span><p><a href="post-2924/">令和８年度「歯の健康フェスタ」開催のお知らせ</a></p></li><li class="getPost clearfix"><span class="day_date">2025年7月1日</span><p><a href="post-2037/">令和７年度歯科助手講習会のお知らせ</a></p></li><li class="getPost clearfix"><span class="day_date">2025年5月14日</span><p><a href="post-1877/">令和７年度「歯の健康フェスタ」開催のお知らせ</a></p></li><li class="getPost clearfix"><span class="day_date">2024年2月27日</span><p><a href="post-2333/">令和６年 ｢健康フェスティバル｣開催のお知らせ</a></p></li><li class="getPost clearfix"><span class="day_date">2023年6月23日</span><p><a href="post-2116/">令和５年度「歯の健康フェスタ」終了のお知らせ</a></p></li><li class="getPost clearfix"><span class="day_date">2022年5月16日</span><p><a href="post-1675/">令和４年度「歯の健康フェスタ」開催のお知らせ</a></p></li></ul>
+</div>
+
+</div>
+</div>
+<!--maincontents--></div></article></div>		</div><!-- .inner-wrap -->
+	</div><!-- #main -->
+
+<!--footer-->
+<div id="footer_top"></div>
+ <footer id="footer_wrapper">
+  <div id="footer_contents" class="clearfix">
+   <div id="footer_contents_left">
+      <img src="wp-content/themes/spacious-child/images/logo.png" alt="久留米歯科医師会" />
+      <div id="footer_tel">
+      〒830-0013 福岡県久留米市櫛原町98
+      </div>
+      <div id="footer_tel_text">
+      TEL/0942-32-7063
+      </div>
+      <div id="footer_tel_text">
+      FAX/0942-32-7071
+      </div>
+   </div>
+   <div id="footer_map">
+   <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3333.910241072509!2d130.516088!3d33.321162!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2fa48aca28303421!2z5LmF55WZ57Gz5q2v56eR5Yy75bir5Lya!5e0!3m2!1sja!2sjp!4v1426558809342" width="220" height="160" frameborder="0" style="border:0" title="地図"></iframe>
+   </div>
+   <div id="footer_right">
+    <ul class="clearfix">
+      <li><a href="visiting_dental/">歯科訪問診療のご案内</a></li>
+      <li><a href="introduction/">歯科医師会のご紹介</a></li>
+      <li><a href="holiday_clinic/">休日診療のご案内</a></li>
+      <li><a href="https://www.8020zaidan.or.jp/index.html" target="_blank" rel="noopener noreferrer">財団法人8020推進財団</a></li>
+      <li><a href="business_checkup/">健診事業のご案内</a></li>
+      <li><a href="https://kurume-dental.or.jp/kdhs/index.html" target="_blank" rel="noopener noreferrer">久留米歯科衛生専門学校</a></li>
+      <li><a href="local_dentist_top/">地域の歯医者さん</a></li>
+      <li><a href="assistant_course/">歯科助手講習会のご案内</a></li>
+      <li><a href="event/">イベント情報</a></li>
+      <li><a href="link/">リンク</a></li>
+    </ul>
+   </div>
+  </div>
+ </footer>
+ <div id="footer_bottom" class="clearfix">
+	 <div id="copy_right">
+	 Copyright&copy; 2026 Kurume City Dental Association All Rights Reserved.
+	 </div>
+	<div id="page_top"><a href="#"><img src="wp-content/themes/spacious-child/images/page_top.jpg" alt="ページの先頭へ"></a></div>
+ </div>
 </body>
 </html>
