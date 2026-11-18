@@ -23,3 +23,16 @@
 - 入口への転送は、`confirm_root` に `DEPLOY-TO-ROOT` と入れないと、動かない。
 - `Settings > Environments > production` に、承認者を設定すると、承認なしには転送できない。
 - 会員ページは、新サイトにない。旧URLにアクセスされた場合は、404になる。会員への案内が、別途、必要。
+
+## サーバーの構成（2026-11-18 に、FTPSで接続して確認）
+- 公開フォルダ（入口）は `/home/`。WordPress本体（`wp-admin`、`wp-includes`、`wp-content`、`index.php`、`wp-config.php` など）が、入口に直接ある。
+- そのほかのフォルダ：`kdhs`（別のWordPress。今日も更新されている）、`pkss`、`pics`、`pdf`、`kss`、`ksa`、`kda`（2019〜2020年のもの。用途の確認が必要）、`backups`（2020年。中身の確認が必要）。
+- 新サイトの名前（`introduction`、`event`、`postar` など）は、入口に実在するフォルダとは、ぶつからない。
+- 入口にある `.htaccess`（2025/01/25 更新）は、上書きせず、中身を確認して、必要な規則を残す。
+
+## 公開時に決めておくこと
+1. `backups` の中身。バックアップのファイルが、誰でも取れる場所にあれば、危険。先にサーバー外へ移し、公開フォルダから外す。
+2. `pkss`、`pics`、`pdf`、`kss`、`ksa`、`kda` の用途。外部からリンクされている可能性があるため、**触らない**。
+3. 入口の `index.php` は、削除せず、`index.php.bak` に名前を変える（または `.htaccess` の `DirectoryIndex` で、`index.html` を優先する）。元に戻せるようにする。
+4. 入口の `wp-config.php`（データベースの接続情報）、`wp-login.php`、`xmlrpc.php`、`readme.html`、`license.txt` は、公開後に、アクセスできないようにする（まず `.htaccess` で止める。数週間後に、削除を検討）。
+5. 入口のWordPressと、`/kdhs/` のWordPressが、部品を共有していないことを確認してから、入口のWordPressを片付ける。
