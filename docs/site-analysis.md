@@ -43,3 +43,15 @@ newsletter、monthly_report、member_event、member_airchive、council_news、fi
 - 管理画面向けのファイル（`inc/admin`、`css/admin`、`tgm-plugin-activation`、`languages`、`gulpfile.js` など）は、静的サイトでは不要。
 - 静的サイトに必要なもの：親の `style.css`、子の `style.css`（7,194行）、子の `images/`、`css/`、`js/`、`font-awesome/`。これで見た目の再現ができる。
 - 未解決：各ページの本文、メニュー、医院一覧のデータはDB側にあり、XMLが必要。
+
+## 7. プラグイン（19個、使用中18、停止中1）と移行への影響
+- 本体：WordPress 5.7.2（2021年）。更新が6件ある。古いバージョンのまま運用されており、静的化によるセキュリティ改善の効果が大きい。
+- 内容を作るもの：Advanced Custom Fields 5.9.5 + Repeater 2.1.0（有料アドオン）、Custom Post Type UI 1.9.1（投稿タイプとタクソノミーの定義）、一覧の名前が途中で切れた1件（Custom Post Type Permalinks とみられる。要確認）
+- 会員保護：**Protect the Children! 1.4.0**（パスワード保護した親ページの子ページも保護）。会員ページの保護はこれで実現している。
+- URL：Redirection 5.1.1（301リダイレクトの規則を持つ）。**旧URLの引き継ぎに、この規則の書き出し（JSON）が必要。** Really Simple SSL 5.1.3（https化）、Simple Slug Translate（スラッグの英語化）
+- SEO：All in One SEO 4.8.7（タイトル、説明文、OGP、サイトマップ）。設定は、実際に表示されるHTMLから補う必要がある。
+- 管理画面用（移行不要）：Admin Menu Editor、Admin Post Navigation、Classic Editor、Intuitive Custom Post Order、WordPress Editorial Calendar、Yoast Duplicate Post、WP-PageNavi（一覧のページ送り。静的化で置き換え）、All-in-One WP Migration（+ Unlimited）、Akismet（停止中）
+
+## 8. エクスポートXMLの取り扱い
+- 書き出したXMLには、**パスワード保護した投稿のパスワード（平文）と、投稿者のメールアドレス**が含まれる。公開リポジトリには置かない。
+- チャットへの添付（アップロード）なら、リポジトリには入らない。XMLはチャットに添付してもらい、会員向けの投稿、パスワード、メールアドレスを取り除いた版だけを、リポジトリに置く。
