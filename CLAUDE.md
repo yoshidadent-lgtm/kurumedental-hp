@@ -42,3 +42,5 @@
 - `www.kurume-dental.or.jp` は、www なしに転送されている（ユーザー確認済み）。新しい `.htaccess` で、同じ転送を補う。
 - `/kdhs/` の `.htaccess` は、入口に頼らず、自己完結している（確認済み）。ただし、入口の `DirectoryIndex` などは引き継がれるため、`index.html index.php` の両方を指定する。
 - 転送専用のFTPアカウントは、作れない（管理用アカウント `admin@…` と同じものしかない。ユーザー確認済み）。GitHubに管理用の認証情報を預けるリスクがあるため、転送方法（自動／手動）は、ユーザーと決める。
+- faviconは、ユーザーが持っていなかったため、新規に作成した（`favicon.svg`、`favicon.ico`、`apple-touch-icon.png`。サイトの青 `#195fae` に、白い歯）。
+- 転送方法は、案B（手動転送、WinSCPの「同期」）を当面の既定とする。手順は `docs/manual-deploy.md`。AかBかのユーザーの最終返答は、まだ。
