@@ -1,6 +1,12 @@
 # 入口（ルート）へ置く .htaccess の下書き。公開の直前に、`.htaccess` という名前で置く。
-# 重要：/kdhs/ には、それぞれの .htaccess があるため、ここでの設定が、/kdhs/ に及ばないよう、確認すること。
+# 今の入口の .htaccess（2025/01/25 更新）は、控えを取ってから、置き換える。
+#   今の内容：SVGの設定2行と、WordPressの標準の転送規則（重複して2回）だけ。独自の規則（転送、制限、認証）は、なし。
+# 重要：/kdhs/ に、それ自身の .htaccess があることを、先に確認すること（入口の転送規則に、頼っていないか）。
 # 試験用フォルダ（staging_new）で、画面の表示とコンソールのエラーを確認してから使う。
+
+# 今の設定から、残すもの（SVG画像の設定）
+AddType image/svg+xml .svg .svgz
+AddEncoding gzip .svgz
 
 # 入口は、静的な index.html を先に表示する（WordPressの index.php より優先）
 DirectoryIndex index.html
@@ -9,8 +15,18 @@ ErrorDocument 404 /404.html
 Options -Indexes
 ServerSignature Off
 
-# 旧WordPressの管理画面やログインへのアクセスは、404にする（静的化したため、不要）
-RedirectMatch 404 ^/(wp-admin|wp-login\.php|xmlrpc\.php|wp-json)
+# 暗号化されていない通信（http）を、https に転送する。
+# 今までは、WordPress（Really Simple SSL）が、この役目をしていた可能性が高い。WordPressをやめると、なくなるため、ここで補う。
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>
+
+# 旧WordPressの管理画面やログインなどへのアクセスは、404にする（静的化したため、不要）。
+# ただし、/kdhs/ の中の同名のファイルは、対象外（先頭が /wp-... のものだけ）。
+RedirectMatch 404 ^/(wp-admin|wp-login\.php|xmlrpc\.php|wp-json|wp-config\.php|wp-cron\.php|wp-includes|readme\.html|license\.txt)
 
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
@@ -19,7 +35,8 @@ RedirectMatch 404 ^/(wp-admin|wp-login\.php|xmlrpc\.php|wp-json)
   Header always set X-Frame-Options "SAMEORIGIN"
   # 通信の暗号化（https）が、サイト全体で確実に動くことを確認してから有効にする
   # Header always set Strict-Transport-Security "max-age=31536000"
-  # 内容の読み込み元の制限。パソコン上の試験（全13ページ）では、違反は、ありませんでした（2026-11-18）。
+  # 内容の読み込み元の制限。パソコン上の試験（全ページ）では、違反は、ありませんでした（2026-11-18）。
   # 本番と同じ条件の試験用フォルダでも、ブラウザのコンソールに違反が出ないことを確認してから、有効にする
+  # 注意：このヘッダーは、/kdhs/ にも及ぶ。/kdhs/ が壊れないことを確認してから、有効にする（/kdhs/ に別の .htaccess を置いて、打ち消す方法もある）
   # Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; frame-src https://www.google.com; form-action 'self' https://www.google.com; base-uri 'self'; object-src 'none'"
 </IfModule>
