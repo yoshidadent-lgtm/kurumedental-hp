@@ -19,6 +19,7 @@ RedirectMatch 404 ^/(wp-admin|wp-login\.php|xmlrpc\.php|wp-json)
   Header always set X-Frame-Options "SAMEORIGIN"
   # 通信の暗号化（https）が、サイト全体で確実に動くことを確認してから有効にする
   # Header always set Strict-Transport-Security "max-age=31536000"
-  # 内容の読み込み元の制限。試験用フォルダで、ブラウザのコンソールに違反が出ないことを確認してから有効にする
+  # 内容の読み込み元の制限。パソコン上の試験（全13ページ）では、違反は、ありませんでした（2026-11-18）。
+  # 本番と同じ条件の試験用フォルダでも、ブラウザのコンソールに違反が出ないことを確認してから、有効にする
   # Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; frame-src https://www.google.com; form-action 'self' https://www.google.com; base-uri 'self'; object-src 'none'"
 </IfModule>

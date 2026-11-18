@@ -63,7 +63,7 @@ get_header(); ?>
 			</div>
 
 			<?php if(get_field('clinic_address')): ?>
-			<a href="http://maps.google.co.jp/maps?q=福岡県久留米市<?php the_field('clinic_address'); ?>&z=14" target="_blank" class="comm_detail_btn">アクセス</a>
+			<a href="https://www.google.com/maps?q=福岡県久留米市<?php the_field('clinic_address'); ?>&z=14" target="_blank" class="comm_detail_btn">アクセス</a>
 			<?php endif; ?>
 		</div>
 	<?php endif; ?>
@@ -107,7 +107,7 @@ get_header(); ?>
 			</div>
 
 			<?php if(get_field('clinic_address')): ?>
-			<a href="http://maps.google.co.jp/maps?q=福岡県久留米市<?php the_field('clinic_address'); ?>&z=14" target="_blank" class="comm_detail_btn">アクセス</a>
+			<a href="https://www.google.com/maps?q=福岡県久留米市<?php the_field('clinic_address'); ?>&z=14" target="_blank" class="comm_detail_btn">アクセス</a>
 			<?php endif; ?>
 		</div>
 	<?php endif; ?>
@@ -150,7 +150,7 @@ get_header(); ?>
 			</div>
 
 			<?php if(get_field('clinic_address')): ?>
-			<a href="http://maps.google.co.jp/maps?q=福岡県久留米市<?php the_field('clinic_address'); ?>&z=14" target="_blank" class="comm_detail_btn">アクセス</a>
+			<a href="https://www.google.com/maps?q=福岡県久留米市<?php the_field('clinic_address'); ?>&z=14" target="_blank" class="comm_detail_btn">アクセス</a>
 			<?php endif; ?>
 		</div>
 	<?php endif; ?>
@@ -194,7 +194,7 @@ get_header(); ?>
 			</div>
 
 			<?php if(get_field('clinic_address')): ?>
-			<a href="http://maps.google.co.jp/maps?q=福岡県久留米市<?php the_field('clinic_address'); ?>&z=14" target="_blank" class="comm_detail_btn">アクセス</a>
+			<a href="https://www.google.com/maps?q=福岡県久留米市<?php the_field('clinic_address'); ?>&z=14" target="_blank" class="comm_detail_btn">アクセス</a>
 			<?php endif; ?>
 		</div>
 	<?php endif; ?>
@@ -238,7 +238,7 @@ get_header(); ?>
 			</div>
 
 			<?php if(get_field('clinic_address')): ?>
-			<a href="http://maps.google.co.jp/maps?q=福岡県久留米市<?php the_field('clinic_address'); ?>&z=14" target="_blank" class="comm_detail_btn">アクセス</a>
+			<a href="https://www.google.com/maps?q=福岡県久留米市<?php the_field('clinic_address'); ?>&z=14" target="_blank" class="comm_detail_btn">アクセス</a>
 			<?php endif; ?>
 		</div>
 	<?php endif; ?>
@@ -281,7 +281,7 @@ get_header(); ?>
 			</div>
 
 			<?php if(get_field('clinic_address')): ?>
-			<a href="http://maps.google.co.jp/maps?q=福岡県久留米市<?php the_field('clinic_address'); ?>&z=14" target="_blank" class="comm_detail_btn">アクセス</a>
+			<a href="https://www.google.com/maps?q=福岡県久留米市<?php the_field('clinic_address'); ?>&z=14" target="_blank" class="comm_detail_btn">アクセス</a>
 			<?php endif; ?>
 		</div>
 	<?php endif; ?>
@@ -324,7 +324,7 @@ get_header(); ?>
 			</div>
 
 			<?php if(get_field('clinic_address')): ?>
-			<a href="http://maps.google.co.jp/maps?q=福岡県久留米市<?php the_field('clinic_address'); ?>&z=14" target="_blank" class="comm_detail_btn">アクセス</a>
+			<a href="https://www.google.com/maps?q=福岡県久留米市<?php the_field('clinic_address'); ?>&z=14" target="_blank" class="comm_detail_btn">アクセス</a>
 			<?php endif; ?>
 		</div>
 	<?php endif; ?>

@@ -100,7 +100,7 @@
 	</tr>
 	<tr>
 	<th>講習会場<br>地図</th>
-	<td><iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.jp/maps?f=q&amp;source=s_q&amp;hl=ja&amp;geocode=&amp;q=%E4%B9%85%E7%95%99%E7%B1%B3%E6%AD%AF%E7%A7%91%E5%8C%BB%E5%B8%AB%E4%BC%9A&amp;aq=&amp;sll=34.728949,138.455511&amp;sspn=59.267706,135.263672&amp;brcurrent=3,0x3541a684076bd893:0xbc5552c09d13a085,0&amp;ie=UTF8&amp;hq=%E4%B9%85%E7%95%99%E7%B1%B3%E6%AD%AF%E7%A7%91%E5%8C%BB%E5%B8%AB%E4%BC%9A&amp;hnear=&amp;t=m&amp;ll=33.321205,130.516033&amp;spn=0.057376,0.113125&amp;z=13&amp;output=embed&amp;iwloc=B"></iframe>
+	<td><iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps?f=q&amp;source=s_q&amp;hl=ja&amp;geocode=&amp;q=%E4%B9%85%E7%95%99%E7%B1%B3%E6%AD%AF%E7%A7%91%E5%8C%BB%E5%B8%AB%E4%BC%9A&amp;aq=&amp;sll=34.728949,138.455511&amp;sspn=59.267706,135.263672&amp;brcurrent=3,0x3541a684076bd893:0xbc5552c09d13a085,0&amp;ie=UTF8&amp;hq=%E4%B9%85%E7%95%99%E7%B1%B3%E6%AD%AF%E7%A7%91%E5%8C%BB%E5%B8%AB%E4%BC%9A&amp;hnear=&amp;t=m&amp;ll=33.321205,130.516033&amp;spn=0.057376,0.113125&amp;z=13&amp;output=embed&amp;iwloc=B"></iframe>
 	</td>
 	</tr>
 </tbody>
