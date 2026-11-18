@@ -35,3 +35,11 @@ newsletter、monthly_report、member_event、member_airchive、council_news、fi
 3. セキュリティ面の現状：WordPress本体の更新確認を無効化している設定あり（`functions.php`）。http配信のjQuery・CDNの混在。静的化と、https化・最新ライブラリへの更新で改善できる。
 4. 旧URLの引き継ぎ：上記のURL階層と、アップロード画像のパス（`/wp-content/uploads/年/月/ファイル名`）を維持する。GitHub Pagesはサーバー側の転送ができないため、必要なURLは同じ位置にHTMLを置く。
 5. 個人情報：受賞作品の画像のファイル名に児童の氏名が含まれる。公開リポジトリに置く前に、公開範囲を確認する。
+
+## 6. 親テーマ spacious（v1.6.3）の分析
+- 入手済み：153ファイル、約4.8MB（GPL v2以降のテーマ）。
+- 子テーマが `header.php`、`footer.php`、ほとんどのページテンプレートを独自に差し替えているため、見た目の骨組みは**子テーマ側で決まっている**。親テーマから必要なのは、土台のCSS（`style.css`、約65KB）と、本文の出力（`content-page.php`：本文を `entry-content` で囲む）だけ。
+- 親テーマのウィジェット、カスタマイザー設定、ブログ表示などの機能は、このサイトの表示には、ほぼ使われていない。
+- 管理画面向けのファイル（`inc/admin`、`css/admin`、`tgm-plugin-activation`、`languages`、`gulpfile.js` など）は、静的サイトでは不要。
+- 静的サイトに必要なもの：親の `style.css`、子の `style.css`（7,194行）、子の `images/`、`css/`、`js/`、`font-awesome/`。これで見た目の再現ができる。
+- 未解決：各ページの本文、メニュー、医院一覧のデータはDB側にあり、XMLが必要。
