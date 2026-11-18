@@ -1,0 +1,83 @@
+# 公開してよいアップロード画像・資料だけを、Gitの管理対象にする（会員向けの資料を、誤って公開しないための仕組み）
+/wp-content/uploads/**/*
+!/wp-content/uploads/**/
+!/wp-content/uploads/2021/04/event_01_67z.jpg
+!/wp-content/uploads/2021/04/event_01_70z.jpg
+!/wp-content/uploads/2021/04/event_02_67z.jpg
+!/wp-content/uploads/2021/04/event_02_70z.jpg
+!/wp-content/uploads/2021/04/event_03_70z.jpg
+!/wp-content/uploads/2021/04/event_04_70z.jpg
+!/wp-content/uploads/2021/04/introduction_5_1.pdf
+!/wp-content/uploads/2021/04/introduction_r6_34.pdf
+!/wp-content/uploads/2021/04/introduction_r6_35.pdf
+!/wp-content/uploads/2021/04/introduction_r6_36.pdf
+!/wp-content/uploads/2021/04/introduction_r6_37.pdf
+!/wp-content/uploads/2021/04/introduction_r6_38.pdf
+!/wp-content/uploads/2021/04/introduction_r6_39.pdf
+!/wp-content/uploads/2021/05/event_01_64z.jpg
+!/wp-content/uploads/2021/05/event_01_65z.jpg
+!/wp-content/uploads/2021/05/event_01_69z.jpg
+!/wp-content/uploads/2021/05/event_02_65z.jpg
+!/wp-content/uploads/2021/05/event_03_65z.jpg
+!/wp-content/uploads/2021/05/event_04_65z.jpg
+!/wp-content/uploads/2022/05/20220516112343150_0001-scaled-e1652667859759.jpg
+!/wp-content/uploads/2022/06/②-300x201.jpg
+!/wp-content/uploads/2022/06/③-300x201.jpg
+!/wp-content/uploads/2022/06/④-300x201.jpg
+!/wp-content/uploads/2022/06/⑤-300x201.jpg
+!/wp-content/uploads/2022/08/20220830093240997_0001-300x212.jpg
+!/wp-content/uploads/2023/04/-scaled-e1681440522958.jpg
+!/wp-content/uploads/2023/04/詳細はこちら.pdf
+!/wp-content/uploads/2023/06/IMG_1398-300x225.jpg
+!/wp-content/uploads/2023/06/IMG_1591-300x225.jpg
+!/wp-content/uploads/2023/06/IMG_1647-300x225.jpg
+!/wp-content/uploads/2024/02/20240227142828128_0001-scaled.jpg
+!/wp-content/uploads/2024/02/久留米地域包括ケアシステム健康フェスティバルチラシ-4.pdf
+!/wp-content/uploads/2024/04/詳細はこちらをクリック.pdf
+!/wp-content/uploads/2024/08/受講願書.pdf
+!/wp-content/uploads/2025/05/フェスタチラシ2025-212x300.jpg
+!/wp-content/uploads/2025/09/photoR070712.jpg
+!/wp-content/uploads/2026/06/チラシ-scaled.jpg
+!/wp-content/uploads/2026/06/ポスター-2.pdf
+!/wp-content/uploads/2026/06/久学歯会長賞　特支小5　佐藤菜々美-scaled.jpg
+!/wp-content/uploads/2026/06/久歯会長賞　聴覚　小3　ながしまひなた-scaled.jpg
+!/wp-content/uploads/2026/06/久歯会長賞　荘島6年　松窪優希-scaled.jpg
+!/wp-content/uploads/2026/06/令和8年度歯科助手講習会受講生募集.pdf
+!/wp-content/uploads/2026/06/市長賞　水縄1年　むちめげん-scaled.jpg
+!/wp-content/uploads/2026/06/教育長賞　北野中2　南嶋知夏-scaled.jpg
+!/wp-content/uploads/2026/06/議長賞　南薫6年　中山はるる-scaled.jpg
+!/wp-content/uploads/2026/06/金賞1年-長門石-いのうえなな-1-scaled.jpg
+!/wp-content/uploads/2026/06/金賞2年-南薫-さるわたりりゅうま-scaled.jpg
+!/wp-content/uploads/2026/06/金賞2年-篠山-やまもとあんな-scaled.jpg
+!/wp-content/uploads/2026/06/金賞3年-弓削-田所芙雪-scaled.jpg
+!/wp-content/uploads/2026/06/金賞3年-水縄-中野ひな-scaled.jpg
+!/wp-content/uploads/2026/06/金賞3年-水縄-鳥越こう-scaled.jpg
+!/wp-content/uploads/2026/06/金賞4年-田主丸-原央來-scaled.jpg
+!/wp-content/uploads/2026/06/金賞4年-竹野-熊谷碧乃-scaled.jpg
+!/wp-content/uploads/2026/06/金賞5年-南薫-中山みのり-scaled.jpg
+!/wp-content/uploads/2026/06/金賞5年-善導寺-合嶋穂乃果-scaled.jpg
+!/wp-content/uploads/2026/06/金賞6年-山本-弥永希乃花-scaled.jpg
+!/wp-content/uploads/2026/06/金賞特支　小3　辻琴葉-1-scaled.jpg
+!/wp-content/uploads/2026/06/金賞聴覚　小2　ふるしょうふわ-scaled.jpg
+!/wp-content/uploads/2026/06/銀賞1年-上津-ますながこう-scaled.jpg
+!/wp-content/uploads/2026/06/銀賞1年-日吉-かみむらなおゆき-scaled.jpg
+!/wp-content/uploads/2026/06/銀賞1年-柴刈-おんづかもも-scaled.jpg
+!/wp-content/uploads/2026/06/銀賞1年-水縄-くらとみりん-scaled.jpg
+!/wp-content/uploads/2026/06/銀賞1年-田主丸-いわはしひより-scaled.jpg
+!/wp-content/uploads/2026/06/銀賞1年-長門石-らいでぃんきいがんぺりあん-scaled.jpg
+!/wp-content/uploads/2026/06/銀賞2年-篠山-いしうちまりあ-scaled.jpg
+!/wp-content/uploads/2026/06/銀賞2年-篠山　おかざきやまと-scaled.jpg
+!/wp-content/uploads/2026/06/銀賞2年　荒木　まつふじゆま-scaled.jpg
+!/wp-content/uploads/2026/06/銀賞2年　長門石　井上かなで-scaled.jpg
+!/wp-content/uploads/2026/06/銀賞2年　長門石　永江ゆうま-scaled.jpg
+!/wp-content/uploads/2026/06/銀賞2年　高良内　よしのけんせい-scaled.jpg
+!/wp-content/uploads/2026/06/銀賞3年　上津　𠮷田かのん-scaled.jpg
+!/wp-content/uploads/2026/06/銀賞3年　南　田村実愛-scaled.jpg
+!/wp-content/uploads/2026/06/銀賞3年　竹野　牛嶋咲春子-scaled.jpg
+!/wp-content/uploads/2026/06/銀賞4年　上津　笹井まひる-scaled.jpg
+!/wp-content/uploads/2026/06/銀賞4年　山本　山本響己-scaled.jpeg
+!/wp-content/uploads/2026/06/銀賞4年　竹野　清水穂乃花-scaled.jpg
+!/wp-content/uploads/2026/06/銀賞5年　善導寺　恵藤七絆-scaled.jpg
+!/wp-content/uploads/2026/06/銀賞5年　大善寺　木村幸助-scaled.jpg
+!/wp-content/uploads/2026/06/銀賞6年　南薫　中村あかり-scaled.jpg
+!/wp-content/uploads/2026/06/銀賞特支　小2　むたまさき-scaled.jpg

@@ -57,21 +57,21 @@ def write(path, content):
 def build_all():
     build_home()
     n = 1
-    suffix = ' | ' + site['title']
+    suffix = ''  # ページタイトルは、すべてのページで「久留米歯科医師会」
     for d in data:
         if d['type'] == 'page' and d['slug'] != 'home':
             path = d['path'].strip('/')
-            write(path + '/index.html', php_render(dict(kind='page', id=d['id'], depth=path.count('/') + 1, title=d['title'] + suffix))); n += 1
+            write(path + '/index.html', php_render(dict(kind='page', id=d['id'], depth=path.count('/') + 1, title=site['title']))); n += 1
         elif d['type'] in ('post', 'event'):
             path = d['link'].strip('/')
-            write(path + '/index.html', php_render(dict(kind='post', id=d['id'], depth=path.count('/') + 1, title=d['title'] + suffix))); n += 1
-    write('event/index.html', php_render(dict(kind='archive', type='event', depth=1, title='イベント情報' + suffix))); n += 1
+            write(path + '/index.html', php_render(dict(kind='post', id=d['id'], depth=path.count('/') + 1, title=site['title']))); n += 1
+    write('event/index.html', php_render(dict(kind='archive', type='event', depth=1, title=site['title']))); n += 1
     names = {(t[0], t[1]): t[2] for t in json.loads((ROOT/'data/terms.json').read_text(encoding='utf-8'))}
     for (tax, term), name in names.items():
         if not tax.startswith('local_dentist') or '%' in term: continue
         path = 'local_dentist_top/%s/%s' % (tax, term)
-        write(path + '/index.html', php_render(dict(kind='tax', tax=tax, term=term, depth=3, title=name + ' | 地域の歯医者さん' + suffix))); n += 1
-    write('404.html', php_render(dict(kind='404', depth=0, title='ページが見つかりません' + suffix))); n += 1
+        write(path + '/index.html', php_render(dict(kind='tax', tax=tax, term=term, depth=3, title=site['title']))); n += 1
+    write('404.html', php_render(dict(kind='404', depth=0, title=site['title']))); n += 1
     # 旧URLから新URLへ移動する小さなページ（旧サイトの転送ルールのうち、会員向けを除く6件）
     redirects = {'business_checkup.html': 'business_checkup/', 'assistant_course.php': 'assistant_course/', 'event.php': 'event/',
                  'holiday_clinic.php': 'holiday_clinic/', 'local_dentist.php': 'local_dentist_top/', 'introduction.html': 'introduction/'}
