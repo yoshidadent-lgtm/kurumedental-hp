@@ -1,0 +1,24 @@
+# 入口（ルート）へ置く .htaccess の下書き。公開の直前に、`.htaccess` という名前で置く。
+# 重要：/kdhs/ には、それぞれの .htaccess があるため、ここでの設定が、/kdhs/ に及ばないよう、確認すること。
+# 試験用フォルダ（staging_new）で、画面の表示とコンソールのエラーを確認してから使う。
+
+# 入口は、静的な index.html を先に表示する（WordPressの index.php より優先）
+DirectoryIndex index.html
+
+ErrorDocument 404 /404.html
+Options -Indexes
+ServerSignature Off
+
+# 旧WordPressの管理画面やログインへのアクセスは、404にする（静的化したため、不要）
+RedirectMatch 404 ^/(wp-admin|wp-login\.php|xmlrpc\.php|wp-json)
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  # 通信の暗号化（https）が、サイト全体で確実に動くことを確認してから有効にする
+  # Header always set Strict-Transport-Security "max-age=31536000"
+  # 内容の読み込み元の制限。試験用フォルダで、ブラウザのコンソールに違反が出ないことを確認してから有効にする
+  # Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; frame-src https://www.google.com; form-action 'self' https://www.google.com; base-uri 'self'; object-src 'none'"
+</IfModule>

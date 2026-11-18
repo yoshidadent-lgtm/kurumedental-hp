@@ -1,0 +1,82 @@
+# 静的サイトを、今のサーバーへ転送する（手動実行のみ）。
+# 最初は試験用フォルダ（staging_new）に転送し、画面で確認してから、入口（ルート）へ転送する。
+# 「削除」は一切しない（mirror に --delete を付けない）。サーバー側の既存ファイルは、消えない。
+name: サーバーへ転送
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_dir:
+        description: '転送先のフォルダ（最初は staging_new）。入口へ転送するときは「.」'
+        required: true
+        default: 'staging_new'
+      dry_run:
+        description: '試し実行（転送せず、内容だけ表示する）'
+        type: boolean
+        default: true
+      confirm_root:
+        description: '入口（.）へ転送するときだけ、DEPLOY-TO-ROOT と入力'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    environment: production   # Settings > Environments で、承認者を設定すると、承認なしでは動かない
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: 転送先の安全確認
+        env:
+          TARGET: ${{ inputs.target_dir }}
+          CONFIRM: ${{ inputs.confirm_root }}
+        run: |
+          set -eu
+          case "$TARGET" in
+            .)
+              [ "$CONFIRM" = "DEPLOY-TO-ROOT" ] || { echo "入口へ転送するには、confirm_root に DEPLOY-TO-ROOT と入力してください。"; exit 1; } ;;
+            ''|/*|*..*|kdhs|kdhs/*|wp-*|*[!A-Za-z0-9._/-]*)
+              echo "転送先として使えない名前です: $TARGET"; exit 1 ;;
+          esac
+
+      - name: lftp を入れる
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: 転送
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_PROTOCOL: ${{ secrets.FTP_PROTOCOL }}     # ftps か sftp（ftp は、通信が暗号化されないため、避ける）
+          FTP_BASE_DIR: ${{ secrets.FTP_BASE_DIR }}     # サーバー上の公開フォルダ（例：/home/public_html）
+          TARGET: ${{ inputs.target_dir }}
+          DRY: ${{ inputs.dry_run }}
+        run: |
+          set -eu
+          case "$FTP_PROTOCOL" in ftps|sftp) ;; *) echo "FTP_PROTOCOL は ftps か sftp にしてください。"; exit 1 ;; esac
+          OPT="--verbose --no-perms --only-newer --parallel=2"
+          [ "$DRY" = "true" ] && OPT="$OPT --dry-run"
+          DEST="$FTP_BASE_DIR"; [ "$TARGET" = "." ] || DEST="$FTP_BASE_DIR/$TARGET"
+          lftp -c "
+            set cmd:fail-exit yes
+            set ssl:verify-certificate yes
+            set ftp:ssl-force yes
+            set ftp:ssl-protect-data yes
+            set net:max-retries 2
+            open -u \"$FTP_USER\",\"$FTP_PASSWORD\" $FTP_PROTOCOL://$FTP_HOST
+            mirror -R $OPT \
+              --exclude-glob .git/ --exclude-glob .github/ --exclude-glob tools/ --exclude-glob templates/ \
+              --exclude-glob data/ --exclude-glob docs/ --exclude-glob deploy/ \
+              --exclude-glob CLAUDE.md --exclude-glob README.md --exclude-glob .gitignore --exclude-glob .nojekyll \
+              . \"$DEST\"
+          "
