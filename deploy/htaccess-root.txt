@@ -1,15 +1,16 @@
 # 入口（ルート）へ置く .htaccess の下書き。公開の直前に、`.htaccess` という名前で置く。
 # 今の入口の .htaccess（2025/01/25 更新）は、控えを取ってから、置き換える。
 #   今の内容：SVGの設定2行と、WordPressの標準の転送規則（重複して2回）だけ。独自の規則（転送、制限、認証）は、なし。
-# 重要：/kdhs/ に、それ自身の .htaccess があることを、先に確認すること（入口の転送規則に、頼っていないか）。
+# /kdhs/ には、それ自身の .htaccess があり、入口の転送規則に頼っていないことを確認済み（2026-11-18）。
+# ただし、入口の設定（DirectoryIndex、Header、ErrorDocument、Options など）は、/kdhs/ にも引き継がれる。変更のたびに、/kdhs/ の表示を確認すること。
 # 試験用フォルダ（staging_new）で、画面の表示とコンソールのエラーを確認してから使う。
 
 # 今の設定から、残すもの（SVG画像の設定）
 AddType image/svg+xml .svg .svgz
 AddEncoding gzip .svgz
 
-# 入口は、静的な index.html を先に表示する（WordPressの index.php より優先）
-DirectoryIndex index.html
+# 入口は、静的な index.html を先に表示する。index.php も残す（/kdhs/ などの WordPress が、この設定を引き継ぐため。index.html だけにすると、/kdhs/ が表示されなくなる）
+DirectoryIndex index.html index.php
 
 ErrorDocument 404 /404.html
 Options -Indexes

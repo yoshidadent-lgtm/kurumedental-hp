@@ -65,3 +65,9 @@
 - 公開時に、置き換える（`deploy/htaccess-root.txt`）。**WordPressをやめると、http から https への転送（Really Simple SSL が担っていた可能性が高い）が、なくなる**ため、新しい `.htaccess` で補う。
 - 確認事項：`/kdhs/` に、それ自身の `.htaccess` があること。`/kdhs/` が、入口の転送規則に頼っていないこと。
 - 確認事項：`www.kurume-dental.or.jp` が、今のサイトで使われているか。使われていれば、https と www の扱いを、あらためて決める。
+
+## `/kdhs/` の `.htaccess` の確認結果（2026-11-18）
+- 自分自身の転送規則（`RewriteBase /kdhs/`、`/kdhs/index.php`）と、https への転送（Really Simple Security）を持っている。**入口の転送規則には、頼っていない。** 入口の `.htaccess` を置き換えても、転送規則は、影響を受けない。
+- ただし、入口の設定のうち、`DirectoryIndex`、`Header`、`ErrorDocument`、`Options` などは、`/kdhs/` に引き継がれる。
+- 発見：入口の `DirectoryIndex` を `index.html` だけにすると、`/kdhs/` の入口（`index.php`）が、表示されなくなる。→ `DirectoryIndex index.html index.php` にして、解決した。
+- 公開後の確認項目：`https://kurume-dental.or.jp/kdhs/` が、これまでどおり表示されること（トップ、下層ページ、ログイン画面、管理画面のURLを、学校の担当者に確認してもらう）。
