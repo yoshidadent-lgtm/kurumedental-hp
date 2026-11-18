@@ -11,7 +11,7 @@ $T = $R . 'wp-content/themes/spacious-child';
 $SITE = json_decode(file_get_contents("$ROOT/data/site.json"), true);
 $ACF = json_decode(file_get_contents("$ROOT/data/acf.json"), true);
 $DATA = array_map(fn($d) => (object)$d, json_decode(file_get_contents("$ROOT/data/public-content.json"), true));
-$wp_autop = true; $loop_i = 0; $rows_i = -1; $rows_name = ''; $posts = []; $post = null;
+$wp_autop = true; $loop_i = 0; $row_stack = []; $posts = []; $post = null;
 
 // ---- 現在のリクエスト
 $q = ['kind' => $spec['kind'], 'tax' => $spec['tax'] ?? '', 'term' => $spec['term'] ?? ''];
@@ -108,7 +108,7 @@ function acf_value($name, $raw) {
     if ($t === 'wysiwyg') return do_shortcode(wpautop(rel_url($raw)));
     if ($t === 'textarea') { $n = $d['new_lines'] ?? ''; $raw = rel_url($raw); return $n === 'wpautop' ? wpautop($raw) : ($n === 'br' ? nl2br($raw) : $raw); }
     if (in_array($t, ['date_picker', 'date_time_picker'])) {
-        if (preg_match('/^(\d{4})(\d{2})(\d{2})/', $raw, $m)) return jp_date($d['return_format'] ?: 'Y年n月j日', mktime(0, 0, 0, $m[2], $m[3], $m[1]));
+        if (preg_match('/^(\d{4})-?(\d{2})-?(\d{2})(?:[ T](\d{2}):(\d{2}))?/', $raw, $m)) return jp_date($d['return_format'] ?: 'Y年n月j日', mktime((int)($m[4] ?? 0), (int)($m[5] ?? 0), 0, $m[2], $m[3], $m[1]));
         return $raw;
     }
     if ($t === 'checkbox') { $a = @unserialize($raw); return is_array($a) ? $a : ($raw === '' ? [] : [$raw]); }
@@ -122,20 +122,30 @@ function get_field($name, $id = null) {
 }
 function the_field($name) { $v = get_field($name); echo is_array($v) ? implode(', ', $v) : $v; }
 function get_field_objects($id = null) { global $ACF; $o = []; foreach ($ACF as $n => $d) $o[$n] = ['choices' => $d['choices'] ?? [], 'name' => $n]; return $o; }
-function have_rows($name) {
-    global $post, $rows_i, $rows_name;
-    $n = (int)($post->meta[$name] ?? 0);
-    if ($rows_name !== $name) { $rows_name = $name; $rows_i = -1; }
-    if ($rows_i + 1 < $n) return true;
-    $rows_name = ''; $rows_i = -1; return false;
+function have_rows($name) {  // 入れ子の繰り返し項目（例：special-wrap の中の sp-wrap）に対応
+    global $post, $row_stack;
+    $top = end($row_stack);
+    if ($top && $top['sel'] === $name) {  // 同じ項目のループの続き
+        if ($top['i'] + 1 < $top['n']) return true;
+        array_pop($row_stack); return false;
+    }
+    $prefix = $top ? $top['prefix'] . '_' . $top['i'] . '_' . $name : $name;
+    $n = (int)($post->meta[$prefix] ?? 0);
+    if ($n < 1) return false;
+    $row_stack[] = ['sel' => $name, 'prefix' => $prefix, 'i' => -1, 'n' => $n];
+    return true;
 }
-function the_row() { global $rows_i; $rows_i++; }
-function get_sub_field($sub) { global $post, $rows_i, $rows_name; $k = "{$rows_name}_{$rows_i}_{$sub}"; return array_key_exists($k, $post->meta) ? acf_value($sub, $post->meta[$k]) : null; }
+function the_row() { global $row_stack; $row_stack[count($row_stack) - 1]['i']++; }
+function get_sub_field($sub) {
+    global $post, $row_stack; $t = end($row_stack); if (!$t) return null;
+    $k = $t['prefix'] . '_' . $t['i'] . '_' . $sub;
+    return array_key_exists($k, $post->meta) ? acf_value($sub, $post->meta[$k]) : null;
+}
 function the_sub_field($sub) { $v = get_sub_field($sub); echo is_array($v) ? implode(', ', $v) : $v; }
 
 // ---- ループと投稿の情報
 function have_posts() { global $loop_i, $posts; if ($loop_i < count($posts)) return true; $loop_i = 0; return false; }
-function the_post() { global $loop_i, $posts, $post, $rows_i, $rows_name; $post = $posts[$loop_i++]; $rows_i = -1; $rows_name = ''; }
+function the_post() { global $loop_i, $posts, $post, $row_stack; $post = $posts[$loop_i++]; $row_stack = []; }
 function wp_reset_query() { global $posts, $post; }
 function wp_reset_postdata() {}
 function setup_postdata($p) { global $post; $post = $p; }
