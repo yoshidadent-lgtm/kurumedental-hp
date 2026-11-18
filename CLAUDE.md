@@ -36,3 +36,4 @@
 - **決定（ユーザー確認済み）**：公開は「D案」。DNSは変えず、今のサーバーの入口に新しい静的サイトを置く。`/kdhs/` はそのまま。GitHubはソースの保管・プレビュー用で、サーバーへの転送は、GitHub Actions（手動実行・まず試験用フォルダへ）で行う。計画は `docs/deploy-plan.md`。
 - サーバーの認証情報（FTPなど）は、チャットに書かず、GitHubの Settings > Secrets にだけ入力してもらう。
 - サーバーの公開フォルダは `/home/`（入口にWordPress本体がある）。FTPS（明示的、ポート21）で接続できることを確認済み。`FTP_BASE_DIR` は `/home` の予定。詳細は `docs/deploy-plan.md`。
+- 古いフォルダ `backups`、`pkss`、`pics`、`pdf`、`kss`、`ksa`、`kda` は、現在使っていない（ユーザー確認済み）。PHPファイルが存在するため、アクセス禁止の `.htaccess` で止める。削除は、バックアップの後。
