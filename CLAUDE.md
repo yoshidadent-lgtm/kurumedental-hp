@@ -37,3 +37,5 @@
 - サーバーの認証情報（FTPなど）は、チャットに書かず、GitHubの Settings > Secrets にだけ入力してもらう。
 - サーバーの公開フォルダは `/home/`（入口にWordPress本体がある）。FTPS（明示的、ポート21）で接続できることを確認済み。`FTP_BASE_DIR` は `/home` の予定。詳細は `docs/deploy-plan.md`。
 - 古いフォルダ `backups`、`pkss`、`pics`、`pdf`、`kss`、`ksa`、`kda` は、現在使っていない（ユーザー確認済み）。PHPファイルが存在するため、アクセス禁止の `.htaccess` で止める。削除は、バックアップの後。
+- 画像4点（`close.png`、`bx_loader.gif`、`prev_slider.png`、`next_slider.png`）は、旧サーバーにも見つからない（ユーザー確認済み）。旧サイトでも表示されていないため、現状のままで公開してよい。後で、新しく作る（改善項目）。
+- 総点検は `python3 -I tools/check_site.py` で再実行できる。結果は `docs/deploy-plan.md`。
