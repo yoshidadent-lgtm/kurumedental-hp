@@ -41,3 +41,4 @@
 - 総点検は `python3 -I tools/check_site.py` で再実行できる。結果は `docs/deploy-plan.md`。
 - `www.kurume-dental.or.jp` は、www なしに転送されている（ユーザー確認済み）。新しい `.htaccess` で、同じ転送を補う。
 - `/kdhs/` の `.htaccess` は、入口に頼らず、自己完結している（確認済み）。ただし、入口の `DirectoryIndex` などは引き継がれるため、`index.html index.php` の両方を指定する。
+- 転送専用のFTPアカウントは、作れない（管理用アカウント `admin@…` と同じものしかない。ユーザー確認済み）。GitHubに管理用の認証情報を預けるリスクがあるため、転送方法（自動／手動）は、ユーザーと決める。
