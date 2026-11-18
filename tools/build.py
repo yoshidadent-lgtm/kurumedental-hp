@@ -43,6 +43,44 @@ def build_home():
     # footer.html が .inner-wrap と #main を閉じる
     (ROOT/'index.html').write_text(render(0, site['title'], body, slider=True), encoding='utf-8')
 
-if __name__ == '__main__':
+import subprocess, shutil, urllib.parse
+
+def php_render(spec):
+    r = subprocess.run(['php', str(ROOT/'tools/render.php'), json.dumps(spec, ensure_ascii=False)], capture_output=True, text=True, check=True)
+    return r.stdout
+
+def write(path, content):
+    f = ROOT / path
+    f.parent.mkdir(parents=True, exist_ok=True)
+    f.write_text(content, encoding='utf-8')
+
+def build_all():
     build_home()
-    print('built index.html')
+    n = 1
+    suffix = ' | ' + site['title']
+    for d in data:
+        if d['type'] == 'page' and d['slug'] != 'home':
+            path = d['path'].strip('/')
+            write(path + '/index.html', php_render(dict(kind='page', id=d['id'], depth=path.count('/') + 1, title=d['title'] + suffix))); n += 1
+        elif d['type'] in ('post', 'event'):
+            path = d['link'].strip('/')
+            write(path + '/index.html', php_render(dict(kind='post', id=d['id'], depth=path.count('/') + 1, title=d['title'] + suffix))); n += 1
+    write('event/index.html', php_render(dict(kind='archive', type='event', depth=1, title='イベント情報' + suffix))); n += 1
+    names = {(t[0], t[1]): t[2] for t in json.loads((ROOT/'data/terms.json').read_text(encoding='utf-8'))}
+    for (tax, term), name in names.items():
+        if not tax.startswith('local_dentist') or '%' in term: continue
+        path = 'local_dentist_top/%s/%s' % (tax, term)
+        write(path + '/index.html', php_render(dict(kind='tax', tax=tax, term=term, depth=3, title=name + ' | 地域の歯医者さん' + suffix))); n += 1
+    write('404.html', php_render(dict(kind='404', depth=0, title='ページが見つかりません' + suffix))); n += 1
+    # 旧URLから新URLへ移動する小さなページ（旧サイトの転送ルールのうち、会員向けを除く6件）
+    redirects = {'business_checkup.html': 'business_checkup/', 'assistant_course.php': 'assistant_course/', 'event.php': 'event/',
+                 'holiday_clinic.php': 'holiday_clinic/', 'local_dentist.php': 'local_dentist_top/', 'introduction.html': 'introduction/'}
+    for old, new in redirects.items():
+        write(old, '<!DOCTYPE html>\n<html lang="ja"><head><meta charset="utf-8"><title>ページが移動しました</title>'
+                   '<link rel="canonical" href="%s"><meta http-equiv="refresh" content="0; url=%s"><meta name="robots" content="noindex">'
+                   '</head><body><p>ページが移動しました。<a href="%s">こちら</a>をご覧ください。</p></body></html>\n' % (new, new, new)); n += 1
+    write('.nojekyll', '')
+    print('built', n, 'files')
+
+if __name__ == '__main__':
+    build_all()

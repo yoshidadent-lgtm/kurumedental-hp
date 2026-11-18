@@ -1,0 +1,1047 @@
+{
+ "clinic-name": {
+  "name": "clinic-name",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "clinic-address": {
+  "name": "clinic-address",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "clinic-tel": {
+  "name": "clinic-tel",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "clinic-detail": {
+  "name": "clinic-detail",
+  "type": "url",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "clinic_name": {
+  "name": "clinic_name",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "clinic_address": {
+  "name": "clinic_address",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "clinic_tel": {
+  "name": "clinic_tel",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "holiday_days": {
+  "name": "holiday_days",
+  "type": "date_picker",
+  "choices": {},
+  "return_format": "n月j日(D)",
+  "new_lines": null
+ },
+ "holiday_clinicname": {
+  "name": "holiday_clinicname",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "holiday_clinic_address": {
+  "name": "holiday_clinic_address",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "holiday_clinic_tell": {
+  "name": "holiday_clinic_tell",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "assistantcourse_guidance": {
+  "name": "assistantcourse_guidance",
+  "type": "repeater",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "assistantcourse_name": {
+  "name": "assistantcourse_name",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "assistantcourse_text": {
+  "name": "assistantcourse_text",
+  "type": "textarea",
+  "choices": {},
+  "return_format": null,
+  "new_lines": "br"
+ },
+ "assistantcourse_period": {
+  "name": "assistantcourse_period",
+  "type": "date_time_picker",
+  "choices": {},
+  "return_format": "Y年m月j日",
+  "new_lines": null
+ },
+ "assistantcourse_Venue": {
+  "name": "assistantcourse_Venue",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "assistantcourse_qualification": {
+  "name": "assistantcourse_qualification",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "assistantcourse_Capacity": {
+  "name": "assistantcourse_Capacity",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "assistantcourse_attend": {
+  "name": "assistantcourse_attend",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "assistantcourse_file": {
+  "name": "assistantcourse_file",
+  "type": "file",
+  "choices": {},
+  "return_format": "url",
+  "new_lines": null
+ },
+ "assistantcourse_info": {
+  "name": "assistantcourse_info",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "assistantcourse_period_end": {
+  "name": "assistantcourse_period_end",
+  "type": "date_time_picker",
+  "choices": {},
+  "return_format": "Y年m月j日",
+  "new_lines": null
+ },
+ "mem-ev-filed1": {
+  "name": "mem-ev-filed1",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "mem-ev-filed2": {
+  "name": "mem-ev-filed2",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "mem-ev-filed3": {
+  "name": "mem-ev-filed3",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "mem-ev-filed4": {
+  "name": "mem-ev-filed4",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "mem-ev-filed5": {
+  "name": "mem-ev-filed5",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "mem-ev-filed6": {
+  "name": "mem-ev-filed6",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "mem-ev-filed7": {
+  "name": "mem-ev-filed7",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "mem-ev-filed8": {
+  "name": "mem-ev-filed8",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "mem-ev-filed9": {
+  "name": "mem-ev-filed9",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "mem-ev-filed10": {
+  "name": "mem-ev-filed10",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "mem-ev-filed11": {
+  "name": "mem-ev-filed11",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "mem-ev-filed12": {
+  "name": "mem-ev-filed12",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "mem-ev-filed13": {
+  "name": "mem-ev-filed13",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "mem-ev-filed14": {
+  "name": "mem-ev-filed14",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "mem-coc-file": {
+  "name": "mem-coc-file",
+  "type": "file",
+  "choices": {},
+  "return_format": "url",
+  "new_lines": null
+ },
+ "mem-coc-img": {
+  "name": "mem-coc-img",
+  "type": "image",
+  "choices": {},
+  "return_format": "url",
+  "new_lines": null
+ },
+ "mem-coc-img02": {
+  "name": "mem-coc-img02",
+  "type": "image",
+  "choices": {},
+  "return_format": "url",
+  "new_lines": null
+ },
+ "mem-coc-img04": {
+  "name": "mem-coc-img04",
+  "type": "image",
+  "choices": {},
+  "return_format": "url",
+  "new_lines": null
+ },
+ "mem-coc-img05": {
+  "name": "mem-coc-img05",
+  "type": "image",
+  "choices": {},
+  "return_format": "url",
+  "new_lines": null
+ },
+ "mem-coc-img06": {
+  "name": "mem-coc-img06",
+  "type": "image",
+  "choices": {},
+  "return_format": "url",
+  "new_lines": null
+ },
+ "mem-coc-img07": {
+  "name": "mem-coc-img07",
+  "type": "image",
+  "choices": {},
+  "return_format": "url",
+  "new_lines": null
+ },
+ "mem-coc-img08": {
+  "name": "mem-coc-img08",
+  "type": "image",
+  "choices": {},
+  "return_format": "url",
+  "new_lines": null
+ },
+ "mem-coc-img09": {
+  "name": "mem-coc-img09",
+  "type": "image",
+  "choices": {},
+  "return_format": "url",
+  "new_lines": null
+ },
+ "monthly-report-file": {
+  "name": "monthly-report-file",
+  "type": "file",
+  "choices": {},
+  "return_format": "url",
+  "new_lines": null
+ },
+ "archive-file": {
+  "name": "archive-file",
+  "type": "file",
+  "choices": {},
+  "return_format": "url",
+  "new_lines": null
+ },
+ "teikan": {
+  "name": "teikan",
+  "type": "file",
+  "choices": {},
+  "return_format": "url",
+  "new_lines": null
+ },
+ "int-jigyohoukoku": {
+  "name": "int-jigyohoukoku",
+  "type": "file",
+  "choices": {},
+  "return_format": "url",
+  "new_lines": null
+ },
+ "int-taisyaku": {
+  "name": "int-taisyaku",
+  "type": "file",
+  "choices": {},
+  "return_format": "url",
+  "new_lines": null
+ },
+ "int-zaisanzogen": {
+  "name": "int-zaisanzogen",
+  "type": "file",
+  "choices": {},
+  "return_format": "url",
+  "new_lines": null
+ },
+ "int-zaimushohyo": {
+  "name": "int-zaimushohyo",
+  "type": "file",
+  "choices": {},
+  "return_format": "url",
+  "new_lines": null
+ },
+ "int-zaimushohyofuzoku": {
+  "name": "int-zaimushohyofuzoku",
+  "type": "file",
+  "choices": {},
+  "return_format": "url",
+  "new_lines": null
+ },
+ "int-zaisanmokuroku": {
+  "name": "int-zaisanmokuroku",
+  "type": "file",
+  "choices": {},
+  "return_format": "url",
+  "new_lines": null
+ },
+ "teikan_text": {
+  "name": "teikan_text",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "int-jigyohoukoku_text": {
+  "name": "int-jigyohoukoku_text",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "int-taisyaku_text": {
+  "name": "int-taisyaku_text",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "int-zaisanzogen_text": {
+  "name": "int-zaisanzogen_text",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "int-zaimushohyo_text": {
+  "name": "int-zaimushohyo_text",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "int-zaimushohyofuzoku_text": {
+  "name": "int-zaimushohyofuzoku_text",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "int-zaisanmokuroku_text": {
+  "name": "int-zaisanmokuroku_text",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "clinic_remarks": {
+  "name": "clinic_remarks",
+  "type": "checkbox",
+  "choices": {
+   "local_dentist_clinic_option_name1": "1歳半・3歳児健診",
+   "local_dentist_clinic_option_name2": "フッ素塗布",
+   "local_dentist_clinic_option_name3": "歯っぴー検診",
+   "local_dentist_clinic_option_name4": "周術期ケア",
+   "local_dentist_clinic_option_name5": "妊婦健診"
+  },
+  "return_format": "value",
+  "new_lines": null
+ },
+ "business-location": {
+  "name": "business-location",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "business-location-date": {
+  "name": "business-location-date",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "business-location-nendo": {
+  "name": "business-location-nendo",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "business-location-days": {
+  "name": "business-location-days",
+  "type": "repeater",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "business-days": {
+  "name": "business-days",
+  "type": "date_picker",
+  "choices": {},
+  "return_format": "n月j日",
+  "new_lines": null
+ },
+ "business-location-futankin": {
+  "name": "business-location-futankin",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "business-location-yoryo": {
+  "name": "business-location-yoryo",
+  "type": "textarea",
+  "choices": {},
+  "return_format": null,
+  "new_lines": ""
+ },
+ "business-location-info": {
+  "name": "business-location-info",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "business-location-nittei": {
+  "name": "business-location-nittei",
+  "type": "repeater",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "business-days-issai": {
+  "name": "business-days-issai",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "business-location-access": {
+  "name": "business-location-access",
+  "type": "url",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "business-location-shinsatsu": {
+  "name": "business-location-shinsatsu",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "business-location-teiin": {
+  "name": "business-location-teiin",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "business-location-nittei2": {
+  "name": "business-location-nittei2",
+  "type": "repeater",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "business-days-sansai": {
+  "name": "business-days-sansai",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "business-location-title": {
+  "name": "business-location-title",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "top-topics-update": {
+  "name": "top-topics-update",
+  "type": "repeater",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "top-topics-date": {
+  "name": "top-topics-date",
+  "type": "date_picker",
+  "choices": {},
+  "return_format": "Y年n月d日",
+  "new_lines": null
+ },
+ "top-topics-title": {
+  "name": "top-topics-title",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "special-wrap": {
+  "name": "special-wrap",
+  "type": "repeater",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "go-wrap": {
+  "name": "go-wrap",
+  "type": "repeater",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "go-child-school": {
+  "name": "go-child-school",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "go-child-name": {
+  "name": "go-child-name",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "go-child-img": {
+  "name": "go-child-img",
+  "type": "image",
+  "choices": {},
+  "return_format": "url",
+  "new_lines": null
+ },
+ "postar-event-title": {
+  "name": "postar-event-title",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "sp-titlename": {
+  "name": "sp-titlename",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "newslatter-name": {
+  "name": "newslatter-name",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "prize-name-go": {
+  "name": "prize-name-go",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "prize-name-sh": {
+  "name": "prize-name-sh",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "go-wrap02": {
+  "name": "go-wrap02",
+  "type": "repeater",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "go-wrap03": {
+  "name": "go-wrap03",
+  "type": "repeater",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "go-wrap04": {
+  "name": "go-wrap04",
+  "type": "repeater",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "go-wrap05": {
+  "name": "go-wrap05",
+  "type": "repeater",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "go-wrap06": {
+  "name": "go-wrap06",
+  "type": "repeater",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "go-wrap07": {
+  "name": "go-wrap07",
+  "type": "repeater",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "go-child-grade": {
+  "name": "go-child-grade",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "shi-wrap": {
+  "name": "shi-wrap",
+  "type": "repeater",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "shi-wrap02": {
+  "name": "shi-wrap02",
+  "type": "repeater",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "shi-wrap03": {
+  "name": "shi-wrap03",
+  "type": "repeater",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "shi-wrap04": {
+  "name": "shi-wrap04",
+  "type": "repeater",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "shi-wrap05": {
+  "name": "shi-wrap05",
+  "type": "repeater",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "shi-wrap06": {
+  "name": "shi-wrap06",
+  "type": "repeater",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "shi-wrap07": {
+  "name": "shi-wrap07",
+  "type": "repeater",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "sp-wrap": {
+  "name": "sp-wrap",
+  "type": "repeater",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "sp-grade": {
+  "name": "sp-grade",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "sp-shool-name": {
+  "name": "sp-shool-name",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "sp-stdudent-name": {
+  "name": "sp-stdudent-name",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "sp-img": {
+  "name": "sp-img",
+  "type": "image",
+  "choices": {},
+  "return_format": "url",
+  "new_lines": null
+ },
+ "holiday-clinic": {
+  "name": "holiday-clinic",
+  "type": "radio",
+  "choices": {
+   "show": "休日診療に表示する",
+   "hide": "表示しない"
+  },
+  "return_format": "value",
+  "new_lines": null
+ },
+ "assistantcourse_file_2": {
+  "name": "assistantcourse_file_2",
+  "type": "file",
+  "choices": {},
+  "return_format": "url",
+  "new_lines": null
+ },
+ "assistantcourse_file_3": {
+  "name": "assistantcourse_file_3",
+  "type": "file",
+  "choices": {},
+  "return_format": "url",
+  "new_lines": null
+ },
+ "1歳児歯科健診": {
+  "name": "1歳児歯科健診",
+  "type": "tab",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "place-01": {
+  "name": "place-01",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "open-01": {
+  "name": "open-01",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "price-01": {
+  "name": "price-01",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "detail-01": {
+  "name": "detail-01",
+  "type": "textarea",
+  "choices": {},
+  "return_format": null,
+  "new_lines": "wpautop"
+ },
+ "_複製": {
+  "name": "_複製",
+  "type": "tab",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "place-02": {
+  "name": "place-02",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "price-03": {
+  "name": "price-03",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "detail-02": {
+  "name": "detail-02",
+  "type": "textarea",
+  "choices": {},
+  "return_format": null,
+  "new_lines": "wpautop"
+ },
+ "place-03": {
+  "name": "place-03",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "detail-03": {
+  "name": "detail-03",
+  "type": "textarea",
+  "choices": {},
+  "return_format": null,
+  "new_lines": "wpautop"
+ },
+ "detail-04": {
+  "name": "detail-04",
+  "type": "textarea",
+  "choices": {},
+  "return_format": null,
+  "new_lines": "wpautop"
+ },
+ "place-05": {
+  "name": "place-05",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "price-05": {
+  "name": "price-05",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "detail-05": {
+  "name": "detail-05",
+  "type": "textarea",
+  "choices": {},
+  "return_format": null,
+  "new_lines": "wpautop"
+ },
+ "place-06": {
+  "name": "place-06",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "price-06": {
+  "name": "price-06",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "detail-06": {
+  "name": "detail-06",
+  "type": "textarea",
+  "choices": {},
+  "return_format": null,
+  "new_lines": "wpautop"
+ },
+ "contact-01": {
+  "name": "contact-01",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "contact-02": {
+  "name": "contact-02",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "contact-03": {
+  "name": "contact-03",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "contact-05": {
+  "name": "contact-05",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "kenshin-06": {
+  "name": "kenshin-06",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "target-03": {
+  "name": "target-03",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "target-06": {
+  "name": "target-06",
+  "type": "textarea",
+  "choices": {},
+  "return_format": null,
+  "new_lines": "wpautop"
+ },
+ "kenshin-03": {
+  "name": "kenshin-03",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "job": {
+  "name": "job",
+  "type": "wysiwyg",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "target": {
+  "name": "target",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "place": {
+  "name": "place",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "price": {
+  "name": "price",
+  "type": "wysiwyg",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "message": {
+  "name": "message",
+  "type": "textarea",
+  "choices": {},
+  "return_format": null,
+  "new_lines": "wpautop"
+ },
+ "free-area": {
+  "name": "free-area",
+  "type": "wysiwyg",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "kaimu_time1": {
+  "name": "kaimu_time1",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "chairman": {
+  "name": "chairman",
+  "type": "text",
+  "choices": {},
+  "return_format": null,
+  "new_lines": null
+ },
+ "chairman_image": {
+  "name": "chairman_image",
+  "type": "image",
+  "choices": {},
+  "return_format": "url",
+  "new_lines": null
+ }
+}
