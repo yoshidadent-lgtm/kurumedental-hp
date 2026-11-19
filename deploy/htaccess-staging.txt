@@ -1,0 +1,5 @@
+# 試験用フォルダ（/home/staging_new/）に置く .htaccess。検索エンジンに、試験用のページを登録させないための設定。
+# 公開（入口への転送）のときは、この .htaccess は、置かない。
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>
