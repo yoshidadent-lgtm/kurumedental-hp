@@ -104,7 +104,7 @@ page = f'''<!DOCTYPE html>
     <div class="foot">
       <div>
         <img src="{IMG}/logo-2026.png" alt="久留米歯科医師会">
-        <p>〒830-0013 福岡県久留米市櫛原町98<br>TEL 0942-32-7063　FAX 0942-32-7071</p>
+        <p>〒830-0013 福岡県久留米市櫛原町98<br>TEL <a href="tel:0942327063">0942-32-7063</a>　FAX 0942-32-7071</p>
       </div>
       <ul>
         <li><a href="../../introduction/">歯科医師会のご紹介</a></li>

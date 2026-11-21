@@ -7197,3 +7197,7 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="search"]
 @media (max-width: 767px) {
 	#header_tel { display: none; }
 }
+
+/* フッターの電話番号：タップで電話がかかるリンク。見た目は、これまでと同じ。 */
+#footer_tel_text a { color: inherit; text-decoration: none; }
+#footer_tel_text a:focus-visible { outline: 3px solid #ffd27a; outline-offset: 2px; }
