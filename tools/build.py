@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """静的サイトの生成。data/public-content.json と templates/ から HTML を作る。"""
-import json, re, datetime, pathlib, html
+import json, re, datetime, pathlib, html, sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 data = json.loads((ROOT/'data/public-content.json').read_text(encoding='utf-8'))
 site = json.loads((ROOT/'data/site.json').read_text(encoding='utf-8'))
@@ -56,7 +56,9 @@ def write(path, content):
     f.write_text(content, encoding='utf-8')
 
 def build_all():
-    build_home()
+    # トップページは、改良案A（tools/top_page.py）で作る。それ以外のページは、旧テーマのテンプレートで作る。
+    import subprocess as _sp
+    _sp.run([sys.executable, str(ROOT / 'tools/top_page.py')], check=True)
     n = 1
     suffix = ''  # ページタイトルは、すべてのページで「久留米歯科医師会」
     for d in data:

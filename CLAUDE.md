@@ -33,6 +33,7 @@
 - 旧URL（`.html` / `.php`、推測URL）は、新URLへ移動する小さなページを置いて対応する。
 
 ## 改良（書き換え）の記録
-- トップページの改良案A（`draft/top-a/`、`tools/draft_top.py` で生成）：色は、明るく透明感のある青（基本色 `#1b72d8`）で決定（ユーザー確認）。
+- トップページのトップページの改良案A：色は、明るく透明感のある青（基本色 `#1b72d8`）で決定（ユーザー確認）。
 - ロゴ画像は、小さい（242×48ピクセル）ため、スマホの高精細な画面では、ぼやけて見える。元データ（高解像度）が得られれば、差し替える。
 - ロゴ（英語表記を「KURUME DENTAL ASSOCIATION」にした版）を、サイト全体に反映した（ユーザー確認）。画像は `wp-content/themes/spacious-child/images/logo-2026.png`（ブラウザの古い表示が残らないよう、新しい名前にした）。ヘッダーとフッターは、`templates/header.html`、`templates/footer.html`、改良案Aは `tools/draft_top.py`。
+- トップページは、改良案Aを採用した（ユーザー確認）。`tools/top_page.py` が `index.html` を作り、見た目は `wp-content/themes/spacious-child/css/top.css`。旧トップの5枚のスライダーと、ヘッダーのサイト内検索は、なくなった（ほかのページは、旧テーマのデザインのまま）。`draft/` は、削除した。
