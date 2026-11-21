@@ -117,7 +117,7 @@ page = f'''<!DOCTYPE html>
         <li><a href="../../link/">リンク</a></li>
       </ul>
     </div>
-    <p class="copy">Copyright &copy; 2026 Kurume City Dental Association All Rights Reserved.</p>
+    <p class="copy">Copyright &copy; 2026 Kurume Dental Association All Rights Reserved.</p>
   </div>
 </footer>
 </body>
