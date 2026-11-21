@@ -45,16 +45,20 @@ RedirectMatch 301 ^/introduction/introduction/?$ /introduction/
 # ただし、/kdhs/ の中の同名のファイルは、対象外（先頭が /wp-... のものだけ）。
 RedirectMatch 404 ^/(wp-admin|wp-login\.php|xmlrpc\.php|wp-json|wp-config\.php|wp-cron\.php|wp-includes|readme\.html|license\.txt)
 
+# /kdhs/ には、読み込み元の制限（CSP）をかけない。
+# 注意：Apacheの条件つきの書き方 <If> は、このサーバーでは、500エラーになった（2026-11-21、試験用フォルダで確認）。使わないこと。
+# 代わりに、古い版でも使える SetEnvIf と env=! で、/kdhs/ を除く（試験用フォルダで、確認済みのものだけを、本番で使う）。
+<IfModule mod_setenvif.c>
+  SetEnvIf Request_URI "^/kdhs(/|$)" NO_CSP
+</IfModule>
+
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
   Header always set X-Frame-Options "SAMEORIGIN"
   # 内容の読み込み元の制限（CSP）。試験用フォルダで、全ページ・地図・コンソールの確認が済んだもの（2026-11-21）。
-  # 重要：/kdhs/（別のWordPress）には、かけない。入口の Header は /kdhs/ に引き継がれるため、/kdhs/ だけを、条件で除く。
-  <If "%{REQUEST_URI} !~ m#^/kdhs(/|$)#">
-    Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; frame-src https://www.google.com; form-action 'self' https://www.google.com; base-uri 'self'; object-src 'none'"
-  </If>
+  Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; frame-src https://www.google.com; form-action 'self' https://www.google.com; base-uri 'self'; object-src 'none'" env=!NO_CSP
   # 通信の暗号化（https）の強制の記憶（HSTS）。公開後、https がサイト全体で数日間、問題なく動くことを確認してから有効にする。
   # Header always set Strict-Transport-Security "max-age=31536000"
 </IfModule>
