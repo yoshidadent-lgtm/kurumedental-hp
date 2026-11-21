@@ -1,3 +1,2 @@
 User-agent: *
 Allow: /
-Sitemap: https://kurume-dental.or.jp/sitemap.xml

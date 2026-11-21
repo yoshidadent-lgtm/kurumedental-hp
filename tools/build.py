@@ -11,7 +11,8 @@ def render(depth, title, body_html, slider=False, canon=''):
     R = '../' * depth
     T = R + 'wp-content/themes/spacious-child'
     page = tpl('header.html').replace('{{SLIDER}}', tpl('slider.html') if slider else '') + body_html + tpl('footer.html')
-    return (page.replace('{{CANON}}', site['origin'] + '/' + canon).replace('{{R}}', R).replace('{{T}}', T)
+    robots = '<meta name="robots" content="noindex, nofollow">' if site.get('preview') else ''
+    return (page.replace('{{ROBOTS}}', robots).replace('{{CANON}}', site['origin'] + '/' + canon).replace('{{R}}', R).replace('{{T}}', T)
                 .replace('{{TITLE}}', html.escape(title)).replace('{{YEAR}}', YEAR))
 
 # 本文中の旧テーマ互換の置き換え（[hurl]、images/ のパス、誤ったリンクの補正）
@@ -98,7 +99,8 @@ def build_all():
         if tax.startswith('local_dentist') and '%' not in term: urls.append('local_dentist_top/%s/%s/' % (tax, term))
     write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
           + ''.join('<url><loc>%s/%s</loc></url>\n' % (site['origin'], u) for u in sorted(set(urls))) + '</urlset>\n')
-    write('robots.txt', 'User-agent: *\nAllow: /\nSitemap: %s/sitemap.xml\n' % site['origin'])
+    # 試験公開中（data/site.json の preview が true）は、検索エンジンに登録させない。本番へ切り替えるときに false にする。
+    write('robots.txt', 'User-agent: *\nAllow: /\n' + ('' if site.get('preview') else 'Sitemap: %s/sitemap.xml\n' % site['origin']))
     write('.nojekyll', '')
     print('built', n, 'files')
 

@@ -215,7 +215,8 @@ function get_header() {
     if ($header_done) return;  // 旧テンプレートが get_header() を2回呼ぶ（ヘッダーの二重表示）ため、1回にする
     $header_done = true;
     $h = file_get_contents(__DIR__ . '/../templates/header.html');
-    echo str_replace(['{{SLIDER}}', '{{R}}', '{{T}}', '{{TITLE}}', '{{CANON}}'], ['', $R, $T, htmlspecialchars($spec['title'] ?? $SITE['title']), htmlspecialchars($SITE['origin'] . '/' . ($spec['canon'] ?? ''))], $h);
+    $robots = !empty($SITE['preview']) ? '<meta name="robots" content="noindex, nofollow">' : '';
+    echo str_replace(['{{SLIDER}}', '{{R}}', '{{T}}', '{{TITLE}}', '{{CANON}}', '{{ROBOTS}}'], ['', $R, $T, htmlspecialchars($spec['title'] ?? $SITE['title']), htmlspecialchars($SITE['origin'] . '/' . ($spec['canon'] ?? '')), $robots], $h);
 }
 function get_footer() {
     global $R, $T;
