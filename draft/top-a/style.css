@@ -93,8 +93,7 @@ section.block { padding: 56px 0 8px; }
 }
 @media (max-width: 700px) {
   body { font-size: 16px; }
-  .contact { text-align: left; }
-  .contact .tel { font-size: 24px; }
+  .contact { display: none; }  /* スマホでは、ヘッダーの住所と電話番号を表示しない（フッターには、残る） */
   .gnav label { display: block; }
   .gnav ul { display: none; flex-direction: column; border-top: 1px solid rgba(255,255,255,.2); }
   #nav-toggle:checked ~ ul { display: flex; }

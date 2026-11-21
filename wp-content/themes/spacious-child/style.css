@@ -7192,3 +7192,8 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="search"]
 	}
 }
 
+
+/* スマホ表示（幅767px以下）では、ヘッダーの住所と電話番号を表示しない（フッターには、残る）。 */
+@media (max-width: 767px) {
+	#header_tel { display: none; }
+}
