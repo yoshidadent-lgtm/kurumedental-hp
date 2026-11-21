@@ -20,7 +20,7 @@
 - ページタイトルは、すべてのページで「久留米歯科医師会」。
 - 表示設定「1ページに表示する最大投稿数」は100件。医院一覧・イベント一覧は、1ページにすべて載せる。
 - 見つからなかった画像4点（`close.png`、`bx_loader.gif`、`prev_slider.png`、`next_slider.png`）は、旧サイトでも表示されていない。後で、新しく作る（改善項目）。
-- faviconは、新規に作成した（サイトの青 `#195fae` に、白い歯）。
+- faviconは、新規に作成した（青の背景に、白い歯。背景の青は、以前の色 `#195fae`。新しい基本色 `#1b72d8` にそろえるかは、未決定）。
 - 試験公開中（`data/site.json` の `preview` が `true`）は、全ページに `noindex` を入れる。本番へ置き換えるときに `false` にして、作り直す。
 
 ## 作り方（静的サイトの生成）
@@ -33,8 +33,8 @@
 - 旧URL（`.html` / `.php`、推測URL）は、新URLへ移動する小さなページを置いて対応する。
 
 ## 改良（書き換え）の記録
-- トップページのトップページの改良案A：色は、明るく透明感のある青（基本色 `#1b72d8`）で決定（ユーザー確認）。
+- トップページの改良案A：色は、明るく透明感のある青（基本色 `#1b72d8`）で決定（ユーザー確認）。
 - ロゴ画像は、小さい（242×48ピクセル）ため、スマホの高精細な画面では、ぼやけて見える。元データ（高解像度）が得られれば、差し替える。
-- ロゴ（英語表記を「KURUME DENTAL ASSOCIATION」にした版）を、サイト全体に反映した（ユーザー確認）。画像は `wp-content/themes/spacious-child/images/logo-2026.png`（ブラウザの古い表示が残らないよう、新しい名前にした）。ヘッダーとフッターは、`templates/header.html`、`templates/footer.html`、改良案Aは `tools/draft_top.py`。
+- ロゴ（英語表記を「KURUME DENTAL ASSOCIATION」にした版）を、サイト全体に反映した（ユーザー確認）。画像は `wp-content/themes/spacious-child/images/logo-2026.png`（ブラウザの古い表示が残らないよう、新しい名前にした）。ヘッダーとフッターの共通部品は、`templates/chrome_header.html`、`templates/chrome_footer.html`。トップページは `tools/top_page.py`。
 - トップページは、改良案Aを採用した（ユーザー確認）。`tools/top_page.py` が `index.html` を作り、見た目は `wp-content/themes/spacious-child/css/top.css`。旧トップの5枚のスライダーと、ヘッダーのサイト内検索は、なくなった（ほかのページは、旧テーマのデザインのまま）。`draft/` は、削除した。
 - 新しいヘッダー・フッターを、全ページに適用した（ユーザー確認）。共通部品は `templates/chrome_header.html`、`templates/chrome_footer.html`、見た目は `wp-content/themes/spacious-child/css/chrome.css`（トップページ用の `top.css` とは別）。ほかのページの本文は、旧デザインのまま。旧ヘッダーのサイト内検索と、トップのスライダーは、なくなった。
