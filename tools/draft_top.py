@@ -43,7 +43,7 @@ page = f'''<!DOCTYPE html>
 <a class="skip" href="#main">本文へ移動</a>
 <header class="site-header">
   <div class="wrap head-row">
-    <a class="brand" href="../../"><img src="{IMG}/logo.png" alt="久留米歯科医師会"></a>
+    <a class="brand" href="../../"><img src="{IMG}/logo-new.png" alt="久留米歯科医師会"></a>
     <div class="contact"><span>〒830-0013 福岡県久留米市櫛原町98</span><br><a class="tel" href="tel:0942327063">TEL 0942-32-7063</a></div>
   </div>
   <nav class="gnav" aria-label="メインメニュー">
@@ -103,7 +103,7 @@ page = f'''<!DOCTYPE html>
   <div class="wrap">
     <div class="foot">
       <div>
-        <img src="{IMG}/logo.png" alt="久留米歯科医師会">
+        <img src="{IMG}/logo-new.png" alt="久留米歯科医師会">
         <p>〒830-0013 福岡県久留米市櫛原町98<br>TEL 0942-32-7063　FAX 0942-32-7071</p>
       </div>
       <ul>
