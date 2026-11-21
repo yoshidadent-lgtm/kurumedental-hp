@@ -4,5 +4,4 @@
 
 - 生成：`python3 tools/build.py`
 - 点検：`python3 -I tools/check_site.py`
-- 公開の手順：`docs/manual-deploy.md`
-- 計画と記録：`docs/deploy-plan.md`、`CLAUDE.md`
+- 作業のメモ（公開用）：`CLAUDE.md`
