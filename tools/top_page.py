@@ -7,7 +7,12 @@ data = json.loads((ROOT / 'data/public-content.json').read_text(encoding='utf-8'
 site = json.loads((ROOT / 'data/site.json').read_text(encoding='utf-8'))
 P = ''                                   # ルート直下のページなので、リンクの前に付ける相対パスは、なし
 IMG = P + 'wp-content/themes/spacious-child/images'
-CSS = P + 'wp-content/themes/spacious-child/css/top.css'
+THEME = P + 'wp-content/themes/spacious-child'
+CSS = THEME + '/css/top.css'
+CHROME_CSS = THEME + '/css/chrome.css'
+frag = lambda n: (ROOT / 'templates' / n).read_text(encoding='utf-8').replace('{{R}}', P).replace('{{T}}', THEME).replace('{{YEAR}}', str(datetime.date.today().year))
+CHROME_HEADER = frag('chrome_header.html')
+CHROME_FOOTER = frag('chrome_footer.html')
 YEAR = datetime.date.today().year
 robots = '<meta name="robots" content="noindex, nofollow">\n' if site.get('preview') else ''
 posts = sorted([d for d in data if d['type'] == 'post'], key=lambda d: d['date'], reverse=True)[:8]
@@ -47,28 +52,11 @@ page = f'''<!DOCTYPE html>
 {robots}<link rel="icon" href="{P}favicon.ico" sizes="48x48">
 <link rel="icon" href="{P}favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="{P}apple-touch-icon.png">
+<link rel="stylesheet" href="{CHROME_CSS}">
 <link rel="stylesheet" href="{CSS}">
 </head>
 <body>
-<a class="skip" href="#main">本文へ移動</a>
-<header class="site-header">
-  <div class="wrap head-row">
-    <a class="brand" href="./"><img src="{IMG}/logo-2026.png" alt="久留米歯科医師会"></a>
-    <div class="contact"><span>〒830-0013 福岡県久留米市櫛原町98</span><br><a class="tel" href="tel:0942327063">TEL 0942-32-7063</a></div>
-  </div>
-  <nav class="gnav" aria-label="メインメニュー">
-    <div class="wrap">
-      <input type="checkbox" id="nav-toggle"><label for="nav-toggle">メニューを開く</label>
-      <ul>
-        <li><a href="{P}introduction/">歯科医師会のご紹介</a></li>
-        <li><a href="{P}visiting_dental/">訪問歯科診療</a></li>
-        <li><a href="{P}holiday_clinic/">休日診療</a></li>
-        <li><a href="{P}business_checkup/">健診事業</a></li>
-        <li><a href="{P}local_dentist_top/">地域の歯医者さん</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
+{CHROME_HEADER}
 
 <main id="main">
   <section class="hero" aria-label="トップ画像">
@@ -109,27 +97,7 @@ page = f'''<!DOCTYPE html>
   </section>
 </main>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="foot">
-      <div>
-        <img src="{IMG}/logo-2026.png" alt="久留米歯科医師会">
-        <p>〒830-0013 福岡県久留米市櫛原町98<br>TEL <a href="tel:0942327063">0942-32-7063</a>　FAX 0942-32-7071</p>
-      </div>
-      <ul>
-        <li><a href="{P}introduction/">歯科医師会のご紹介</a></li>
-        <li><a href="{P}visiting_dental/">訪問歯科診療のご案内</a></li>
-        <li><a href="{P}holiday_clinic/">休日診療のご案内</a></li>
-        <li><a href="{P}business_checkup/">健診事業のご案内</a></li>
-        <li><a href="{P}local_dentist_top/">地域の歯医者さん</a></li>
-        <li><a href="{P}assistant_course/">歯科助手講習会のご案内</a></li>
-        <li><a href="{P}event/">イベント情報</a></li>
-        <li><a href="{P}link/">リンク</a></li>
-      </ul>
-    </div>
-    <p class="copy">Copyright &copy; {YEAR} Kurume Dental Association All Rights Reserved.</p>
-  </div>
-</footer>
+{CHROME_FOOTER}
 </body>
 </html>
 '''

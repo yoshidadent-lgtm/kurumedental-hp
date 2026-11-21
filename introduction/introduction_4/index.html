@@ -15,6 +15,7 @@
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="stylesheet" href="../../wp-content/themes/spacious/style.css" type="text/css" />
 <link rel="stylesheet" href="../../wp-content/themes/spacious-child/style.css" type="text/css" />
+<link rel="stylesheet" href="../../wp-content/themes/spacious-child/css/chrome.css" type="text/css" />
 <link rel="stylesheet" href="../../wp-content/themes/spacious-child/font-awesome/css/font-awesome.min.css" type="text/css" />
 <link rel="stylesheet" href="../../wp-content/themes/spacious-child/css/jquery.bxslider.css" type="text/css" />
 <link rel="stylesheet" href="../../wp-content/themes/spacious-child/css/lightbox.min.css" type="text/css" />
@@ -27,42 +28,26 @@
 <script src="../../wp-content/themes/spacious-child/js/user.js"></script>
 </head>
 <body>
-<div id="header_wrapper">
-   <div id="header_contents">
-     <div id="header_logo"> <a href="../.././"><img src="../../wp-content/themes/spacious-child/images/logo-2026.png" alt="久留米歯科医師会"></a>
-     </div>
-     <div id="header_tel">
-     〒830-0013 福岡県久留米市櫛原町98<br>
-      <div id="header_tel_text"><img src="../../wp-content/themes/spacious-child/images/tel_icon.png" alt="">0942-32-7063</div>
-     </div>
-     <div id="header_search">
-<div align="right" style="margin-bottom:10px;">
-<a href="../../link/"><img src="../../wp-content/themes/spacious-child/images/links_btn.png" alt="リンク"></a></div>
-     <form action="https://www.google.com/search" method="get" class="clearfix">
-							<input type="hidden" name="hl" value="ja">
-							<input type="hidden" name="as_sitesearch" value="kurume-dental.or.jp">
-							<div id="header_search_left"><input class="text" type="text" name="q" size="16" value="" style=" width:128px; height:16px;" placeholder="サイト内検索"></div>
-                            <div id="header_search_right">
-                            <input type="image" alt="検索" src="../../wp-content/themes/spacious-child/images/search.png">
-                            </div>
-                            </form>
-     </div>
-   </div>
- </div>
-
-<div id="menu">
-<div class="header_nav">
-     <div class="header_nav_contents">
+<a class="skip" href="#main">本文へ移動</a>
+<header class="site-header">
+  <div class="wrap head-row">
+    <a class="brand" href="../.././"><img src="../../wp-content/themes/spacious-child/images/logo-2026.png" alt="久留米歯科医師会"></a>
+    <div class="contact"><span>〒830-0013 福岡県久留米市櫛原町98</span><br><a class="tel" href="tel:0942327063">TEL 0942-32-7063</a></div>
+  </div>
+  <nav class="gnav" aria-label="メインメニュー">
+    <div class="wrap">
+      <input type="checkbox" id="nav-toggle"><label for="nav-toggle">メニューを開く</label>
       <ul>
-       <li><a href="../../introduction/"><img src="../../wp-content/themes/spacious-child/images/intoroduction.jpg" alt="歯科医師会のご紹介"></a></li>
-       <li><a href="../../visiting_dental/"><img src="../../wp-content/themes/spacious-child/images/visitingdental.jpg" alt="訪問歯科診療のご案内"></a></li>
-       <li><a href="../../holiday_clinic/"><img src="../../wp-content/themes/spacious-child/images/holidayclinic.jpg" alt="休日診療のご案内"></a></li>
-       <li><a href="../../business_checkup/"><img src="../../wp-content/themes/spacious-child/images/business_checkups.jpg" alt="健診事業のご案内"></a></li>
-       <li><a href="../../local_dentist_top/"><img src="../../wp-content/themes/spacious-child/images/local_doctor.jpg" alt="地域の歯医者さん"></a></li>
+        <li><a href="../../introduction/">歯科医師会のご紹介</a></li>
+        <li><a href="../../visiting_dental/">訪問歯科診療</a></li>
+        <li><a href="../../holiday_clinic/">休日診療</a></li>
+        <li><a href="../../business_checkup/">健診事業</a></li>
+        <li><a href="../../local_dentist_top/">地域の歯医者さん</a></li>
       </ul>
-     </div>
- </div>
-</div>
+    </div>
+  </nav>
+</header>
+
 
 
 
@@ -169,47 +154,28 @@
 		</div><!-- .inner-wrap -->
 	</div><!-- #main -->
 
-<!--footer-->
-<div id="footer_top"></div>
- <footer id="footer_wrapper">
-  <div id="footer_contents" class="clearfix">
-   <div id="footer_contents_left">
-      <img src="../../wp-content/themes/spacious-child/images/logo-2026.png" alt="久留米歯科医師会" />
-      <div id="footer_tel">
-      〒830-0013 福岡県久留米市櫛原町98
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <img src="../../wp-content/themes/spacious-child/images/logo-2026.png" alt="久留米歯科医師会">
+        <p>〒830-0013 福岡県久留米市櫛原町98<br>TEL <a href="tel:0942327063">0942-32-7063</a>　FAX 0942-32-7071</p>
       </div>
-      <div id="footer_tel_text">
-      TEL/<a href="tel:0942327063">0942-32-7063</a>
-      </div>
-      <div id="footer_tel_text">
-      FAX/0942-32-7071
-      </div>
-   </div>
-   <div id="footer_map">
-   <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3333.910241072509!2d130.516088!3d33.321162!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2fa48aca28303421!2z5LmF55WZ57Gz5q2v56eR5Yy75bir5Lya!5e0!3m2!1sja!2sjp!4v1426558809342" width="220" height="160" frameborder="0" style="border:0" title="地図"></iframe>
-   </div>
-   <div id="footer_right">
-    <ul class="clearfix">
-      <li><a href="../../visiting_dental/">歯科訪問診療のご案内</a></li>
-      <li><a href="../../introduction/">歯科医師会のご紹介</a></li>
-      <li><a href="../../holiday_clinic/">休日診療のご案内</a></li>
-      <li><a href="https://www.8020zaidan.or.jp/index.html" target="_blank" rel="noopener noreferrer">財団法人8020推進財団</a></li>
-      <li><a href="../../business_checkup/">健診事業のご案内</a></li>
-      <li><a href="https://kurume-dental.or.jp/kdhs/index.html" target="_blank" rel="noopener noreferrer">久留米歯科衛生専門学校</a></li>
-      <li><a href="../../local_dentist_top/">地域の歯医者さん</a></li>
-      <li><a href="../../assistant_course/">歯科助手講習会のご案内</a></li>
-      <li><a href="../../event/">イベント情報</a></li>
-      <li><a href="../../link/">リンク</a></li>
-    </ul>
-   </div>
+      <ul>
+        <li><a href="../../introduction/">歯科医師会のご紹介</a></li>
+        <li><a href="../../visiting_dental/">訪問歯科診療のご案内</a></li>
+        <li><a href="../../holiday_clinic/">休日診療のご案内</a></li>
+        <li><a href="../../business_checkup/">健診事業のご案内</a></li>
+        <li><a href="../../local_dentist_top/">地域の歯医者さん</a></li>
+        <li><a href="../../assistant_course/">歯科助手講習会のご案内</a></li>
+        <li><a href="../../event/">イベント情報</a></li>
+        <li><a href="../../link/">リンク</a></li>
+      </ul>
+    </div>
+    <p class="copy">Copyright &copy; 2026 Kurume Dental Association All Rights Reserved.</p>
   </div>
- </footer>
- <div id="footer_bottom" class="clearfix">
-	 <div id="copy_right">
-	 Copyright&copy; 2026 Kurume Dental Association All Rights Reserved.
-	 </div>
-	<div id="page_top"><a href="#"><img src="../../wp-content/themes/spacious-child/images/page_top.jpg" alt="ページの先頭へ"></a></div>
- </div>
+</footer>
+
 </body>
 </html>
 

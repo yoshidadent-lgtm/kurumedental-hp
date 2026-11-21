@@ -214,13 +214,13 @@ function get_header() {
     global $R, $T, $SITE, $spec, $header_done;
     if ($header_done) return;  // 旧テンプレートが get_header() を2回呼ぶ（ヘッダーの二重表示）ため、1回にする
     $header_done = true;
-    $h = file_get_contents(__DIR__ . '/../templates/header.html');
+    $h = str_replace('{{CHROME_HEADER}}', file_get_contents(__DIR__ . '/../templates/chrome_header.html'), file_get_contents(__DIR__ . '/../templates/header.html'));
     $robots = !empty($SITE['preview']) ? '<meta name="robots" content="noindex, nofollow">' : '';
     echo str_replace(['{{SLIDER}}', '{{R}}', '{{T}}', '{{TITLE}}', '{{CANON}}', '{{ROBOTS}}'], ['', $R, $T, htmlspecialchars($spec['title'] ?? $SITE['title']), htmlspecialchars($SITE['origin'] . '/' . ($spec['canon'] ?? '')), $robots], $h);
 }
 function get_footer() {
     global $R, $T;
-    $f = file_get_contents(__DIR__ . '/../templates/footer.html');
+    $f = str_replace('{{CHROME_FOOTER}}', file_get_contents(__DIR__ . '/../templates/chrome_footer.html'), file_get_contents(__DIR__ . '/../templates/footer.html'));
     echo str_replace(['{{R}}', '{{T}}', '{{YEAR}}'], [$R, $T, date('Y')], $f);
 }
 function get_sidebar($n = '') { tpl($n ? "sidebar-$n.php" : 'sidebar.php'); }

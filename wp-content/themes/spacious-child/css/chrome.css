@@ -1,0 +1,47 @@
+/* 全ページ共通のヘッダー・フッター（トップページと、ほかのすべてのページで使う） */
+:root {
+  --blue: #1b72d8; --blue-dark: #1558b0; --blue-bright: #3da1f2; --blue-pale: #eaf5ff; --blue-mist: #f4faff;
+  --ink: #1b2733; --muted: #566575; --line: #d3e6f8; --accent: #e07b00; --white: #fff; --radius: 16px;
+  --glow: 0 10px 30px rgba(27, 114, 216, .18);
+}
+.site-header, .site-footer { font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif; font-size: 16px; line-height: 1.6; text-align: left; color: #fff; }
+.site-header a:focus-visible, .site-footer a:focus-visible, .gnav label:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.wrap { width: min(1120px, 100% - 32px); margin-inline: auto; }
+.skip { position: absolute; left: -999px; top: 0; background: #fff; color: var(--ink); padding: 8px 12px; z-index: 10; }
+.skip:focus { left: 8px; top: 8px; }
+
+/* ヘッダー */
+.site-header { background: linear-gradient(120deg, #3a9bee 0%, #2582e2 45%, #1b72d8 100%); }
+.head-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; flex-wrap: wrap; }
+.brand img { display: block; height: 52px; width: auto; max-width: none; }
+.contact { text-align: right; font-size: 14px; line-height: 1.5; }
+.contact .tel { display: inline-block; margin-top: 2px; color: #fff; text-decoration: none; font-size: 26px; font-weight: 700; letter-spacing: .02em; }
+.gnav { background: rgba(8, 52, 120, .24); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); border-top: 1px solid rgba(255,255,255,.28); }
+#nav-toggle { position: absolute; opacity: 0; pointer-events: none; }
+.gnav label { display: none; color: #fff; padding: 12px 0; font-weight: 700; cursor: pointer; }
+.gnav ul { display: flex; flex-wrap: wrap; list-style: none; margin: 0; padding: 0; }
+.gnav li { list-style: none; margin: 0; padding: 0; }
+.gnav li a { display: block; padding: 14px 20px; color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; border-bottom: 3px solid transparent; }
+.gnav li a:hover { background: rgba(255,255,255,.16); border-bottom-color: #fff; }
+
+/* フッター */
+.site-footer { margin-top: 64px; background: linear-gradient(180deg, #1b72d8, #1558b0); padding: 36px 0 20px; }
+.foot { display: grid; grid-template-columns: 1.1fr 1.4fr; gap: 28px; }
+.site-footer img { display: block; height: 48px; width: auto; max-width: none; margin-bottom: 12px; }
+.site-footer p { margin: 0; line-height: 1.8; color: #fff; }
+.site-footer a { color: #fff; }
+.foot ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 20px; }
+.foot li { list-style: none; margin: 0; padding: 0; }
+.copy { margin-top: 24px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.3); font-size: 13px; }
+
+@media (max-width: 860px) {
+  .foot { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+  .contact { display: none; }  /* スマホでは、ヘッダーの住所と電話番号を表示しない（フッターには、残る） */
+  .gnav label { display: block; }
+  .gnav ul { display: none; flex-direction: column; border-top: 1px solid rgba(255,255,255,.2); }
+  #nav-toggle:checked ~ ul { display: flex; }
+  #nav-toggle:focus-visible ~ label { outline: 3px solid var(--accent); }
+  .gnav li a { padding: 14px 4px; border-bottom: 1px solid rgba(255,255,255,.15); }
+}

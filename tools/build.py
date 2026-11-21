@@ -4,7 +4,7 @@ import json, re, datetime, pathlib, html, sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 data = json.loads((ROOT/'data/public-content.json').read_text(encoding='utf-8'))
 site = json.loads((ROOT/'data/site.json').read_text(encoding='utf-8'))
-tpl = lambda n: (ROOT/'templates'/n).read_text(encoding='utf-8')
+tpl = lambda n: (ROOT/'templates'/n).read_text(encoding='utf-8').replace('{{CHROME_HEADER}}', (ROOT/'templates/chrome_header.html').read_text(encoding='utf-8')).replace('{{CHROME_FOOTER}}', (ROOT/'templates/chrome_footer.html').read_text(encoding='utf-8'))
 YEAR = str(datetime.date.today().year)
 
 def render(depth, title, body_html, slider=False, canon=''):
