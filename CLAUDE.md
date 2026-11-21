@@ -31,3 +31,8 @@
 - jQueryは、自前の 1.12.4 を `wp-content/themes/spacious-child/js/vendor/` に置く（外部CDNに頼らない）。更新は、改善項目。
 - アップロード画像・資料は、許可リスト方式（`.gitignore`）。公開ページが使うファイルだけを、管理対象にする（会員向けの資料を、誤って公開しないため）。
 - 旧URL（`.html` / `.php`、推測URL）は、新URLへ移動する小さなページを置いて対応する。
+
+## 改良（書き換え）の記録
+- トップページの改良案A（`draft/top-a/`、`tools/draft_top.py` で生成）：色は、明るく透明感のある青（基本色 `#1b72d8`）で決定（ユーザー確認）。
+- ロゴの英語表記：「KURUME CITY DENTAL ASSOCIATION」から「KURUME DENTAL ASSOCIATION」へ変更する意向（ユーザー）。現行のロゴ画像の文字を使って作った版が `wp-content/themes/spacious-child/images/logo-new.png`（改良案Aで使用）。サイト全体への適用は、ユーザーの確認待ち。
+- ロゴ画像は、小さい（242×48ピクセル）ため、スマホの高精細な画面では、ぼやけて見える。元データ（高解像度）が得られれば、差し替える。
