@@ -33,7 +33,7 @@
 | `https://kurume-dental.or.jp/event.php` | `/event/` に転送される |
 | `https://kurume-dental.or.jp/（存在しないページ）` | 新サイトの404ページ |
 | `https://kurume-dental.or.jp/wp-login.php` | 404 |
-| `https://kurume-dental.or.jp/kdhs/` | **これまでどおり表示される**（トップ、下層ページ、ログイン画面） |
+| `https://kurume-dental.or.jp/kdhs/` | **これまでどおり表示される**（トップ、下層ページ、ログイン画面）。入口に設定した読み込み元の制限（CSP）は、`/kdhs/` には、かけない |
 | メール | 送受信が、これまでどおり（DNSは、変えていない） |
 
 ## 問題が起きたとき（元に戻す）

@@ -50,10 +50,11 @@ RedirectMatch 404 ^/(wp-admin|wp-login\.php|xmlrpc\.php|wp-json|wp-config\.php|w
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
   Header always set X-Frame-Options "SAMEORIGIN"
-  # 通信の暗号化（https）が、サイト全体で確実に動くことを確認してから有効にする
+  # 内容の読み込み元の制限（CSP）。試験用フォルダで、全ページ・地図・コンソールの確認が済んだもの（2026-11-21）。
+  # 重要：/kdhs/（別のWordPress）には、かけない。入口の Header は /kdhs/ に引き継がれるため、/kdhs/ だけを、条件で除く。
+  <If "%{REQUEST_URI} !~ m#^/kdhs(/|$)#">
+    Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; frame-src https://www.google.com; form-action 'self' https://www.google.com; base-uri 'self'; object-src 'none'"
+  </If>
+  # 通信の暗号化（https）の強制の記憶（HSTS）。公開後、https がサイト全体で数日間、問題なく動くことを確認してから有効にする。
   # Header always set Strict-Transport-Security "max-age=31536000"
-  # 内容の読み込み元の制限。パソコン上の試験（全ページ）では、違反は、ありませんでした（2026-11-18）。
-  # 本番と同じ条件の試験用フォルダでも、ブラウザのコンソールに違反が出ないことを確認してから、有効にする
-  # 注意：このヘッダーは、/kdhs/ にも及ぶ。/kdhs/ が壊れないことを確認してから、有効にする（/kdhs/ に別の .htaccess を置いて、打ち消す方法もある）
-  # Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; frame-src https://www.google.com; form-action 'self' https://www.google.com; base-uri 'self'; object-src 'none'"
 </IfModule>
