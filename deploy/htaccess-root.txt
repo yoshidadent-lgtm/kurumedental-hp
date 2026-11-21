@@ -28,6 +28,19 @@ ServerSignature Off
   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 </IfModule>
 
+# 旧WordPress時代のURLを、新しいURLへ、サーバー側で転送する（301）。
+# 旧サイトの「Redirection」の規則のうち、会員向けを除く6件と、WordPressが自動で転送していた「推測URL」。
+# 新サイトにも、同じ場所に、移動用の小さなページ（.html / .php）を置いてあるが、こちらの転送が、先に働く。
+RedirectMatch 301 ^/business_checkup\.html$ /business_checkup/
+RedirectMatch 301 ^/assistant_course\.php$ /assistant_course/
+RedirectMatch 301 ^/event\.php$ /event/
+RedirectMatch 301 ^/holiday_clinic\.php$ /holiday_clinic/
+RedirectMatch 301 ^/local_dentist\.php$ /local_dentist_top/
+RedirectMatch 301 ^/introduction\.html$ /introduction/
+RedirectMatch 301 ^/business_checkup_([1-4])/?$ /business_checkup/business_checkup_$1/
+RedirectMatch 301 ^/introduction_([2-5])/?$ /introduction/introduction_$1/
+RedirectMatch 301 ^/introduction/introduction/?$ /introduction/
+
 # 旧WordPressの管理画面やログインなどへのアクセスは、404にする（静的化したため、不要）。
 # ただし、/kdhs/ の中の同名のファイルは、対象外（先頭が /wp-... のものだけ）。
 RedirectMatch 404 ^/(wp-admin|wp-login\.php|xmlrpc\.php|wp-json|wp-config\.php|wp-cron\.php|wp-includes|readme\.html|license\.txt)
