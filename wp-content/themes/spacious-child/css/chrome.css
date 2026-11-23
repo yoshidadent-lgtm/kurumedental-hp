@@ -3,6 +3,7 @@
   --blue: #1b72d8; --blue-dark: #1558b0; --blue-bright: #3da1f2; --blue-pale: #eaf5ff; --blue-mist: #f4faff;
   --ink: #1b2733; --muted: #566575; --line: #d3e6f8; --accent: #e07b00; --white: #fff; --radius: 16px;
   --glow: 0 10px 30px rgba(27, 114, 216, .18);
+  --navy: #0f2a5a; --navy-deep: #0b2250; --navy-light: #153a7a;
 }
 .site-header, .site-footer { font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif; font-size: 16px; line-height: 1.6; text-align: left; color: #fff; }
 .site-header a:focus-visible, .site-footer a:focus-visible, .gnav label:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
@@ -11,18 +12,20 @@
 .skip:focus { left: 8px; top: 8px; }
 
 /* ヘッダー */
-.site-header { background: linear-gradient(120deg, #3a9bee 0%, #2582e2 45%, #1b72d8 100%); }
+.site-header { background: linear-gradient(120deg, var(--navy-deep) 0%, var(--navy) 55%, var(--navy-light) 100%); }
 .head-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; flex-wrap: wrap; }
+.brand { display: inline-block; color: #fff; text-decoration: none; }
+.brand-org { display: block; margin: 0 0 4px 2px; font-size: 12px; line-height: 1.2; letter-spacing: .22em; color: #fff; }
 .brand img { display: block; height: 52px; width: auto; max-width: none; }
 .contact { text-align: right; font-size: 14px; line-height: 1.5; }
 .contact .tel { display: inline-block; margin-top: 2px; color: #fff; text-decoration: none; font-size: 26px; font-weight: 700; letter-spacing: .02em; }
-.gnav { background: rgba(8, 52, 120, .24); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); border-top: 1px solid rgba(255,255,255,.28); }
+.gnav { background: rgba(255, 255, 255, .07); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); border-top: 1px solid rgba(255,255,255,.18); }
 #nav-toggle { position: absolute; opacity: 0; pointer-events: none; }
 .gnav label { display: none; color: #fff; padding: 12px 0; font-weight: 700; cursor: pointer; }
 .gnav ul { display: flex; flex-wrap: wrap; list-style: none; margin: 0; padding: 0; }
 .gnav li { list-style: none; margin: 0; padding: 0; }
 .gnav li a { display: block; padding: 14px 20px; color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; border-bottom: 3px solid transparent; }
-.gnav li a:hover { background: rgba(255,255,255,.16); border-bottom-color: #fff; }
+.gnav li a:hover { background: rgba(255,255,255,.14); border-bottom-color: #fff; }
 
 /* フッター */
 .site-footer { margin-top: 64px; background: linear-gradient(180deg, #1b72d8, #1558b0); padding: 36px 0 20px; }
