@@ -208,6 +208,22 @@ function page_is_ancestor_of($slug) { $p = cur_page(); return $p && strpos($p->p
 function is_tax($tax = null, $term = null) { global $q; if ($q['kind'] !== 'tax') return false; if ($tax !== null && $tax !== $q['tax']) return false; if ($term !== null && $term !== $q['term']) return false; return true; }
 function is_home() { return false; } function is_front_page() { return false; } function is_category() { return false; }
 
+
+// ---- 健診事業ページの部品（新デザイン）
+// 問合せ先の「ＴＥＬ３０－９７３１」を、「TEL 0942-30-9731」（タップで電話がかかる）にする。市外局番0942は、ユーザー指示で補う
+function ck_tel($html) {
+    return preg_replace_callback('/ＴＥＬ\s*([０-９0-9]+)[－\-ー]([０-９0-9]+)/u', function ($m) {
+        $a = mb_convert_kana($m[1], 'n'); $b = mb_convert_kana($m[2], 'n');
+        return 'TEL <a class="ck-tel" href="tel:0942' . $a . $b . '">0942-' . $a . '-' . $b . '</a>';
+    }, $html);
+}
+function ck_val($key) { ob_start(); the_field($key); return trim(ob_get_clean()); }
+function ck_row($label, $key) {
+    $v = ck_tel(ck_val($key));
+    if (trim(strip_tags($v)) === '') return;
+    echo '<div class="ck-row">' . ($label !== '' ? '<dt>' . $label . '</dt>' : '') . '<dd>' . $v . '</dd></div>' . "\n";
+}
+
 // ---- テンプレートの読み込み
 function tpl($file) { global $post, $name, $post_id; include __DIR__ . '/theme/' . $file; }
 function get_header() {

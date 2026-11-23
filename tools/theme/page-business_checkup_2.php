@@ -42,46 +42,36 @@
 </div>
 
 
-<div id="business_checkup_flame_08">
-<div class="comm_frame_title_wrap">
-<div class="comm_frame_title"><?php the_field('business-location-title'); ?></div>
+<section class="ck-card ck-detail">
+<h3 class="ck-title"><span><?php the_field('business-location-title'); ?></span></h3>
+<dl class="ck-rows">
+<?php ck_row('実施場所', 'business-location'); ?>
+<?php ck_row('受付時間', 'business-location-nendo'); ?>
+<?php ck_row('診察開始', 'business-location-shinsatsu'); ?>
+<?php ck_row('定員', 'business-location-teiin'); ?>
+</dl>
+<?php if (ck_val('business-location-access') !== ''): ?>
+<div class="ck-btns"><a class="ck-btn" href="<?php the_field('business-location-access'); ?>" target="_blank" rel="noopener noreferrer">アクセス（地図）を見る</a></div>
+<?php endif; ?>
+<div class="ck-sched">
+<div class="ck-sched-col">
+<h4>【1歳6か月児健診】実施日</h4>
+<ol class="ck-days">
+<?php if(have_rows('business-location-nittei')): while(have_rows('business-location-nittei')): the_row(); ?>
+<li><?php the_sub_field('business-days-issai'); ?></li>
+<?php endwhile; endif; ?>
+</ol>
 </div>
-							<font>実施場所：</font><?php the_field('business-location'); ?><br>
-							<font>受付時間：</font><?php the_field('business-location-nendo'); ?><br>
-							<font>診察開始：</font><?php the_field('business-location-shinsatsu'); ?><br>
-							<font>定員：</font><?php the_field('business-location-teiin'); ?><br>
-							<p class="access"><a href="<?php the_field('business-location-access'); ?>" target="_blank">＞＞アクセスはこちらをご覧下さい</a></p>
-
-<div class="Flex_wrap">
-  <div class="Hurf-wrap">
-    <div class="area--title">【1歳6か月児健診】実施日</div>
-							<div class="business_checkup_area">
-								<?php if(have_rows('business-location-nittei')): ?>
-								<?php while(have_rows('business-location-nittei')): the_row(); ?>
-								<div class="Item">
-								<div><?php the_sub_field('business-days-issai'); ?></div>
-								</div>
-								<?php endwhile; ?>
-								<?php endif; ?>
-							</div>
-  </div>
-  
-    <div class="Hurf-wrap">
-    <div class="area--title">【3歳児健診】実施日</div>
-							<div class="business_checkup_area">
-								<?php if(have_rows('business-location-nittei2')): ?>
-								<?php while(have_rows('business-location-nittei2')): the_row(); ?>
-								<div class="Item">
-								<div><?php the_sub_field('business-days-sansai'); ?></div>
-								</div>
-								<?php endwhile; ?>
-								<?php endif; ?>
-							</div>
-  </div>
+<div class="ck-sched-col">
+<h4>【3歳児健診】実施日</h4>
+<ol class="ck-days">
+<?php if(have_rows('business-location-nittei2')): while(have_rows('business-location-nittei2')): the_row(); ?>
+<li><?php the_sub_field('business-days-sansai'); ?></li>
+<?php endwhile; endif; ?>
+</ol>
 </div>
-
-
 </div>
+</section>
 </div>
 
 		</div>

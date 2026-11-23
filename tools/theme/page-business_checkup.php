@@ -2,7 +2,6 @@
 
 
 
-<?php if (!function_exists('ck_row')) { function ck_row($label, $key) { ob_start(); the_field($key); $v = trim(ob_get_clean()); if (trim(strip_tags($v)) === '') return; echo '<div class="ck-row">' . ($label !== '' ? '<dt>' . $label . '</dt>' : '') . '<dd>' . $v . '</dd></div>' . "\n"; } } ?>
 <?php get_header(); ?>
 
   <div id="main" class="clearfix">

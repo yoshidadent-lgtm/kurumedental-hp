@@ -42,25 +42,26 @@
 
 </div>
 
-<div id="business_checkup_flame_07">
-							<font color="#D41D7D">実施場所：</font><?php the_field('business-location'); ?><br>
-							<font color="#D41D7D">実施時間：</font><?php the_field('business-location-date'); ?><br>
-							<font color="#D41D7D">実施年度：</font><?php the_field('business-location-nendo'); ?><br>
-							<font color="#D41D7D">実施日：</font><?php the_field('business-location-nendo'); ?><br>
-							<div class="business_checkup_wrap">
-								<?php if(have_rows('business-location-days')): ?>
-								<?php while(have_rows('business-location-days')): the_row(); ?>
-								<div class="Item">
-								<?php the_sub_field('business-days'); ?>
-								</div>
-								<?php endwhile; ?>
-								<?php endif; ?>
-							</div>
-							<font color="#D41D7D">負担金額：</font><?php the_field('business-location-futankin'); ?><br>
-							<font color="#D41D7D">実施要領：</font><?php the_field('business-location-yoryo'); ?><br>
-							<font color="#D41D7D">問合せ先：</font><?php the_field('business-location-info'); ?><br>
-
-</div>
+<section class="ck-card ck-detail">
+<dl class="ck-rows">
+<?php ck_row('実施場所', 'business-location'); ?>
+<?php ck_row('実施時間', 'business-location-date'); ?>
+<?php ck_row('実施年度', 'business-location-nendo'); ?>
+<?php ck_row('実施日', 'business-location-nendo'); ?>
+</dl>
+<?php if(have_rows('business-location-days')): ?>
+<ol class="ck-days ck-days-single">
+<?php while(have_rows('business-location-days')): the_row(); ?>
+<li><?php the_sub_field('business-days'); ?></li>
+<?php endwhile; ?>
+</ol>
+<?php endif; ?>
+<dl class="ck-rows">
+<?php ck_row('負担金額', 'business-location-futankin'); ?>
+<?php ck_row('実施要領', 'business-location-yoryo'); ?>
+<?php ck_row('問合せ先', 'business-location-info'); ?>
+</dl>
+</section>
 </div>
 
 		</div>
