@@ -35,23 +35,26 @@ quick = [   # <wbr> は、狭い画面で改行してよい、自然な区切り
 ]
 chips = [('op1', '1歳半・<wbr>3歳児健診'), ('op2', 'フッ素塗布'), ('op3', '歯っぴー<wbr>検診'), ('op4', '周術期ケア'), ('op5', '妊婦歯科<wbr>健診')]
 
-def woman(hair, skin, outfit, collar, kind):   # 女性のイラスト（やさしい、平らな絵）
-    back = {'event': '<path d="M26 54c-4 30 6 40 16 40V54z M94 54c4 30-6 40-16 40V54z" fill="%s"/><circle cx="60" cy="16" r="9" fill="%s"/>' % (hair, hair),
-            'assist': '<path d="M30 56c-3 14 2 26 8 30V56z M90 56c3 14-2 26-8 30V56z" fill="%s"/>' % hair,
-            'school': '<path d="M25 52c-5 34 4 52 17 54V52z M95 52c5 34-4 52-17 54V52z" fill="%s"/>' % hair}[kind]
-    front = {'event': '<path d="M35 52c0-22 12-30 26-30s26 8 26 30c-8-4-14-14-18-18-6 10-20 16-34 18z" fill="%s"/>' % hair,
-             'assist': '<path d="M33 54c-2-24 10-34 27-34s29 10 27 34c-6-4-10-14-12-20-10 8-26 14-42 20z" fill="%s"/>' % hair,
-             'school': '<path d="M34 54c-1-24 10-33 26-33s27 9 26 33c-4-6-8-16-8-22-8 6-26 12-44 22z" fill="%s"/>' % hair}[kind]
-    extra = {'event': '<g transform="rotate(14 96 96)"><rect x="92" y="62" width="6" height="42" rx="3" fill="#fff" stroke="#9fb4c8" stroke-width="1.5"/><rect x="88" y="44" width="14" height="22" rx="4" fill="#6ec1f0"/><path d="M91 48h8M91 53h8M91 58h8" stroke="#fff" stroke-width="2"/></g>',
-             'assist': '',
-             'school': '<path d="M60 96l-9 8 9 4 9-4z" fill="#e8537f"/><circle cx="60" cy="97" r="3.5" fill="#c93566"/>'}[kind]
+def woman(hair, skin, outfit, collar, kind):   # 女性のイラスト（頭が大きく、目が大きい、かわいい絵柄）
+    hl = {'event': '#5a4040', 'assist': '#a2693f', 'school': '#3a3a52'}[kind]   # 髪のつや
+    back = {'event': f'<circle cx="60" cy="14" r="11" fill="{hair}"/><path d="M24 52c-10 8-10 28 2 34 8-4 8-22 4-34zM96 52c10 8 10 28-2 34-8-4-8-22-4-34z" fill="{hair}"/>',
+            'assist': f'<path d="M26 56c-4 20 0 34 12 38V58zM94 56c4 20 0 34-12 38V58z" fill="{hair}"/>',
+            'school': f'<path d="M24 54c-8 30-2 54 14 58V56zM96 54c8 30 2 54-14 58V56z" fill="{hair}"/>'}[kind]
+    bangs = {'event': f'<path d="M29 56c-3-26 10-40 31-40s34 14 31 40c-6-6-9-16-10-22-10 8-30 14-52 22z" fill="{hair}"/>',
+             'assist': f'<path d="M28 58c-4-28 10-42 32-42s36 14 32 42c-8-4-12-14-12-22-8 8-30 18-52 22z" fill="{hair}"/>',
+             'school': f'<path d="M29 58c-3-28 10-42 31-42s34 14 31 42c-5-8-8-16-8-24-10 10-30 20-54 24z" fill="{hair}"/>'}[kind]
+    shine = f'<path d="M42 28c6-5 16-6 24-3" fill="none" stroke="{hl}" stroke-width="4" stroke-linecap="round"/>'
+    extra = {'event': '<g transform="rotate(16 100 98)"><rect x="96" y="66" width="6" height="40" rx="3" fill="#fff" stroke="#9fb4c8" stroke-width="1.5"/><rect x="92" y="48" width="14" height="22" rx="4" fill="#6ec1f0"/><path d="M95 52h8M95 57h8M95 62h8" stroke="#fff" stroke-width="2"/></g><path d="M16 30l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5z" fill="#ffd54a"/><path d="M104 22l1.8 4.2 4.2 1.8-4.2 1.8-1.8 4.2-1.8-4.2-4.2-1.8 4.2-1.8z" fill="#ffd54a"/>',
+             'assist': '<g transform="translate(86 30)"><circle cx="0" cy="-6" r="5" fill="#ff8fb1"/><circle cx="6" cy="0" r="5" fill="#ff8fb1"/><circle cx="0" cy="6" r="5" fill="#ff8fb1"/><circle cx="-6" cy="0" r="5" fill="#ff8fb1"/><circle cx="0" cy="0" r="4" fill="#ffd54a"/></g><path d="M14 40l2 4.800 4.800 2-4.800 2-2 4.800-2-4.800-4.800-2 4.800-2z" fill="#ffd54a"/>',
+             'school': '<g transform="translate(84 30)"><path d="M0 0L-16-10v20zM0 0l16-10v20z" fill="#e8537f"/><circle r="4" fill="#c93566"/></g><path d="M52 96l8 6 8-6-4 12h-8z" fill="#e8537f"/>'}[kind]
+    eye = lambda cx: (f'<ellipse cx="{cx}" cy="62" rx="4.6" ry="6" fill="#3a2838"/><circle cx="{cx-1.6}" cy="59.5" r="2.1" fill="#fff"/><circle cx="{cx+1.6}" cy="64.5" r="1" fill="#fff"/>'
+                      f'<path d="M{cx-6} 57q6-5 12 0" fill="none" stroke="#3a2838" stroke-width="1.6" stroke-linecap="round"/>')
     return (f'<svg viewBox="0 0 120 120" aria-hidden="true">{back}'
-            f'<path d="M8 120c3-26 18-36 52-38 34 2 49 12 52 38z" fill="{outfit}"/>'
-            f'<path d="M48 82l12 16 12-16z" fill="{collar}"/><rect x="52" y="70" width="16" height="16" rx="6" fill="{skin}"/>'
-            f'<ellipse cx="60" cy="52" rx="24" ry="27" fill="{skin}"/>{front}'
-            f'<ellipse cx="50" cy="55" rx="2.6" ry="3.4" fill="#2a2a3a"/><ellipse cx="70" cy="55" rx="2.6" ry="3.4" fill="#2a2a3a"/>'
-            f'<circle cx="44" cy="63" r="4.5" fill="#ffb3c1" opacity=".75"/><circle cx="76" cy="63" r="4.5" fill="#ffb3c1" opacity=".75"/>'
-            f'<path d="M52 65q8 8 16 0" fill="none" stroke="#c9445f" stroke-width="2.4" stroke-linecap="round"/>{extra}</svg>')
+            f'<path d="M12 120c2-18 16-26 48-26s46 8 48 26z" fill="{outfit}"/>'
+            f'<path d="M48 94l12 14 12-14z" fill="{collar}"/><rect x="53" y="82" width="14" height="14" rx="6" fill="{skin}"/>'
+            f'<ellipse cx="60" cy="58" rx="31" ry="29" fill="{skin}"/>{bangs}{shine}{eye(47)}{eye(73)}'
+            f'<ellipse cx="38" cy="71" rx="5.5" ry="3.4" fill="#ff9fb4" opacity=".75"/><ellipse cx="82" cy="71" rx="5.5" ry="3.4" fill="#ff9fb4" opacity=".75"/>'
+            f'<path d="M54 71q6 9 12 0z" fill="#d9455f"/><path d="M57 74.500q3 2.500 6 0" fill="none" stroke="#ff8fa6" stroke-width="2" stroke-linecap="round"/>{extra}</svg>')
 girls = {'event': woman('#3b2a2a', '#ffe0cf', '#bfe9df', '#fff', 'event'),
          'assist': woman('#7a4a2a', '#ffe3d2', '#ffd3dc', '#fff', 'assist'),
          'school': woman('#1f1f2e', '#ffe2d2', '#2b3350', '#fff', 'school')}
