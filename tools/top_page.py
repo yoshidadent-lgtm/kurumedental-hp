@@ -34,13 +34,39 @@ quick = [   # <wbr> は、狭い画面で改行してよい、自然な区切り
  ('visiting_dental/', 'home', '訪問歯科診療の<wbr>ご案内', 'ご自宅・施設への<wbr>訪問診療', 'visit'),
 ]
 chips = [('op1', '1歳半・<wbr>3歳児健診'), ('op2', 'フッ素塗布'), ('op3', '歯っぴー<wbr>検診'), ('op4', '周術期ケア'), ('op5', '妊婦歯科<wbr>健診')]
+
+def woman(hair, skin, outfit, collar, kind):   # 女性のイラスト（やさしい、平らな絵）
+    back = {'event': '<path d="M26 54c-4 30 6 40 16 40V54z M94 54c4 30-6 40-16 40V54z" fill="%s"/><circle cx="60" cy="16" r="9" fill="%s"/>' % (hair, hair),
+            'assist': '<path d="M30 56c-3 14 2 26 8 30V56z M90 56c3 14-2 26-8 30V56z" fill="%s"/>' % hair,
+            'school': '<path d="M25 52c-5 34 4 52 17 54V52z M95 52c5 34-4 52-17 54V52z" fill="%s"/>' % hair}[kind]
+    front = {'event': '<path d="M35 52c0-22 12-30 26-30s26 8 26 30c-8-4-14-14-18-18-6 10-20 16-34 18z" fill="%s"/>' % hair,
+             'assist': '<path d="M33 54c-2-24 10-34 27-34s29 10 27 34c-6-4-10-14-12-20-10 8-26 14-42 20z" fill="%s"/>' % hair,
+             'school': '<path d="M34 54c-1-24 10-33 26-33s27 9 26 33c-4-6-8-16-8-22-8 6-26 12-44 22z" fill="%s"/>' % hair}[kind]
+    extra = {'event': '<g transform="rotate(14 96 96)"><rect x="92" y="62" width="6" height="42" rx="3" fill="#fff" stroke="#9fb4c8" stroke-width="1.5"/><rect x="88" y="44" width="14" height="22" rx="4" fill="#6ec1f0"/><path d="M91 48h8M91 53h8M91 58h8" stroke="#fff" stroke-width="2"/></g>',
+             'assist': '',
+             'school': '<path d="M60 96l-9 8 9 4 9-4z" fill="#e8537f"/><circle cx="60" cy="97" r="3.5" fill="#c93566"/>'}[kind]
+    return (f'<svg viewBox="0 0 120 120" aria-hidden="true">{back}'
+            f'<path d="M8 120c3-26 18-36 52-38 34 2 49 12 52 38z" fill="{outfit}"/>'
+            f'<path d="M48 82l12 16 12-16z" fill="{collar}"/><rect x="52" y="70" width="16" height="16" rx="6" fill="{skin}"/>'
+            f'<ellipse cx="60" cy="52" rx="24" ry="27" fill="{skin}"/>{front}'
+            f'<ellipse cx="50" cy="55" rx="2.6" ry="3.4" fill="#2a2a3a"/><ellipse cx="70" cy="55" rx="2.6" ry="3.4" fill="#2a2a3a"/>'
+            f'<circle cx="44" cy="63" r="4.5" fill="#ffb3c1" opacity=".75"/><circle cx="76" cy="63" r="4.5" fill="#ffb3c1" opacity=".75"/>'
+            f'<path d="M52 65q8 8 16 0" fill="none" stroke="#c9445f" stroke-width="2.4" stroke-linecap="round"/>{extra}</svg>')
+girls = {'event': woman('#3b2a2a', '#ffe0cf', '#bfe9df', '#fff', 'event'),
+         'assist': woman('#7a4a2a', '#ffe3d2', '#ffd3dc', '#fff', 'assist'),
+         'school': woman('#1f1f2e', '#ffe2d2', '#2b3350', '#fff', 'school')}
+def banner_html(u, i, t, w):
+    if i.startswith('card:'):
+        k = i[5:]
+        return f'      <li class="bn-{k}"><a class="bn-card" href="{u}"><strong>{t}</strong>{girls[k]}</a></li>\n'
+    return f'      <li class="{'wide' if w else 'plain'}"><a href="{u}"><img src="{IMG}/{i}" alt="{t}" loading="lazy"></a></li>\n'
 banners = [
  (P + 'introduction/introduction_4/', 'ishikai_banner.png', '久留米歯科医師会 入会のご案内', True),
  ('https://kurume-oral.com', 'koukuu-banner3.png', '口腔管理推進室', True),
- (P + 'event/', 'event_banner.jpg', 'イベント情報', False),
- (P + 'assistant_course/', 'kousyukai_banner.jpg', '歯科助手講習会のご案内', False),
+ (P + 'event/', 'card:event', 'イベント<wbr>情報', False),
+ (P + 'assistant_course/', 'card:assist', '歯科助手<wbr>講習会の<wbr>ご案内', False),
  ('https://www.8020zaidan.or.jp/', 'zaidan_banner.jpg', '財団法人8020推進財団', False),
- ('https://kurume-dental.or.jp/kdhs/', 'school_banner.jpg', '久留米歯科衛生専門学校', False),
+ ('https://kurume-dental.or.jp/kdhs/', 'card:school', '久留米歯科<wbr>衛生専門学校', False),
 ]
 slides = [   # (ファイル名, 写真の説明, 幅, 高さ, 調整用の名前)　並べた順に、切り替わる
  ('img07.jpg', '高い所から見た街並み', 1600, 1200, 'city'),
@@ -114,7 +140,7 @@ page = f'''<!DOCTYPE html>
   <section class="block wrap" id="links">
     <h2>そのほかのご案内</h2>
     <ul class="banners">
-''' + ''.join(f'      <li{" class=wide" if w else ""}><a href="{u}"><img src="{IMG}/{i}" alt="{t}" loading="lazy"></a></li>\n' for u, i, t, w in banners) + f'''    </ul>
+''' + ''.join(banner_html(*b) for b in banners) + f'''    </ul>
   </section>
 </main>
 
