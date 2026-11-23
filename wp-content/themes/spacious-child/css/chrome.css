@@ -33,11 +33,12 @@
 .gnav li a:hover { background: rgba(255,255,255,.14); border-bottom-color: #fff; }
 
 /* フッター */
-.site-footer { margin-top: 64px; background: linear-gradient(180deg, #1b72d8, #1558b0); padding: 36px 0 20px; }
+.site-footer { margin-top: 64px; background: linear-gradient(120deg, var(--navy-deep) 0%, var(--navy) 55%, var(--navy-light) 100%); padding: 36px 0 20px; }   /* ヘッダーと同じ濃い紺色 */
 .foot { display: grid; grid-template-columns: 1.1fr 1.4fr; gap: 28px; }
 .site-footer img { display: block; height: 48px; width: auto; max-width: none; margin-bottom: 12px; }
 .site-footer p { margin: 0; line-height: 1.8; color: #fff; }
-.site-footer a { color: #fff; }
+.site-footer a { color: #fff; text-decoration: none; }   /* トップページと、ほかのページで、下線の有無をそろえる */
+.site-footer a:hover { text-decoration: underline; }
 .foot ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 20px; }
 .foot li { list-style: none; margin: 0; padding: 0; }
 .copy { margin-top: 24px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.3); font-size: 13px; }

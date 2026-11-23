@@ -216,7 +216,7 @@ function get_header() {
     $header_done = true;
     $h = str_replace('{{CHROME_HEADER}}', file_get_contents(__DIR__ . '/../templates/chrome_header.html'), file_get_contents(__DIR__ . '/../templates/header.html'));
     $robots = !empty($SITE['preview']) ? '<meta name="robots" content="noindex, nofollow">' : '';
-    echo str_replace(['{{SLIDER}}', '{{R}}', '{{T}}', '{{TITLE}}', '{{CANON}}', '{{ROBOTS}}'], ['', $R, $T, htmlspecialchars($spec['title'] ?? $SITE['title']), htmlspecialchars($SITE['origin'] . '/' . ($spec['canon'] ?? '')), $robots], $h);
+    echo str_replace(['{{R}}', '{{T}}', '{{TITLE}}', '{{CANON}}', '{{ROBOTS}}'], [$R, $T, htmlspecialchars($spec['title'] ?? $SITE['title']), htmlspecialchars($SITE['origin'] . '/' . ($spec['canon'] ?? '')), $robots], $h);
 }
 function get_footer() {
     global $R, $T;
