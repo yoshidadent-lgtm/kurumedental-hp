@@ -83,7 +83,16 @@ page = f'''<!DOCTYPE html>
   </nav>
 
   <section class="block wrap fest" aria-label="歯の健康フェスタ">
-    <a href="{P}postar/"><img src="{IMG}/hanokenkoufesta.jpg" alt="歯の健康フェスタ ポスター展はこちら"></a>
+    <a class="fest-card" href="{P}postar/">
+      <span class="fest-bubbles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+      <span class="fest-text">
+        <small>みんなで学ぶ、お口の健康</small>
+        <strong>歯の<wbr>健康フェスタ</strong>
+        <span class="fest-sub">ポスター展は<wbr>こちら</span>
+      </span>
+      <span class="fest-go" aria-hidden="true">見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span>
+      <svg class="fest-tooth" viewBox="0 0 100 110" aria-hidden="true"><path d="M50 12c-9-8-30-8-35 10-4 15 3 27 7 42 3 11 4 38 14 38 8 0 7-24 14-24s6 24 14 24c10 0 11-27 14-38 4-15 11-27 7-42-5-18-26-18-35-10z" fill="#fff" stroke="#fff" stroke-width="4" stroke-linejoin="round"/><circle cx="38" cy="42" r="4.5" fill="#0f2a5a"/><circle cx="62" cy="42" r="4.5" fill="#0f2a5a"/><path d="M40 55q10 10 20 0" fill="none" stroke="#0f2a5a" stroke-width="4" stroke-linecap="round"/><circle cx="30" cy="52" r="5" fill="#ffb3c7" opacity=".8"/><circle cx="70" cy="52" r="5" fill="#ffb3c7" opacity=".8"/></svg>
+    </a>
   </section>
 
   <section class="block wrap" id="news">

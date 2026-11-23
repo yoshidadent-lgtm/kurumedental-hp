@@ -61,8 +61,28 @@ section.block { padding: 56px 0 8px; }
 .block h2 small { margin-left: 10px; font-size: 14px; color: var(--muted); font-weight: 400; letter-spacing: .08em; }
 
 /* フェスタ */
-.fest a { display: block; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--glow); }
-.fest img { width: 100%; }
+/* フェスタのバナー：写真ではなく、文字と図形で作る（拡大してもくっきり） */
+.fest-card { position: relative; display: flex; align-items: center; gap: 20px; overflow: hidden; min-height: 150px; padding: 22px 28px; border-radius: var(--radius); text-decoration: none; color: #fff;
+  background: linear-gradient(120deg, #1b72d8 0%, #3aa0f0 55%, #7fd0ff 100%); border: 2px solid #1558b0; box-shadow: 0 10px 30px rgba(27,114,216,.28); transition: transform .15s, box-shadow .15s, filter .15s; }
+.fest-card:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(27,114,216,.36); filter: brightness(1.05); }
+.fest-bubbles i { position: absolute; border-radius: 50%; background: rgba(255,255,255,.22); border: 2px solid rgba(255,255,255,.45); }
+.fest-bubbles i:nth-child(1) { width: 90px; height: 90px; left: 38%; top: -30px; }
+.fest-bubbles i:nth-child(2) { width: 46px; height: 46px; left: 52%; bottom: 14px; }
+.fest-bubbles i:nth-child(3) { width: 26px; height: 26px; left: 30%; bottom: 20px; }
+.fest-bubbles i:nth-child(4) { width: 64px; height: 64px; right: 22%; top: 10px; }
+.fest-bubbles i:nth-child(5) { width: 18px; height: 18px; right: 12%; bottom: 26px; }
+.fest-text { position: relative; flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.fest-text small { font-size: 14px; font-weight: 700; letter-spacing: .12em; color: #fff; text-shadow: 0 1px 3px rgba(9,29,68,.45); }
+.fest-text strong { font-size: clamp(28px, 4.6vw, 44px); line-height: 1.25; letter-spacing: .04em; text-shadow: 0 2px 6px rgba(9,29,68,.4); word-break: keep-all; overflow-wrap: anywhere; }
+.fest-sub { align-self: flex-start; margin-top: 6px; padding: 3px 16px; border-radius: 999px; background: #fff; color: #0f3f86; font-weight: 800; font-size: clamp(16px, 2.4vw, 20px); word-break: keep-all; overflow-wrap: anywhere; }
+.fest-go { position: relative; flex: none; display: inline-flex; align-items: center; gap: 2px; padding: 12px 18px 12px 24px; border-radius: 999px; background: #fff; color: #0f3f86; font-weight: 800; font-size: 18px; box-shadow: 0 4px 14px rgba(9,29,68,.25); }
+.fest-go svg { width: 20px; height: 20px; }
+.fest-tooth { position: relative; flex: none; width: 96px; height: auto; filter: drop-shadow(0 4px 8px rgba(9,29,68,.3)); }
+@media (max-width: 700px) {
+  .fest-card { padding: 18px 16px; gap: 10px; min-height: 0; }
+  .fest-go { display: none; }
+  .fest-tooth { width: 64px; }
+}
 
 /* お知らせ */
 .news { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
