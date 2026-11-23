@@ -113,7 +113,11 @@ section.block { padding: 56px 0 8px; }
 /* バナー */
 .banners { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .banners .wide { grid-column: span 2; }
-.banners a { display: block; height: 100%; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: #fff; }
+.banners a { display: block; height: 100%; border-radius: 12px; overflow: hidden; border: 2px solid var(--cd, #1558b0); background: #fff; box-shadow: 0 6px 18px var(--cg, rgba(27,114,216,.2)); transition: transform .15s, box-shadow .15s, filter .15s; }
+.banners a:hover { transform: translateY(-3px); filter: brightness(1.04) saturate(1.08); box-shadow: 0 10px 24px var(--cg, rgba(27,114,216,.2)); }
+.banners li:nth-child(1) { --cd:#c25e00; --cg:rgba(214,120,0,.24); }    /* 入会のご案内：橙（バナーの色に合わせる） */
+.banners li:nth-child(2) { --cd:#1558b0; --cg:rgba(27,114,216,.22); }   /* 口腔管理推進室：青 */
+.banners li:nth-child(5) { --cd:#0f7a6a; --cg:rgba(20,150,130,.22); }   /* 8020推進財団：青緑 */
 .banners img { width: 100%; height: 100%; object-fit: cover; }
 .banners .plain img { object-fit: contain; }   /* 小さな画像は、切り取らず、全体を見せる */
 /* 文字と、女性のイラストで作るカード（写真が小さくて、ぼやけるため） */
