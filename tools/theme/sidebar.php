@@ -30,53 +30,23 @@
 
 <?php elseif(is_page('visiting_dental') || page_is_ancestor_of('visiting_dental')): ?>
 		<div id="second_contents_right">
-		<div id="side_contents">
-		<div id="side_menu_1"><a href="<?php echo esc_url( home_url( '/event/' ) ); ?>"></a></div>
-		<div id="side_menu_2"><a href="https://kurume-dental.or.jp/kdhs/" target="_blank"></a></div>
-		<div id="side_menu_3"><a href="<?php echo esc_url( home_url( '/assistant_course/' ) ); ?>"></a></div>
-		<div id="side_menu_4"><a href="http://www.8020zaidan.or.jp/index.html" target="_blank"></a></div>
-		<div id="side_menu_5"><a href="https://kurume-oral.com/" target="_blank"></a></div>
-			</div>		</div>
+		<?php side_cards(); ?>		</div>
 
 <?php elseif(is_page('holiday_clinic') || page_is_ancestor_of('holiday_clinic')): ?>
 		<div id="second_contents_right">
-		<div id="side_contents">
-		<div id="side_menu_1"><a href="<?php echo esc_url( home_url( '/event/' ) ); ?>"></a></div>
-		<div id="side_menu_2"><a href="https://kurume-dental.or.jp/kdhs/" target="_blank"></a></div>
-		<div id="side_menu_3"><a href="<?php echo esc_url( home_url( '/assistant_course/' ) ); ?>"></a></div>
-		<div id="side_menu_4"><a href="http://www.8020zaidan.or.jp/index.html" target="_blank"></a></div>
-		<div id="side_menu_5"><a href="https://kurume-oral.com/" target="_blank"></a></div>
-</div>		</div>
+		<?php side_cards(); ?>		</div>
 
 <?php elseif(is_page('business_checkup') || page_is_ancestor_of('business_checkup')): ?>
 		<div id="second_contents_right">
-		<div id="side_contents">
-		<div id="side_menu_1"><a href="<?php echo esc_url( home_url( '/event/' ) ); ?>"></a></div>
-		<div id="side_menu_2"><a href="https://kurume-dental.or.jp/kdhs/" target="_blank"></a></div>
-		<div id="side_menu_3"><a href="<?php echo esc_url( home_url( '/assistant_course/' ) ); ?>"></a></div>
-		<div id="side_menu_4"><a href="http://www.8020zaidan.or.jp/index.html" target="_blank"></a></div>
-		<div id="side_menu_5"><a href="https://kurume-oral.com/" target="_blank"></a></div>
-</div>		</div>
+		<?php side_cards(); ?>		</div>
 
 <?php elseif(is_tax('local_dentist_op1')): ?>
 		<div id="second_contents_right">
-		<div id="side_contents">
-		<div id="side_menu_1"><a href="<?php echo esc_url( home_url( '/event/' ) ); ?>"></a></div>
-		<div id="side_menu_2"><a href="https://kurume-dental.or.jp/kdhs/" target="_blank"></a></div>
-		<div id="side_menu_3"><a href="<?php echo esc_url( home_url( '/assistant_course/' ) ); ?>"></a></div>
-		<div id="side_menu_4"><a href="http://www.8020zaidan.or.jp/index.html" target="_blank"></a></div>
-		<div id="side_menu_5"><a href="https://kurume-oral.com/" target="_blank"></a></div>
-</div>		</div>
+		<?php side_cards(); ?>		</div>
 
 <?php elseif(is_tax('local_dentist')): ?>
 		<div id="second_contents_right">
-		<div id="side_contents">
-		<div id="side_menu_1"><a href="<?php echo esc_url( home_url( '/event/' ) ); ?>"></a></div>
-		<div id="side_menu_2"><a href="https://kurume-dental.or.jp/kdhs/" target="_blank"></a></div>
-		<div id="side_menu_3"><a href="<?php echo esc_url( home_url( '/assistant_course/' ) ); ?>"></a></div>
-		<div id="side_menu_4"><a href="http://www.8020zaidan.or.jp/index.html" target="_blank"></a></div>
-		<div id="side_menu_5"><a href="https://kurume-oral.com/" target="_blank"></a></div>
-</div>		</div>
+		<?php side_cards(); ?>		</div>
 
 <?php elseif(is_page('member') || page_is_ancestor_of('member')): ?>
 		<div id="second_contents_right">

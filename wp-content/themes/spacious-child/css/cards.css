@@ -1,0 +1,48 @@
+/* 案内カード（トップページと、下のページの右の列で、共通）。トップ：tools/top_page.py、右の列：templates/side_cards.html（自動で作る） */
+/* バナー */
+.banners { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.banners .wide { grid-column: span 2; }
+.banners a { display: block; height: 100%; border-radius: 12px; overflow: hidden; border: 2px solid var(--cd, #1558b0); background: #fff; box-shadow: 0 6px 18px var(--cg, rgba(27,114,216,.2)); transition: transform .15s, box-shadow .15s, filter .15s; }
+.banners a:hover { transform: translateY(-3px); filter: brightness(1.04) saturate(1.08); box-shadow: 0 10px 24px var(--cg, rgba(27,114,216,.2)); }
+.banners .bn-join { --cd:#c25e00; --cg:rgba(214,120,0,.24); }    /* 入会のご案内：橙（バナーの色に合わせる） */
+.banners .bn-oral { --cd:#1558b0; --cg:rgba(27,114,216,.22); }   /* 口腔管理推進室：青 */
+.banners .bn-zaidan { --cd:#0f7a6a; --cg:rgba(20,150,130,.22); }   /* 8020推進財団：青緑 */
+.banners img { width: 100%; height: 100%; object-fit: cover; }
+.banners .plain img { object-fit: contain; }   /* 小さな画像は、切り取らず、全体を見せる */
+/* 文字と、女性のイラストで作るカード（写真が小さくて、ぼやけるため） */
+.banners .bn-card { --c1:#e6f6f8; --c2:#c3e8ee; --cd:#0f6f86; --cg:rgba(20,130,160,.22);
+  position: relative; display: flex; align-items: center; justify-content: space-between; gap: 4px; min-height: 124px; padding: 10px 6px 0 18px; overflow: hidden; text-decoration: none; color: var(--cd);
+  background: linear-gradient(180deg, var(--c1), var(--c2)); border: 2px solid var(--cd); box-shadow: 0 6px 18px var(--cg); transition: transform .15s, box-shadow .15s, filter .15s; }
+.banners .bn-card:hover { transform: translateY(-3px); filter: brightness(1.04) saturate(1.08); box-shadow: 0 10px 24px var(--cg); }
+.bn-card strong { font-size: 20px; line-height: 1.4; letter-spacing: .02em; word-break: keep-all; overflow-wrap: anywhere; }
+.bn-card svg { flex: none; width: 104px; height: 104px; align-self: flex-end; }
+.bn-card img { flex: none; width: auto; height: 118px; max-width: none; align-self: flex-end; margin-right: 4px; }
+.banners .bn-assist .bn-card { --c1:#e5f7ea; --c2:#c4ecd0; --cd:#17692f; --cg:rgba(40,150,80,.22); }
+.banners .bn-school .bn-card { --c1:#ffe9f1; --c2:#ffcfe0; --cd:#a8244f; --cg:rgba(220,70,120,.22); }
+
+@media (max-width: 860px) {
+  .banners { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 700px) {
+  .banners .bn-event, .banners .bn-assist, .banners .bn-school, .banners .plain { grid-column: span 2; }   /* スマホでは、1列にして、文字を縦に折らない */
+  .banners .plain img { height: auto; }
+  .bn-card strong { font-size: 22px; }
+}
+
+/* 下のページの右の列：幅が狭い（180px）ので、小さめのカードを縦に並べる。スマホでは、トップと同じ大きさで、1列 */
+.banners.side-cards { grid-template-columns: 1fr; gap: 12px; width: 180px; margin: 0 0 20px; }
+.side-cards li { grid-column: auto !important; }
+.side-cards .bn-card { min-height: 92px; padding: 8px 2px 0 10px; gap: 0; }
+.side-cards .bn-card strong { font-size: 14px; line-height: 1.35; letter-spacing: 0; }
+.side-cards .bn-card svg { width: 68px; height: 68px; }
+.side-cards .bn-card img { height: 78px; margin-right: 2px; }
+.side-cards .plain a { background: #fff; }
+.side-cards .plain img { height: auto; }
+@media (max-width: 700px) {
+  .banners.side-cards { width: 100%; }
+  .side-cards li { grid-column: span 2 !important; }
+  .side-cards .bn-card { min-height: 124px; padding: 10px 6px 0 18px; }
+  .side-cards .bn-card strong { font-size: 22px; line-height: 1.4; }
+  .side-cards .bn-card svg { width: 104px; height: 104px; }
+  .side-cards .bn-card img { height: 118px; }
+}

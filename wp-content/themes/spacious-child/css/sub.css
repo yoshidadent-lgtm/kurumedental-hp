@@ -44,3 +44,54 @@ a.map:hover { background: var(--sub-blue-dark); }
   .holiday_clinic_table td.hc_tel { grid-column: 1 / -1; padding-top: 4px; }
   .hc_tel a { display: inline-block; padding: 8px 16px; border-radius: 999px; background: #fff4d6; border: 2px solid #a85a00; font-size: 16px; }
 }
+
+/* 歯科医師会のご紹介：右のメニューを、色つきのカード風ボタンに（トップの入口カードと同じ作り） */
+#mem_nav_wrap ul { list-style: none; margin: 0; padding: 0; }
+#mem_nav_wrap li { --c1: #eaf6ff; --c2: #cfe8ff; --cd: #1558b0; --cg: rgba(27, 114, 216, .22); margin: 0 0 12px; border: 0; }
+#mem_nav_wrap li:nth-child(2) { --c1:#ffe9f1; --c2:#ffcfe0; --cd:#b02c5a; --cg:rgba(220,70,120,.22); }
+#mem_nav_wrap li:nth-child(3) { --c1:#e5f7ea; --c2:#c4ecd0; --cd:#1d7a3b; --cg:rgba(40,150,80,.22); }
+#mem_nav_wrap li:nth-child(4) { --c1:#f1ebff; --c2:#dccfff; --cd:#5b36b0; --cg:rgba(110,70,200,.22); }
+#mem_nav_wrap li:nth-child(5) { --c1:#fff4d6; --c2:#ffe3a0; --cd:#a85a00; --cg:rgba(214,140,0,.24); }
+#mem_nav_wrap li:nth-child(6) { --c1:#e6f6f8; --c2:#c3e8ee; --cd:#0f6f86; --cg:rgba(20,130,160,.22); }
+#mem_nav_wrap li a { display: flex; align-items: center; justify-content: space-between; gap: 6px; padding: 12px 14px; background: linear-gradient(180deg, var(--c1), var(--c2)); filter: none; color: #1b2733; font-size: 15px; font-weight: 700; line-height: 1.4; text-decoration: none; border: 2px solid var(--cd); border-radius: 12px; box-shadow: 0 6px 16px var(--cg); transition: transform .15s, box-shadow .15s, filter .15s; }
+#mem_nav_wrap li a::before { display: none; }
+#mem_nav_wrap li a::after { content: "›"; color: var(--cd); font-size: 22px; line-height: 1; }
+#mem_nav_wrap li a:hover { background: linear-gradient(180deg, var(--c1), var(--c2)); filter: brightness(1.04) saturate(1.08); transform: translateY(-3px); box-shadow: 0 10px 22px var(--cg); }
+#mem_nav_wrap li:last-child a { font-size: 13px; }
+@media (max-width: 700px) { #mem_nav_wrap li a { font-size: 16px; padding: 14px 16px; } }
+
+/* 地域の歯医者さん：入口の6つのボタン（トップの「受付歯科医院を探す」と同じ色）。画像のボタンを、文字のカードに */
+.local_dentist_menu { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 0 0 20px; padding: 0; list-style: none; }
+.local_dentist_menu li { --c1:#eaf6ff; --c2:#cfe8ff; --cd:#1558b0; --cg:rgba(27,114,216,.22); margin: 0; list-style: none; }
+.local_dentist_menu .local_dentist_menu_btn1 { --c1:#e6f6f8; --c2:#c3e8ee; --cd:#0f6f86; --cg:rgba(20,130,160,.22); }
+.local_dentist_menu .local_dentist_menu_btn2 { --c1:#ffe9f1; --c2:#ffcfe0; --cd:#b02c5a; --cg:rgba(220,70,120,.22); }
+.local_dentist_menu .local_dentist_menu_btn3 { --c1:#eaf6ff; --c2:#cfe8ff; --cd:#1558b0; --cg:rgba(27,114,216,.22); }
+.local_dentist_menu .local_dentist_menu_btn4 { --c1:#e5f7ea; --c2:#c4ecd0; --cd:#1d7a3b; --cg:rgba(40,150,80,.22); }
+.local_dentist_menu .local_dentist_menu_btn5 { --c1:#f1ebff; --c2:#dccfff; --cd:#5b36b0; --cg:rgba(110,70,200,.22); }
+.local_dentist_menu .local_dentist_menu_btn6 { --c1:#fff4d6; --c2:#ffe3a0; --cd:#a85a00; --cg:rgba(214,140,0,.24); }
+.local_dentist_menu li a { display: flex; align-items: center; justify-content: space-between; gap: 8px; float: none; width: auto; height: 100%; min-height: 82px; margin: 0; padding: 14px 18px; text-indent: 0; background: linear-gradient(180deg, var(--c1), var(--c2)); border: 2px solid var(--cd); border-radius: 14px; box-shadow: 0 6px 18px var(--cg); color: #1b2733; font-size: 16px; font-weight: 800; line-height: 1.45; text-decoration: none; word-break: keep-all; overflow-wrap: anywhere; transition: transform .15s, box-shadow .15s, filter .15s; }
+.local_dentist_menu li a::after { content: "›"; color: var(--cd); font-size: 26px; line-height: 1; }
+.local_dentist_menu li a:hover { background: linear-gradient(180deg, var(--c1), var(--c2)); transform: translateY(-3px); filter: brightness(1.04) saturate(1.08); box-shadow: 0 10px 24px var(--cg); }
+
+/* 地域のボタン（安武・荒木・大善寺 など）：事業ごとの色 */
+#map_navigation ul#area_btn_list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 0 0 16px; padding: 0; }
+#map_navigation ul#area_btn_list li.area_btn { --c1:#e6f6f8; --c2:#c3e8ee; --cd:#0f6f86; --cg:rgba(20,130,160,.22); float: none; width: auto; height: auto; margin: 0; background: none; border: 0; list-style: none; }
+#map_navigation ul#area_btn_list li.area_btn:has(a[href*="local_dentist_op1"]) { --c1:#ffe9f1; --c2:#ffcfe0; --cd:#b02c5a; --cg:rgba(220,70,120,.22); }
+#map_navigation ul#area_btn_list li.area_btn:has(a[href*="local_dentist_op2"]) { --c1:#eaf6ff; --c2:#cfe8ff; --cd:#1558b0; --cg:rgba(27,114,216,.22); }
+#map_navigation ul#area_btn_list li.area_btn:has(a[href*="local_dentist_op3"]) { --c1:#e5f7ea; --c2:#c4ecd0; --cd:#1d7a3b; --cg:rgba(40,150,80,.22); }
+#map_navigation ul#area_btn_list li.area_btn:has(a[href*="local_dentist_op4"]) { --c1:#f1ebff; --c2:#dccfff; --cd:#5b36b0; --cg:rgba(110,70,200,.22); }
+#map_navigation ul#area_btn_list li.area_btn:has(a[href*="local_dentist_op5"]) { --c1:#fff4d6; --c2:#ffe3a0; --cd:#a85a00; --cg:rgba(214,140,0,.24); }
+#map_navigation ul#area_btn_list li.area_btn a { display: flex; align-items: center; justify-content: space-between; width: auto; height: auto; min-height: 56px; padding: 12px 16px; line-height: 1.45; text-align: left; background: linear-gradient(180deg, var(--c1), var(--c2)); border: 2px solid var(--cd); border-radius: 12px; box-shadow: 0 5px 14px var(--cg); color: #1b2733 !important; font-size: 16px; font-weight: 800; word-break: keep-all; overflow-wrap: anywhere; transition: transform .15s, box-shadow .15s, filter .15s; }
+#map_navigation ul#area_btn_list li.area_btn a::after { content: "›"; color: var(--cd); font-size: 24px; line-height: 1; }
+#map_navigation ul#area_btn_list li.area_btn a:hover { background: linear-gradient(180deg, var(--c1), var(--c2)); transform: translateY(-3px); filter: brightness(1.04) saturate(1.08); box-shadow: 0 8px 20px var(--cg); }
+
+/* 医院のカード */
+.comm_frame { border: 2px solid #cfe3f8; border-radius: 14px; box-shadow: 0 4px 14px rgba(27, 114, 216, .1); }
+.clinic-tel { color: #1558b0; font-weight: 700; text-decoration: none; }
+.clinic-tel:hover { text-decoration: underline; }
+p.local_dentist_clinic_area { display: inline-block; margin: 0 0 14px; padding: 6px 16px; background: #e6f6f8; border-left: 6px solid #0f6f86; border-radius: 8px; color: #0b4f61; font-weight: 700; }
+
+@media (max-width: 700px) {
+  .local_dentist_menu, #map_navigation ul#area_btn_list { grid-template-columns: 1fr; }
+  #map_navigation ul#area_btn_list li.area_btn { margin: 0; width: auto; }
+}

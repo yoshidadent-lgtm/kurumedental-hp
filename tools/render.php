@@ -216,13 +216,14 @@ function get_header() {
     $header_done = true;
     $h = str_replace('{{CHROME_HEADER}}', file_get_contents(__DIR__ . '/../templates/chrome_header.html'), file_get_contents(__DIR__ . '/../templates/header.html'));
     $robots = !empty($SITE['preview']) ? '<meta name="robots" content="noindex, nofollow">' : '';
-    echo str_replace(['{{R}}', '{{T}}', '{{CV}}', '{{TITLE}}', '{{CANON}}', '{{ROBOTS}}'], [$R, $T, substr(md5_file(__DIR__ . '/../wp-content/themes/spacious-child/css/chrome.css') . md5_file(__DIR__ . '/../wp-content/themes/spacious-child/css/sub.css') . md5_file(__DIR__ . '/../wp-content/themes/spacious-child/style.css'), 0, 8), htmlspecialchars($spec['title'] ?? $SITE['title']), htmlspecialchars($SITE['origin'] . '/' . ($spec['canon'] ?? '')), $robots], $h);
+    echo str_replace(['{{R}}', '{{T}}', '{{CV}}', '{{TITLE}}', '{{CANON}}', '{{ROBOTS}}'], [$R, $T, substr(md5_file(__DIR__ . '/../wp-content/themes/spacious-child/css/chrome.css') . md5_file(__DIR__ . '/../wp-content/themes/spacious-child/css/sub.css') . md5_file(__DIR__ . '/../wp-content/themes/spacious-child/css/cards.css') . md5_file(__DIR__ . '/../wp-content/themes/spacious-child/style.css'), 0, 8), htmlspecialchars($spec['title'] ?? $SITE['title']), htmlspecialchars($SITE['origin'] . '/' . ($spec['canon'] ?? '')), $robots], $h);
 }
 function get_footer() {
     global $R, $T;
     $f = str_replace('{{CHROME_FOOTER}}', file_get_contents(__DIR__ . '/../templates/chrome_footer.html'), file_get_contents(__DIR__ . '/../templates/footer.html'));
     echo str_replace(['{{R}}', '{{T}}', '{{YEAR}}'], [$R, $T, date('Y')], $f);
 }
+function side_cards() { global $R, $T; echo str_replace(['{{R}}', '{{T}}'], [$R, $T], file_get_contents(__DIR__ . '/../templates/side_cards.html')); }   // 右の列の案内カード（top_page.py が作る）
 function get_sidebar($n = '') { tpl($n ? "sidebar-$n.php" : 'sidebar.php'); }
 function get_template_part($slug, $n = '') {
     global $post, $T;

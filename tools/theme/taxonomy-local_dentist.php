@@ -49,7 +49,7 @@ get_header(); ?>
 			</div><?php endif; ?>
 			<?php if(get_field('clinic_tel')): ?><div class="clinic-contents">
 			<span class="clinic-name">TEL</span>
-			<?php the_field('clinic_tel'); ?></div><?php endif; ?>
+			<a class="clinic-tel" href="tel:<?php echo preg_replace('/[^0-9+]/', '', get_field('clinic_tel')); ?>"><?php the_field('clinic_tel'); ?></a></div><?php endif; ?>
 			<div class="clinic-contents">
 			<span class="clinic-name">備考</span>
 			<?php
@@ -91,7 +91,7 @@ get_header(); ?>
 			</div><?php endif; ?>
 			<?php if(get_field('clinic_tel')): ?><div class="clinic-contents">
 			<span class="clinic-name">TEL</span>
-			<?php the_field('clinic_tel'); ?></div><?php endif; ?>
+			<a class="clinic-tel" href="tel:<?php echo preg_replace('/[^0-9+]/', '', get_field('clinic_tel')); ?>"><?php the_field('clinic_tel'); ?></a></div><?php endif; ?>
 			
 			<div class="clinic-contents">
 			<span class="clinic-name">備考</span>
@@ -134,7 +134,7 @@ get_header(); ?>
 			</div><?php endif; ?>
 			<?php if(get_field('clinic_tel')): ?><div class="clinic-contents">
 			<span class="clinic-name">TEL</span>
-			<?php the_field('clinic_tel'); ?></div><?php endif; ?>
+			<a class="clinic-tel" href="tel:<?php echo preg_replace('/[^0-9+]/', '', get_field('clinic_tel')); ?>"><?php the_field('clinic_tel'); ?></a></div><?php endif; ?>
 
 			<div class="clinic-contents">
 			<span class="clinic-name">備考</span>
@@ -179,7 +179,7 @@ get_header(); ?>
 			</div><?php endif; ?>
 			<?php if(get_field('clinic_tel')): ?><div class="clinic-contents">
 			<span class="clinic-name">TEL</span>
-			<?php the_field('clinic_tel'); ?></div><?php endif; ?>
+			<a class="clinic-tel" href="tel:<?php echo preg_replace('/[^0-9+]/', '', get_field('clinic_tel')); ?>"><?php the_field('clinic_tel'); ?></a></div><?php endif; ?>
 
 			<div class="clinic-contents">
 			<span class="clinic-name">備考</span>
@@ -224,7 +224,7 @@ get_header(); ?>
 			</div><?php endif; ?>
 			<?php if(get_field('clinic_tel')): ?><div class="clinic-contents">
 			<span class="clinic-name">TEL</span>
-			<?php the_field('clinic_tel'); ?></div><?php endif; ?>
+			<a class="clinic-tel" href="tel:<?php echo preg_replace('/[^0-9+]/', '', get_field('clinic_tel')); ?>"><?php the_field('clinic_tel'); ?></a></div><?php endif; ?>
 
 			<div class="clinic-contents">
 			<span class="clinic-name">備考</span>
@@ -268,7 +268,7 @@ get_header(); ?>
 			</div><?php endif; ?>
 			<?php if(get_field('clinic_tel')): ?><div class="clinic-contents">
 			<span class="clinic-name">TEL</span>
-			<?php the_field('clinic_tel'); ?></div><?php endif; ?>
+			<a class="clinic-tel" href="tel:<?php echo preg_replace('/[^0-9+]/', '', get_field('clinic_tel')); ?>"><?php the_field('clinic_tel'); ?></a></div><?php endif; ?>
 
 			<div class="clinic-contents">
 			<span class="clinic-name">備考</span>
@@ -311,7 +311,7 @@ get_header(); ?>
 			</div><?php endif; ?>
 			<?php if(get_field('clinic_tel')): ?><div class="clinic-contents">
 			<span class="clinic-name">TEL</span>
-			<?php the_field('clinic_tel'); ?></div><?php endif; ?>
+			<a class="clinic-tel" href="tel:<?php echo preg_replace('/[^0-9+]/', '', get_field('clinic_tel')); ?>"><?php the_field('clinic_tel'); ?></a></div><?php endif; ?>
 
 			<div class="clinic-contents">
 			<span class="clinic-name">備考</span>

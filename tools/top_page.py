@@ -12,6 +12,7 @@ import hashlib
 ver = lambda f: hashlib.md5((ROOT / THEME / 'css' / f).read_bytes()).hexdigest()[:8]   # 古い表示が残らないよう、CSSの内容から版番号を付ける
 CSS = THEME + '/css/top.css?v=' + ver('top.css')
 CHROME_CSS = THEME + '/css/chrome.css?v=' + ver('chrome.css')
+CARDS_CSS = THEME + '/css/cards.css?v=' + ver('cards.css')
 frag = lambda n: (ROOT / 'templates' / n).read_text(encoding='utf-8').replace('{{R}}', P).replace('{{T}}', THEME).replace('{{YEAR}}', str(datetime.date.today().year))
 CHROME_HEADER = frag('chrome_header.html')
 CHROME_FOOTER = frag('chrome_footer.html')
@@ -57,20 +58,27 @@ def woman(hair, skin, outfit, collar, kind):   # 女性のイラスト（頭が�
             f'<path d="M54 71q6 9 12 0z" fill="#d9455f"/><path d="M57 74.500q3 2.500 6 0" fill="none" stroke="#ff8fa6" stroke-width="2" stroke-linecap="round"/>{extra}</svg>')
 girls = {'event': woman('#3b2a2a', '#ffe0cf', '#bfe9df', '#fff', 'event'),
          'assist': woman('#7a4a2a', '#ffe3d2', '#ffd3dc', '#fff', 'assist'),
-         'school': f'<img src="{IMG}/school-girl.png" alt="" width="121" height="140" loading="lazy">'}   # 学校：ユーザー提供のイラスト（紺の制服に変更）
-def banner_html(u, i, t, w):
+         'school': '<img src="{IMG}/school-girl.png" alt="" width="121" height="140" loading="lazy">'}   # 学校：ユーザー提供のイラスト（紺の制服に変更）
+def banner_html(u, i, t, w, c='', pre=P, img=IMG):
     if i.startswith('card:'):
         k = i[5:]
-        return f'      <li class="bn-{k}"><a class="bn-card" href="{u}"><strong>{t}</strong>{girls[k]}</a></li>\n'
-    return f'      <li class="{'wide' if w else 'plain'}"><a href="{u}"><img src="{IMG}/{i}" alt="{t}" loading="lazy"></a></li>\n'
-banners = [
- (P + 'introduction/introduction_4/', 'ishikai_banner.png', '久留米歯科医師会 入会のご案内', True),
- ('https://kurume-oral.com', 'koukuu-banner3.png', '口腔管理推進室', True),
- (P + 'event/', 'card:event', 'イベント<wbr>情報', False),
- (P + 'assistant_course/', 'card:assist', '歯科助手<wbr>講習会の<wbr>ご案内', False),
- ('https://www.8020zaidan.or.jp/', 'zaidan_banner.jpg', '財団法人8020推進財団', False),
- ('https://kurume-dental.or.jp/kdhs/', 'card:school', '久留米歯科<wbr>衛生専門学校', False),
+        return f'      <li class="bn-{k}"><a class="bn-card" href="{u}"><strong>{t}</strong>{girls[k].replace("{IMG}", img)}</a></li>\n'
+    return f'      <li class="{"wide" if w else "plain"} bn-{c}"><a href="{u}"><img src="{img}/{i}" alt="{t}" loading="lazy"></a></li>\n'
+banners = [   # (リンク先, 画像かカード, 題名, 横に2枚分か, 色の名前)
+ (P + 'introduction/introduction_4/', 'ishikai_banner.png', '久留米歯科医師会 入会のご案内', True, 'join'),
+ ('https://kurume-oral.com', 'koukuu-banner3.png', '口腔管理推進室', True, 'oral'),
+ (P + 'event/', 'card:event', 'イベント<wbr>情報', False, ''),
+ (P + 'assistant_course/', 'card:assist', '歯科助手<wbr>講習会の<wbr>ご案内', False, ''),
+ ('https://www.8020zaidan.or.jp/', 'zaidan_banner.jpg', '財団法人8020推進財団', False, 'zaidan'),
+ ('https://kurume-dental.or.jp/kdhs/', 'card:school', '久留米歯科<wbr>衛生専門学校', False, ''),
 ]
+# 下のページの右の列：イベント、学校、講習会、8020、口腔管理推進室（トップと同じカード）。{{R}}・{{T}} は、render.php が、ページの深さに合わせて置き換える
+_side = [('{{R}}event/', 'card:event', 'イベント<wbr>情報', False, ''),
+         ('https://kurume-dental.or.jp/kdhs/', 'card:school', '久留米歯科<wbr>衛生専門学校', False, ''),
+         ('{{R}}assistant_course/', 'card:assist', '歯科助手<wbr>講習会の<wbr>ご案内', False, ''),
+         ('https://www.8020zaidan.or.jp/', 'zaidan_banner.jpg', '財団法人8020推進財団', False, 'zaidan'),
+         ('https://kurume-oral.com/', 'koukuu-banner3.png', '口腔管理推進室', False, 'oral')]
+(ROOT / 'templates/side_cards.html').write_text('<ul class="banners side-cards">\n' + ''.join(banner_html(*b, img='{{T}}/images') for b in _side) + '</ul>\n', encoding='utf-8')
 slides = [   # (ファイル名, 写真の説明, 幅, 高さ, 調整用の名前)　並べた順に、切り替わる
  ('img07.jpg', '高い所から見た街並み', 1600, 1200, 'city'),
  ('img02.jpg', '満開の桜と、久留米歯科医師会館', 875, 410, 'blossom'),
@@ -92,6 +100,7 @@ page = f'''<!DOCTYPE html>
 <link rel="apple-touch-icon" href="{P}apple-touch-icon.png">
 <link rel="stylesheet" href="{CHROME_CSS}">
 <link rel="stylesheet" href="{CSS}">
+<link rel="stylesheet" href="{CARDS_CSS}">
 </head>
 <body>
 {CHROME_HEADER}
