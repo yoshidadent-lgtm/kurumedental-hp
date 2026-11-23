@@ -25,11 +25,11 @@ icon = {
  'check': svg('<rect x="13" y="10" width="38" height="48" rx="5"/><path d="M24 6h16v8H24zM22 30l5 5 9-10M22 46h20"/>'),
  'home': svg('<path d="M8 30L32 10l24 20M14 26v28h36V26"/><path d="M32 32v12M26 38h12"/>'),
 }
-quick = [
- ('holiday_clinic/', 'cal', '休日診療のご案内', '日曜・祝日の当番医をご案内します'),
- ('local_dentist_top/', 'pin', '地域の歯医者さん', '地域から、医院を探せます'),
- ('business_checkup/', 'check', '健診事業のご案内', '乳幼児から高齢者までの歯科健診'),
- ('visiting_dental/', 'home', '訪問歯科診療のご案内', 'ご自宅・施設への訪問診療'),
+quick = [   # <wbr> は、狭い画面で改行してよい、自然な区切りの位置
+ ('holiday_clinic/', 'cal', '休日診療の<wbr>ご案内', '日曜・祝日の<wbr>当番医を<wbr>ご案内します'),
+ ('local_dentist_top/', 'pin', '地域の<wbr>歯医者さん', '地域から、<wbr>医院を<wbr>探せます'),
+ ('business_checkup/', 'check', '健診事業の<wbr>ご案内', '乳幼児から<wbr>高齢者までの<wbr>歯科健診'),
+ ('visiting_dental/', 'home', '訪問歯科診療の<wbr>ご案内', 'ご自宅・施設への<wbr>訪問診療'),
 ]
 chips = [('op1', '1歳半・3歳児健診'), ('op2', 'フッ素塗布'), ('op3', '歯っぴー検診'), ('op4', '周術期ケア'), ('op5', '妊婦歯科健診')]
 banners = [

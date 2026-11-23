@@ -38,12 +38,16 @@ a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 /* かんたん入口 */
 .quick { margin-top: -56px; position: relative; z-index: 2; }
 .quick ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.quick a { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; height: 100%; padding: 22px 12px 20px; background: #fff;
-  border-radius: var(--radius); text-decoration: none; color: var(--ink); box-shadow: var(--glow); border: 1px solid var(--line); transition: transform .15s, box-shadow .15s; }
-.quick a:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(27, 114, 216, .26); }
-.quick svg { width: 68px; height: 68px; padding: 14px; color: var(--blue); background: linear-gradient(135deg, #f1f9ff, #d3eafd); border-radius: 50%; }
+.quick a { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; height: 100%; padding: 22px 12px 20px;
+  background: linear-gradient(180deg, #eaf6ff 0%, #cfe8ff 100%);   /* カードの色：明るい水色 */
+  border-radius: var(--radius); text-decoration: none; color: var(--ink); box-shadow: var(--glow);
+  border: 2px solid var(--blue-dark);                              /* 枠：濃い青、2px */
+  transition: transform .15s, box-shadow .15s, border-color .15s, background .15s; }
+.quick a:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(27, 114, 216, .3); border-color: var(--navy); background: linear-gradient(180deg, #f2faff 0%, #d9edff 100%); }
+.quick svg { width: 68px; height: 68px; padding: 14px; color: var(--blue-dark); background: #fff; border-radius: 50%; box-shadow: 0 2px 8px rgba(21, 88, 176, .18); }   /* アイコンは、白い丸の上に */
 .quick strong { font-size: 18px; line-height: 1.4; }
-.quick small { color: var(--muted); font-size: 14px; line-height: 1.5; }
+.quick strong, .quick small { word-break: keep-all; overflow-wrap: anywhere; }   /* 区切りの位置（<wbr>）でだけ改行。1文字だけ次の行に落ちるのを防ぐ */
+.quick small { color: #33465c; font-size: 14px; line-height: 1.5; }   /* 水色の上でも、読みやすい濃さ */
 
 section.block { padding: 56px 0 8px; }
 .block h2 { margin: 0 0 20px; font-size: 26px; line-height: 1.4; padding-left: 14px; border-left: 6px solid var(--blue); border-image: linear-gradient(180deg, var(--blue-bright), var(--blue)) 1; }
