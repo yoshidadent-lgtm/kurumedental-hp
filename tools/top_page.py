@@ -40,12 +40,12 @@ banners = [
  ('https://www.8020zaidan.or.jp/', 'zaidan_banner.jpg', '財団法人8020推進財団', False),
  ('https://kurume-dental.or.jp/kdhs/', 'school_banner.jpg', '久留米歯科衛生専門学校', False),
 ]
-slides = [   # (ファイル名, 写真の説明, 幅, 高さ)
- ('img06.jpg', '満開の桜並木の通り', 1125, 1500),
- ('img02.jpg', '満開の桜と、久留米歯科医師会館', 875, 410),
- ('img03.jpg', '久留米歯科医師会館の入口', 875, 410),
- ('img07.jpg', '高い所から見た街並み', 1600, 1200),
- ('img05.jpg', '口腔保健センターの入口', 875, 410),
+slides = [   # (ファイル名, 写真の説明, 幅, 高さ, 調整用の名前)　並べた順に、切り替わる
+ ('img07.jpg', '高い所から見た街並み', 1600, 1200, 'city'),
+ ('img02.jpg', '満開の桜と、久留米歯科医師会館', 875, 410, 'blossom'),
+ ('img03.jpg', '久留米歯科医師会館の入口', 875, 410, 'entrance'),
+ ('img06.jpg', '満開の桜並木の通り', 1125, 1500, 'sakura'),
+ ('img05.jpg', '口腔保健センターの入口', 875, 410, 'center'),
 ]
 description = '久留米歯科医師会の公式ホームページです。休日診療の当番医、地域の歯医者さん、健診事業、訪問歯科診療などをご案内します。'
 page = f'''<!DOCTYPE html>
@@ -70,7 +70,7 @@ page = f'''<!DOCTYPE html>
     <input type="checkbox" id="hero-pause" class="hero-pause-input">
     <label for="hero-pause" class="hero-pause"><span class="sr-only">スライドショーの一時停止と再開</span><span class="pause-icon" aria-hidden="true"></span></label>
     <ul class="slides">
-''' + ''.join(f'      <li class="slide"><img src="{IMG}/slider/{f}" alt="{t}" width="{w}" height="{h}"></li>\n' for f, t, w, h in slides) + f'''    </ul>
+''' + ''.join(f'      <li class="slide slide-{k}"><img src="{IMG}/slider/{f}" alt="{t}" width="{w}" height="{h}"></li>\n' for f, t, w, h, k in slides) + f'''    </ul>
     <div class="hero-text"><div class="wrap"><div class="hero-card">
       <h1>久留米地域の皆様とともに</h1>
       <p>一般社団法人 久留米歯科医師会</p>
