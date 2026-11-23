@@ -88,6 +88,7 @@ section.block { padding: 56px 0 8px; }
 .news { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .news li { display: grid; grid-template-columns: 9em 1fr; gap: 8px 16px; padding: 14px 4px; border-bottom: 1px solid var(--line); }
 .news time { color: var(--muted); font-size: 15px; }
+.news a { word-break: auto-phrase; text-wrap: pretty; }   /* 行の長さをそろえ、1文字だけ次の行に落ちるのを防ぐ */
 .more { margin: 18px 0 0; text-align: right; }
 .btn { display: inline-block; padding: 10px 24px; border-radius: 999px; background: linear-gradient(135deg, #1f7ae0, #1558b0); color: #fff; text-decoration: none; font-weight: 700; box-shadow: 0 6px 16px rgba(27,114,216,.28); }
 .btn:hover { background: linear-gradient(135deg, #1b72d8, #124a8c); }

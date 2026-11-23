@@ -17,7 +17,7 @@ CHROME_HEADER = frag('chrome_header.html')
 CHROME_FOOTER = frag('chrome_footer.html')
 YEAR = datetime.date.today().year
 robots = '<meta name="robots" content="noindex, nofollow">\n' if site.get('preview') else ''
-posts = sorted([d for d in data if d['type'] == 'post'], key=lambda d: d['date'], reverse=True)[:8]
+posts = sorted([d for d in data if d['type'] == 'post' and d['date'][:4] >= '2026'], key=lambda d: d['date'], reverse=True)[:8]   # お知らせは、2026年以降のみ（ユーザー指示）
 news = ''.join('<li><time datetime="%s">%s年%d月%d日</time><a href="%spost-%s/">%s</a></li>\n'
                % (p['date'][:10], p['date'][:4], int(p['date'][5:7]), int(p['date'][8:10]), P, p['id'], html.escape(p['title'])) for p in posts)
 svg = lambda body: '<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">%s</svg>' % body
