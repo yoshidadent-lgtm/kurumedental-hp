@@ -40,6 +40,13 @@ banners = [
  ('https://www.8020zaidan.or.jp/', 'zaidan_banner.jpg', '財団法人8020推進財団', False),
  ('https://kurume-dental.or.jp/kdhs/', 'school_banner.jpg', '久留米歯科衛生専門学校', False),
 ]
+slides = [
+ ('img01.jpg', '高い所から見た、久留米市の街並み'),
+ ('img02.jpg', '満開の桜と、久留米歯科医師会館'),
+ ('img03.jpg', '久留米歯科医師会館の入口'),
+ ('img04.jpg', '久留米歯科衛生専門学校の校舎'),
+ ('img05.jpg', '口腔保健センターの入口'),
+]
 description = '久留米歯科医師会の公式ホームページです。休日診療の当番医、地域の歯医者さん、健診事業、訪問歯科診療などをご案内します。'
 page = f'''<!DOCTYPE html>
 <html lang="ja">
@@ -59,12 +66,15 @@ page = f'''<!DOCTYPE html>
 {CHROME_HEADER}
 
 <main id="main">
-  <section class="hero" aria-label="トップ画像">
-    <img src="{IMG}/slider/img01.jpg" alt="久留米市の街並み">
-    <div class="hero-text"><div class="wrap">
+  <section class="hero" aria-label="写真のスライドショー">
+    <input type="checkbox" id="hero-pause" class="hero-pause-input">
+    <label for="hero-pause" class="hero-pause"><span class="sr-only">スライドショーの一時停止と再開</span><span class="pause-icon" aria-hidden="true"></span></label>
+    <ul class="slides">
+''' + ''.join(f'      <li class="slide"><img src="{IMG}/slider/{f}" alt="{t}" width="875" height="410"></li>\n' for f, t in slides) + f'''    </ul>
+    <div class="hero-text"><div class="wrap"><div class="hero-card">
       <h1>久留米地域の皆様とともに</h1>
       <p>一般社団法人 久留米歯科医師会</p>
-    </div></div>
+    </div></div></div>
   </section>
 
   <nav class="quick wrap" aria-label="主なご案内">

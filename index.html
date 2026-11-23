@@ -36,12 +36,20 @@
 
 
 <main id="main">
-  <section class="hero" aria-label="トップ画像">
-    <img src="wp-content/themes/spacious-child/images/slider/img01.jpg" alt="久留米市の街並み">
-    <div class="hero-text"><div class="wrap">
+  <section class="hero" aria-label="写真のスライドショー">
+    <input type="checkbox" id="hero-pause" class="hero-pause-input">
+    <label for="hero-pause" class="hero-pause"><span class="sr-only">スライドショーの一時停止と再開</span><span class="pause-icon" aria-hidden="true"></span></label>
+    <ul class="slides">
+      <li class="slide"><img src="wp-content/themes/spacious-child/images/slider/img01.jpg" alt="高い所から見た、久留米市の街並み" width="875" height="410"></li>
+      <li class="slide"><img src="wp-content/themes/spacious-child/images/slider/img02.jpg" alt="満開の桜と、久留米歯科医師会館" width="875" height="410"></li>
+      <li class="slide"><img src="wp-content/themes/spacious-child/images/slider/img03.jpg" alt="久留米歯科医師会館の入口" width="875" height="410"></li>
+      <li class="slide"><img src="wp-content/themes/spacious-child/images/slider/img04.jpg" alt="久留米歯科衛生専門学校の校舎" width="875" height="410"></li>
+      <li class="slide"><img src="wp-content/themes/spacious-child/images/slider/img05.jpg" alt="口腔保健センターの入口" width="875" height="410"></li>
+    </ul>
+    <div class="hero-text"><div class="wrap"><div class="hero-card">
       <h1>久留米地域の皆様とともに</h1>
       <p>一般社団法人 久留米歯科医師会</p>
-    </div></div>
+    </div></div></div>
   </section>
 
   <nav class="quick wrap" aria-label="主なご案内">
