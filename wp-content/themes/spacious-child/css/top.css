@@ -36,15 +36,22 @@ a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 .hero-card p { margin: 0; font-size: clamp(14px, 1.7vw, 18px); font-weight: 700; letter-spacing: .08em; color: #0f2a5a; }
 
 /* かんたん入口 */
-.quick { margin-top: -56px; position: relative; z-index: 2; }
+.quick { margin-top: -56px; position: relative; z-index: 2;
+  --c1: #eaf6ff; --c2: #cfe8ff; --cd: #1558b0; --cg: rgba(27, 114, 216, .18); }   /* 既定の色（水色）。カードごとの色は、下の q-… が上書きする */
 .quick ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.quick a { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; height: 100%; padding: 22px 12px 20px;
-  background: linear-gradient(180deg, #eaf6ff 0%, #cfe8ff 100%);   /* カードの色：明るい水色 */
-  border-radius: var(--radius); text-decoration: none; color: var(--ink); box-shadow: var(--glow);
-  border: 2px solid var(--blue-dark);                              /* 枠：濃い青、2px */
-  transition: transform .15s, box-shadow .15s, border-color .15s, background .15s; }
-.quick a:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(27, 114, 216, .3); border-color: var(--navy); background: linear-gradient(180deg, #f2faff 0%, #d9edff 100%); }
-.quick svg { width: 68px; height: 68px; padding: 14px; color: var(--blue-dark); background: #fff; border-radius: 50%; box-shadow: 0 2px 8px rgba(21, 88, 176, .18); }   /* アイコンは、白い丸の上に */
+.quick a {
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; height: 100%; padding: 22px 12px 20px;
+  background: linear-gradient(180deg, var(--c1) 0%, var(--c2) 100%);
+  border-radius: var(--radius); text-decoration: none; color: var(--ink); box-shadow: 0 10px 30px var(--cg);
+  border: 2px solid var(--cd);                                    /* 枠：濃い色、2px */
+  transition: transform .15s, box-shadow .15s, filter .15s; }
+.quick a:hover { transform: translateY(-3px); box-shadow: 0 14px 34px var(--cg); filter: brightness(1.04) saturate(1.08); }
+/* カードごとの色（色だけに頼らず、アイコンと文字でも区別できる） */
+.q-holiday { --c1: #fff4d6; --c2: #ffe3a0; --cd: #a85a00; --cg: rgba(214, 140, 0, .24); }    /* 休日診療：黄・橙 */
+.q-clinic  { --c1: #e5f7ea; --c2: #c4ecd0; --cd: #1d7a3b; --cg: rgba(40, 150, 80, .22); }     /* 地域の歯医者さん：緑 */
+.q-checkup { --c1: #ffe9f1; --c2: #ffcfe0; --cd: #b02c5a; --cg: rgba(220, 70, 120, .22); }    /* 健診事業：ピンク */
+.q-visit   { --c1: #eaf6ff; --c2: #cfe8ff; --cd: #1558b0; --cg: rgba(27, 114, 216, .22); }    /* 訪問歯科診療：水色 */
+.quick svg { width: 68px; height: 68px; padding: 14px; color: var(--cd); background: #fff; border-radius: 50%; box-shadow: 0 2px 8px var(--cg); }   /* アイコンは、白い丸の上に */
 .quick strong { font-size: 18px; line-height: 1.4; }
 .quick strong, .quick small { word-break: keep-all; overflow-wrap: anywhere; }   /* 区切りの位置（<wbr>）でだけ改行。1文字だけ次の行に落ちるのを防ぐ */
 .quick small { color: #33465c; font-size: 14px; line-height: 1.5; }   /* 水色の上でも、読みやすい濃さ */
