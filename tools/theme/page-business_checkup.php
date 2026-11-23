@@ -31,7 +31,7 @@
 <p class="txtmin">歯科医師会では「健康増進法」のなかで「８０２０運動」「生活習慣病予防」を推進するためにたくさんの事業を実施して、皆様のお口の健康のお手伝いをしています。</p>
 
 <section class="ck-card">
-<h3 class="ck-title"><span class="ck-no">1</span><span>1歳児歯科健診<small>（1歳児初めての歯の健康教室）</small></span></h3>
+<h3 class="ck-title"><span>1歳児歯科健診<small>（1歳児初めての歯の健康教室）</small></span></h3>
 <dl class="ck-rows">
 <?php ck_row('実施場所', 'place-01'); ?>
 <?php ck_row('開始時間', 'open-01'); ?>
@@ -43,7 +43,7 @@
 </div>
 </section>
 <section class="ck-card">
-<h3 class="ck-title"><span class="ck-no">2</span><span>1歳半・3歳児歯科健診</span></h3>
+<h3 class="ck-title"><span>1歳半・3歳児歯科健診</span></h3>
 <dl class="ck-rows">
 <?php ck_row('実施場所', 'place-02'); ?>
 <?php ck_row('問合せ先', 'contact-02'); ?>
@@ -56,7 +56,7 @@
 </div>
 </section>
 <section class="ck-card">
-<h3 class="ck-title"><span class="ck-no">3</span><span>歯っぴー検診<small>（歯周病検診）</small></span></h3>
+<h3 class="ck-title"><span>歯っぴー検診<small>（歯周病検診）</small></span></h3>
 <dl class="ck-rows">
 <?php ck_row('実施場所', 'place-03'); ?>
 <?php ck_row('対象者', 'target-03'); ?>
@@ -67,13 +67,13 @@
 </dl>
 </section>
 <section class="ck-card">
-<h3 class="ck-title"><span class="ck-no">4</span><span>産業歯科健診</span></h3>
+<h3 class="ck-title"><span>産業歯科健診</span></h3>
 <dl class="ck-rows">
 <?php ck_row('', 'detail-04'); ?>
 </dl>
 </section>
 <section class="ck-card">
-<h3 class="ck-title"><span class="ck-no">5</span><span>妊婦歯科健診</span></h3>
+<h3 class="ck-title"><span>妊婦歯科健診</span></h3>
 <dl class="ck-rows">
 <?php ck_row('実施場所', 'place-05'); ?>
 <?php ck_row('負担金額', 'price-05'); ?>
@@ -82,7 +82,7 @@
 </dl>
 </section>
 <section class="ck-card">
-<h3 class="ck-title"><span class="ck-no">6</span><span>後期高齢者歯科健診</span></h3>
+<h3 class="ck-title"><span>後期高齢者歯科健診</span></h3>
 <dl class="ck-rows">
 <?php ck_row('実施場所', 'place-06'); ?>
 <?php ck_row('対象者', 'target-06'); ?>

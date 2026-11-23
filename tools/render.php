@@ -232,7 +232,7 @@ function get_header() {
     $header_done = true;
     $h = str_replace('{{CHROME_HEADER}}', file_get_contents(__DIR__ . '/../templates/chrome_header.html'), file_get_contents(__DIR__ . '/../templates/header.html'));
     $robots = !empty($SITE['preview']) ? '<meta name="robots" content="noindex, nofollow">' : '';
-    echo str_replace(['{{R}}', '{{T}}', '{{CV}}', '{{TITLE}}', '{{CANON}}', '{{ROBOTS}}'], [$R, $T, substr(md5_file(__DIR__ . '/../wp-content/themes/spacious-child/css/chrome.css') . md5_file(__DIR__ . '/../wp-content/themes/spacious-child/css/sub.css') . md5_file(__DIR__ . '/../wp-content/themes/spacious-child/css/cards.css') . md5_file(__DIR__ . '/../wp-content/themes/spacious-child/style.css'), 0, 8), htmlspecialchars($spec['title'] ?? $SITE['title']), htmlspecialchars($SITE['origin'] . '/' . ($spec['canon'] ?? '')), $robots], $h);
+    echo str_replace(['{{R}}', '{{T}}', '{{CV}}', '{{TITLE}}', '{{CANON}}', '{{ROBOTS}}'], [$R, $T, substr(md5(file_get_contents(__DIR__ . '/../wp-content/themes/spacious-child/css/chrome.css').file_get_contents(__DIR__ . '/../wp-content/themes/spacious-child/css/sub.css').file_get_contents(__DIR__ . '/../wp-content/themes/spacious-child/css/cards.css').file_get_contents(__DIR__ . '/../wp-content/themes/spacious-child/style.css')), 0, 8), htmlspecialchars($spec['title'] ?? $SITE['title']), htmlspecialchars($SITE['origin'] . '/' . ($spec['canon'] ?? '')), $robots], $h);
 }
 function get_footer() {
     global $R, $T;
