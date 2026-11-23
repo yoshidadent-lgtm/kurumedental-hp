@@ -19,7 +19,7 @@
 .brand img { display: block; height: 52px; width: auto; max-width: none; }
 .contact { text-align: right; font-size: 14px; line-height: 1.5; }
 .contact .tel { display: inline-block; margin-top: 2px; color: #fff; text-decoration: none; font-size: 26px; font-weight: 700; letter-spacing: .02em; }
-.gnav { background: rgba(255, 255, 255, .07); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); border-top: 1px solid rgba(255,255,255,.18); }
+.gnav { background: rgba(255, 255, 255, .07); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); box-shadow: inset 0 1px 0 rgba(255,255,255,.18); }   /* 上の細い線は、帯の高さに含めない（ボタンの高さと、ぴったり合わせるため） */
 #nav-toggle { position: absolute; opacity: 0; pointer-events: none; }
 .gnav label { display: none; color: #fff; font-weight: 700; cursor: pointer; }
 .menu-text-close { display: none; }
@@ -47,9 +47,10 @@
 }
 @media (max-width: 700px) {
   .contact { display: none; }  /* スマホでは、ヘッダーの住所と電話番号を表示しない（フッターには、残る） */
-  .gnav label { display: flex; align-items: center; gap: 14px; min-height: 48px; margin: 10px 0; padding: 10px 16px; font-size: 16px;
-    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.55); border-radius: 10px; }
-  .gnav label:hover { background: rgba(255,255,255,.16); }
+  .gnav .wrap { width: 100%; }                      /* 帯の幅いっぱいに、ボタンを広げる */
+  .gnav label { display: flex; align-items: center; gap: 14px; min-height: 56px; margin: 0; padding: 0 16px; font-size: 16px;
+    background: transparent; border: 0; border-radius: 0; }   /* ボタンの高さ ＝ 帯（背景）の高さ */
+  .gnav label:hover { background: rgba(255,255,255,.12); }
   #nav-toggle:checked ~ label .menu-text-open { display: none; }
   #nav-toggle:checked ~ label .menu-text-close { display: inline; }
   #nav-toggle:checked ~ label .menu-icon { background: transparent; }
@@ -57,7 +58,7 @@
   #nav-toggle:checked ~ label .menu-icon::after { top: 0; transform: rotate(-45deg); }
   .gnav ul { display: none; flex-direction: column; border-top: 1px solid rgba(255,255,255,.2); }
   #nav-toggle:checked ~ ul { display: flex; }
-  #nav-toggle:focus-visible ~ label { outline: 3px solid var(--accent); outline-offset: 2px; }
+  #nav-toggle:focus-visible ~ label { outline: 3px solid var(--accent); outline-offset: -3px; }
   @media (prefers-reduced-motion: reduce) { .menu-icon, .menu-icon::before, .menu-icon::after { transition: none; } }
-  .gnav li a { padding: 14px 4px; border-bottom: 1px solid rgba(255,255,255,.15); }
+  .gnav li a { padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,.15); }
 }
