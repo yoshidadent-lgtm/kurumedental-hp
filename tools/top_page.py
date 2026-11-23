@@ -57,7 +57,7 @@ def woman(hair, skin, outfit, collar, kind):   # 女性のイラスト（頭が�
             f'<path d="M54 71q6 9 12 0z" fill="#d9455f"/><path d="M57 74.500q3 2.500 6 0" fill="none" stroke="#ff8fa6" stroke-width="2" stroke-linecap="round"/>{extra}</svg>')
 girls = {'event': woman('#3b2a2a', '#ffe0cf', '#bfe9df', '#fff', 'event'),
          'assist': woman('#7a4a2a', '#ffe3d2', '#ffd3dc', '#fff', 'assist'),
-         'school': woman('#1f1f2e', '#ffe2d2', '#2b3350', '#fff', 'school')}
+         'school': f'<img src="{IMG}/school-girl.png" alt="" width="121" height="140" loading="lazy">'}   # 学校：ユーザー提供のイラスト（紺の制服に変更）
 def banner_html(u, i, t, w):
     if i.startswith('card:'):
         k = i[5:]

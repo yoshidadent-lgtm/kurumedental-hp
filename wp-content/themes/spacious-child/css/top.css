@@ -127,6 +127,7 @@ section.block { padding: 56px 0 8px; }
 .banners .bn-card:hover { transform: translateY(-3px); filter: brightness(1.04) saturate(1.08); box-shadow: 0 10px 24px var(--cg); }
 .bn-card strong { font-size: 20px; line-height: 1.4; letter-spacing: .02em; word-break: keep-all; overflow-wrap: anywhere; }
 .bn-card svg { flex: none; width: 104px; height: 104px; align-self: flex-end; }
+.bn-card img { flex: none; width: auto; height: 118px; max-width: none; align-self: flex-end; margin-right: 4px; }
 .banners .bn-assist .bn-card { --c1:#e5f7ea; --c2:#c4ecd0; --cd:#17692f; --cg:rgba(40,150,80,.22); }
 .banners .bn-school .bn-card { --c1:#ffe9f1; --c2:#ffcfe0; --cd:#a8244f; --cg:rgba(220,70,120,.22); }
 
