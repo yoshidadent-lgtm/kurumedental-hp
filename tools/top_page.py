@@ -8,8 +8,10 @@ site = json.loads((ROOT / 'data/site.json').read_text(encoding='utf-8'))
 P = ''                                   # ルート直下のページなので、リンクの前に付ける相対パスは、なし
 IMG = P + 'wp-content/themes/spacious-child/images'
 THEME = P + 'wp-content/themes/spacious-child'
-CSS = THEME + '/css/top.css'
-CHROME_CSS = THEME + '/css/chrome.css'
+import hashlib
+ver = lambda f: hashlib.md5((ROOT / THEME / 'css' / f).read_bytes()).hexdigest()[:8]   # 古い表示が残らないよう、CSSの内容から版番号を付ける
+CSS = THEME + '/css/top.css?v=' + ver('top.css')
+CHROME_CSS = THEME + '/css/chrome.css?v=' + ver('chrome.css')
 frag = lambda n: (ROOT / 'templates' / n).read_text(encoding='utf-8').replace('{{R}}', P).replace('{{T}}', THEME).replace('{{YEAR}}', str(datetime.date.today().year))
 CHROME_HEADER = frag('chrome_header.html')
 CHROME_FOOTER = frag('chrome_footer.html')
