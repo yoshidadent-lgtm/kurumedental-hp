@@ -1,0 +1,46 @@
+/* 下のページ（トップ以外）の新しいデザイン。旧テーマ（style.css）の上に重ねる。 */
+:root { --sub-blue: #1b72d8; --sub-blue-dark: #1558b0; }
+
+/* 見出し：大きな青い帯をやめ、左に青い棒、太い文字、下に細い線 */
+.comm_frame_title_wrap { margin: 0 0 1.1em; padding-bottom: 8px; border-bottom: 2px solid #cfe3f8; }
+.comm_frame_title_wrap::after { display: none; }
+.comm_frame_title { display: block; min-width: 0; padding: 4px 0 4px 14px; background: none; color: #0f2a5a; font-size: 1.45rem; font-weight: 800; line-height: 1.35; letter-spacing: .03em; border-left: 8px solid var(--sub-blue); border-radius: 2px; }
+.comm_frame_title span { color: #566575; font-weight: 500; }
+
+/* ページ上部の写真つきタイトル：角を丸く、影 */
+.page_fv { margin-bottom: 1.6em; }
+.page_fv img { border-radius: 14px; box-shadow: 0 8px 24px rgba(15, 42, 90, .18); }
+
+/* MAPボタン */
+.Flex_box a.map { display: inline-flex; align-items: center; justify-content: center; gap: 4px; width: auto; min-width: 64px; padding: 8px 14px; border-radius: 999px; background: var(--sub-blue); font-size: 13px; font-weight: 700; line-height: 1; text-decoration: none; box-shadow: 0 2px 6px rgba(27, 114, 216, .3); }
+.Flex_box a.map::before { content: ""; width: 9px; height: 9px; border-radius: 50% 50% 50% 0; background: #fff; transform: rotate(-45deg); }
+a.map:hover { background: var(--sub-blue-dark); }
+
+/* 休日診療：黄・橙（トップの入口カードと同じ色） */
+.holiday_clinic_text { margin-bottom: 14px; padding: 12px 16px; background: #fff4d6; border-left: 6px solid #d68a00; border-radius: 8px; font-size: 15px; line-height: 1.9; color: #2a2a2a; }
+.holiday_clinic_text font { color: #b3261e !important; font-weight: 700; }
+.holiday_clinic_table { width: 100%; border: 2px solid #a85a00; border-collapse: separate; border-spacing: 0; border-radius: 12px; overflow: hidden; background: #fff; }
+.holiday_clinic_table td { border: 0; border-bottom: 1px solid #f0d9a6; }
+.holiday_clinic_table tr:last-child td { border-bottom: 0; }
+.holiday_clinic_table_header { background: #ffe3a0; color: #5c3200; font-weight: 800; font-size: 15px; line-height: 40px; border-bottom: 2px solid #a85a00 !important; }
+.holiday_clinic_table_text_date { background: #fff4d6; color: #8a4a00; font-weight: 800; font-size: 14px; white-space: nowrap; }
+.holiday_clinic_table_text, .holiday_clinic_table_address { font-size: 15px; line-height: 1.6; color: #1b2733; }
+.holiday_clinic_table_text:nth-child(2) { font-weight: 700; min-width: 12em; }
+.holiday_clinic_table tbody tr:nth-child(even) td:not(.hc_date) { background: #fffaf0; }
+.hc_tel a { color: #8a4a00; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.hc_tel a:hover { text-decoration: underline; }
+
+/* スマホ：1行を、1枚のカードにする */
+@media (max-width: 700px) {
+  .comm_frame_title { font-size: 1.25rem; }
+  .holiday_clinic_table, .holiday_clinic_table tbody { display: block; width: 100%; border: 0; border-radius: 0; background: none; }
+  .holiday_clinic_table tr:first-child { display: none; }   /* 見出しの行は、カードでは不要 */
+  .holiday_clinic_table tr { display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; align-items: center; margin-bottom: 14px; padding: 0 0 12px; background: #fff; border: 2px solid #a85a00; border-radius: 14px; overflow: hidden; box-shadow: 0 6px 16px rgba(214, 140, 0, .22); }
+  .holiday_clinic_table td { display: block; border: 0 !important; width: auto !important; padding: 0 14px; background: none !important; }
+  .holiday_clinic_table td.hc_date { grid-column: 1 / -1; padding: 8px 14px; background: #ffe3a0 !important; font-size: 16px; text-align: left; }
+  .holiday_clinic_table td.hc_name { grid-column: 1 / -1; padding-top: 6px; font-size: 18px; }
+  .holiday_clinic_table td.holiday_clinic_table_address { grid-column: 1 / -1; padding-top: 0; }
+  .holiday_clinic_table .Flex_box { justify-content: space-between; gap: 10px; }
+  .holiday_clinic_table td.hc_tel { grid-column: 1 / -1; padding-top: 4px; }
+  .hc_tel a { display: inline-block; padding: 8px 16px; border-radius: 999px; background: #fff4d6; border: 2px solid #a85a00; font-size: 16px; }
+}

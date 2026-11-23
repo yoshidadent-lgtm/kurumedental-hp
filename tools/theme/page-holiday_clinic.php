@@ -70,10 +70,10 @@
 		setup_postdata($post);
 ?>
 <tr>
-<td class="holiday_clinic_table_text_date"><?php the_field('holiday_days'); ?></td>
-<td class="holiday_clinic_table_text"><?php the_field('clinic_name'); ?></td>
+<td class="holiday_clinic_table_text_date hc_date"><?php the_field('holiday_days'); ?></td>
+<td class="holiday_clinic_table_text hc_name"><?php the_field('clinic_name'); ?></td>
 <td class="holiday_clinic_table_address" colspan="2"><div class="Flex_box Flex_align_center"><?php the_field('clinic_address'); ?><a href="https://www.google.com/maps?q=福岡県久留米市<?php the_field('clinic_address'); ?>&z=14" class="map" target="_blank">MAP</a></div></td>
-<td class="holiday_clinic_table_text"><?php the_field('clinic_tel'); ?></td>
+<td class="holiday_clinic_table_text hc_tel"><a href="tel:<?php echo preg_replace('/[^0-9+]/', '', get_field('clinic_tel')); ?>"><?php the_field('clinic_tel'); ?></a></td>
 </tr>
 <?php endforeach; wp_reset_postdata(); ?>
 </tbody>
