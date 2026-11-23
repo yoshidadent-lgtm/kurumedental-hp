@@ -47,7 +47,7 @@
 <?php ck_row('実施場所', 'business-location'); ?>
 <?php ck_row('実施時間', 'business-location-date'); ?>
 <?php ck_row('実施年度', 'business-location-nendo'); ?>
-<?php ck_row('実施日', 'business-location-nendo'); ?>
+<div class="ck-row"><dt>実施日</dt><dd>医療機関に予約した日</dd></div>
 </dl>
 <?php if(have_rows('business-location-days')): ?>
 <ol class="ck-days ck-days-single">
