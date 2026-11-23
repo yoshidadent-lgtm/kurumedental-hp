@@ -39,3 +39,4 @@
 - トップページは、改良案Aを採用した（ユーザー確認）。`tools/top_page.py` が `index.html` を作り、見た目は `wp-content/themes/spacious-child/css/top.css`。旧トップの5枚のスライダーと、ヘッダーのサイト内検索は、なくなった（ほかのページは、旧テーマのデザインのまま）。`draft/` は、削除した。
 - 新しいヘッダー・フッターを、全ページに適用した（ユーザー確認）。共通部品は `templates/chrome_header.html`、`templates/chrome_footer.html`、見た目は `wp-content/themes/spacious-child/css/chrome.css`（トップページ用の `top.css` とは別）。ほかのページの本文は、旧デザインのまま。旧ヘッダーのサイト内検索と、トップのスライダーは、なくなった。
 - ヘッダー：背景を濃い紺色（`--navy` など、`chrome.css`）に変更。ロゴの上に、小さく「一般社団法人」を追加（`templates/chrome_header.html` の `brand-org`）。フッターは、これまでの青のまま（ユーザーの指示は、ヘッダーのみ）。
+- ヘッダーの紺色を、さらに濃くした（`--navy-deep: #06142f`、`--navy: #091d44`、`--navy-light: #0e2a5c`）。スマホのメニューは、三本線のアイコンを付けた枠付きのボタン（押すと、×のアイコンと「メニューを閉じる」に変わる）。JavaScriptなしの、CSSだけの仕組み。

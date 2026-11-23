@@ -3,7 +3,7 @@
   --blue: #1b72d8; --blue-dark: #1558b0; --blue-bright: #3da1f2; --blue-pale: #eaf5ff; --blue-mist: #f4faff;
   --ink: #1b2733; --muted: #566575; --line: #d3e6f8; --accent: #e07b00; --white: #fff; --radius: 16px;
   --glow: 0 10px 30px rgba(27, 114, 216, .18);
-  --navy: #0f2a5a; --navy-deep: #0b2250; --navy-light: #153a7a;
+  --navy: #091d44; --navy-deep: #06142f; --navy-light: #0e2a5c;
 }
 .site-header, .site-footer { font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif; font-size: 16px; line-height: 1.6; text-align: left; color: #fff; }
 .site-header a:focus-visible, .site-footer a:focus-visible, .gnav label:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
@@ -21,7 +21,12 @@
 .contact .tel { display: inline-block; margin-top: 2px; color: #fff; text-decoration: none; font-size: 26px; font-weight: 700; letter-spacing: .02em; }
 .gnav { background: rgba(255, 255, 255, .07); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); border-top: 1px solid rgba(255,255,255,.18); }
 #nav-toggle { position: absolute; opacity: 0; pointer-events: none; }
-.gnav label { display: none; color: #fff; padding: 12px 0; font-weight: 700; cursor: pointer; }
+.gnav label { display: none; color: #fff; font-weight: 700; cursor: pointer; }
+.menu-text-close { display: none; }
+.menu-icon { position: relative; display: block; flex: none; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: background .15s; }
+.menu-icon::before, .menu-icon::after { content: ""; position: absolute; left: 0; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: top .2s, transform .2s; }
+.menu-icon::before { top: -8px; }
+.menu-icon::after { top: 8px; }
 .gnav ul { display: flex; flex-wrap: wrap; list-style: none; margin: 0; padding: 0; }
 .gnav li { list-style: none; margin: 0; padding: 0; }
 .gnav li a { display: block; padding: 14px 20px; color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; border-bottom: 3px solid transparent; }
@@ -42,9 +47,17 @@
 }
 @media (max-width: 700px) {
   .contact { display: none; }  /* スマホでは、ヘッダーの住所と電話番号を表示しない（フッターには、残る） */
-  .gnav label { display: block; }
+  .gnav label { display: flex; align-items: center; gap: 14px; min-height: 48px; margin: 10px 0; padding: 10px 16px; font-size: 16px;
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.55); border-radius: 10px; }
+  .gnav label:hover { background: rgba(255,255,255,.16); }
+  #nav-toggle:checked ~ label .menu-text-open { display: none; }
+  #nav-toggle:checked ~ label .menu-text-close { display: inline; }
+  #nav-toggle:checked ~ label .menu-icon { background: transparent; }
+  #nav-toggle:checked ~ label .menu-icon::before { top: 0; transform: rotate(45deg); }
+  #nav-toggle:checked ~ label .menu-icon::after { top: 0; transform: rotate(-45deg); }
   .gnav ul { display: none; flex-direction: column; border-top: 1px solid rgba(255,255,255,.2); }
   #nav-toggle:checked ~ ul { display: flex; }
-  #nav-toggle:focus-visible ~ label { outline: 3px solid var(--accent); }
+  #nav-toggle:focus-visible ~ label { outline: 3px solid var(--accent); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { .menu-icon, .menu-icon::before, .menu-icon::after { transition: none; } }
   .gnav li a { padding: 14px 4px; border-bottom: 1px solid rgba(255,255,255,.15); }
 }
