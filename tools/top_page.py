@@ -33,7 +33,7 @@ quick = [   # <wbr> は、狭い画面で改行してよい、自然な区切り
  ('business_checkup/', 'check', '健診事業の<wbr>ご案内', '乳幼児から<wbr>高齢者までの<wbr>歯科健診', 'checkup'),
  ('visiting_dental/', 'home', '訪問歯科診療の<wbr>ご案内', 'ご自宅・施設への<wbr>訪問診療', 'visit'),
 ]
-chips = [('op1', '1歳半・3歳児健診'), ('op2', 'フッ素塗布'), ('op3', '歯っぴー検診'), ('op4', '周術期ケア'), ('op5', '妊婦歯科健診')]
+chips = [('op1', '1歳半・<wbr>3歳児健診'), ('op2', 'フッ素塗布'), ('op3', '歯っぴー<wbr>検診'), ('op4', '周術期ケア'), ('op5', '妊婦歯科<wbr>健診')]
 banners = [
  (P + 'introduction/introduction_4/', 'ishikai_banner.png', '久留米歯科医師会 入会のご案内', True),
  ('https://kurume-oral.com', 'koukuu-banner3.png', '口腔管理推進室', True),
@@ -108,7 +108,7 @@ page = f'''<!DOCTYPE html>
     <h2>受付歯科医院を探す</h2>
     <p class="lead">事業ごとに、受付をしている歯科医院を、地域別にご覧いただけます。</p>
     <ul class="chips">
-''' + ''.join(f'      <li><a href="{P}local_dentist_top/local_dentist_{k}/">{t}</a></li>\n' for k, t in chips) + f'''    </ul>
+''' + ''.join(f'      <li><a class="c-{k}" href="{P}local_dentist_top/local_dentist_{k}/">{t}</a></li>\n' for k, t in chips) + f'''    </ul>
   </section>
 
   <section class="block wrap" id="links">

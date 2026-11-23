@@ -95,11 +95,17 @@ section.block { padding: 56px 0 8px; }
 
 /* 受付歯科医院 */
 .chips { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
-.chips a { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 16px 18px; background: linear-gradient(180deg, #ffffff, var(--blue-mist)); border: 1px solid var(--line); box-shadow: 0 4px 14px rgba(27,114,216,.08);
-  border-radius: 12px; text-decoration: none; color: var(--ink); font-weight: 700; }
-.chips a::after { content: "›"; color: var(--blue); font-size: 24px; line-height: 1; }
-.chips a:hover { background: var(--blue-pale); }
-.lead { margin: 0 0 18px; color: var(--muted); }
+.chips a { --c1: #eaf6ff; --c2: #cfe8ff; --cd: #1558b0; --cg: rgba(27,114,216,.2);
+  display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 16px 18px; background: linear-gradient(180deg, var(--c1), var(--c2)); border: 2px solid var(--cd); box-shadow: 0 6px 18px var(--cg);
+  border-radius: 12px; text-decoration: none; color: var(--ink); font-weight: 700; height: 100%; word-break: keep-all; overflow-wrap: anywhere; transition: transform .15s, box-shadow .15s, filter .15s; }
+.chips .c-op1 { --c1:#ffe9f1; --c2:#ffcfe0; --cd:#b02c5a; --cg:rgba(220,70,120,.22); }
+.chips .c-op2 { --c1:#eaf6ff; --c2:#cfe8ff; --cd:#1558b0; --cg:rgba(27,114,216,.22); }
+.chips .c-op3 { --c1:#e5f7ea; --c2:#c4ecd0; --cd:#1d7a3b; --cg:rgba(40,150,80,.22); }
+.chips .c-op4 { --c1:#f1ebff; --c2:#dccfff; --cd:#5b36b0; --cg:rgba(110,70,200,.22); }
+.chips .c-op5 { --c1:#fff4d6; --c2:#ffe3a0; --cd:#a85a00; --cg:rgba(214,140,0,.24); }
+.chips a::after { content: "›"; color: var(--cd); font-size: 24px; line-height: 1; }
+.chips a:hover { transform: translateY(-3px); filter: brightness(1.04) saturate(1.08); box-shadow: 0 10px 24px var(--cg); }
+.lead { margin: 0 0 18px; color: #1f2f43; font-weight: 500; word-break: auto-phrase; text-wrap: pretty; }
 
 /* バナー */
 .banners { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
