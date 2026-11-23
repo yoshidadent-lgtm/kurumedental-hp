@@ -2,6 +2,7 @@
 
 
 
+<?php if (!function_exists('ck_row')) { function ck_row($label, $key) { ob_start(); the_field($key); $v = trim(ob_get_clean()); if (trim(strip_tags($v)) === '') return; echo '<div class="ck-row">' . ($label !== '' ? '<dt>' . $label . '</dt>' : '') . '<dd>' . $v . '</dd></div>' . "\n"; } } ?>
 <?php get_header(); ?>
 
   <div id="main" class="clearfix">
@@ -30,86 +31,67 @@
 </div>
 <p class="txtmin">歯科医師会では「健康増進法」のなかで「８０２０運動」「生活習慣病予防」を推進するためにたくさんの事業を実施して、皆様のお口の健康のお手伝いをしています。</p>
 
-<div class="comm_frame clearfix">
-<div class="comm_frame_title_wrap">
-<div class="comm_frame_title">1歳児歯科健診(1歳児初めての歯の健康教室)</div>
+<section class="ck-card">
+<h3 class="ck-title"><span class="ck-no">1</span><span>1歳児歯科健診<small>（1歳児初めての歯の健康教室）</small></span></h3>
+<dl class="ck-rows">
+<?php ck_row('実施場所', 'place-01'); ?>
+<?php ck_row('開始時間', 'open-01'); ?>
+<?php ck_row('実施要領', 'detail-01'); ?>
+<?php ck_row('問合せ先', 'contact-01'); ?>
+</dl>
+<div class="ck-btns">
+<a class="ck-btn" href="<?php echo esc_url( home_url( '/business_checkup_1/' ) ); ?>">詳細はこちら</a>
 </div>
-<p class="tt">実施場所：　<?php the_field('place-01'); ?></p>
-<p class="tt">開始時間：　<?php the_field('open-01'); ?></p>
-
-実施要領：<?php the_field('detail-01'); ?>
-
-<p class="tt">問合せ先：<?php the_field('contact-01'); ?></p>
-
-<a class="comm_detail_btn" href="<?php echo esc_url( home_url( '/business_checkup_1/' ) ); ?>">詳細はこちら</a>
-
+</section>
+<section class="ck-card">
+<h3 class="ck-title"><span class="ck-no">2</span><span>1歳半・3歳児歯科健診</span></h3>
+<dl class="ck-rows">
+<?php ck_row('実施場所', 'place-02'); ?>
+<?php ck_row('問合せ先', 'contact-02'); ?>
+</dl>
+<p class="ck-note">北野町、市役所、南部保健センターで集団検診も行われています</p>
+<div class="ck-btns">
+<a class="ck-btn" href="<?php echo esc_url( home_url( '/business_checkup_2/' ) ); ?>">北野町の詳細はこちら</a>
+<a class="ck-btn" href="<?php echo esc_url( home_url( '/business_checkup_3/' ) ); ?>">南部保健センターの詳細はこちら</a>
+<a class="ck-btn" href="<?php echo esc_url( home_url( '/business_checkup_4/' ) ); ?>">久留米市役所の詳細はこちら</a>
 </div>
-<div class="comm_frame clearfix">
-<div class="comm_frame_title_wrap">
-<div class="comm_frame_title">1歳半・3歳児歯科健診</div>
-</div>
-<p class="tt">実施場所：　<?php the_field('place-02'); ?></p>
-<p class="tt">問合せ先：　<?php the_field('contact-02'); ?></p>
-
-<p class="tt">北野町、市役所、南部保健センターで集団検診も行われています</p>
-<div class="clearfix"><a class="comm_detail_btn" href="<?php echo esc_url( home_url( '/business_checkup_2/' ) ); ?>">北野町の詳細はこちら</a></div>
-<div class="clearfix"><a class="comm_detail_btn" href="<?php echo esc_url( home_url( '/business_checkup_3/' ) ); ?>">南部保健センターの詳細はこちら</a></div>
-<div class="clearfix"><a class="comm_detail_btn" href="<?php echo esc_url( home_url( '/business_checkup_4/' ) ); ?>">久留米市役所の詳細はこちら</a></div>
-</div>
-<div class="comm_frame clearfix">
-<div class="comm_frame_title_wrap">
-<div class="comm_frame_title">歯っぴー検診(歯周病検診)</div>
-</div>
-<p class="tt">実施場所：　<?php the_field('place-03'); ?></p>
-
-対象者　：　<?php the_field('target-03'); ?>
-
-<p class="tt">負担金額：　<?php the_field('price-03'); ?></p>
-
-実施要領：<?php the_field('detail-03'); ?>
-
-<p class="tt">健診内容：<?php the_field('kenshin-03'); ?></p>
-
-<p class="tt">問合せ先：　<?php the_field('contact-03'); ?></p>
-
-</div>
-<div class="comm_frame clearfix">
-<div class="comm_frame_title_wrap">
-<div class="comm_frame_title">産業歯科健診</div>
-</div>
-<p class="tt"><?php the_field('detail-04'); ?></p>
-
-</div>
-
-<div class="comm_frame clearfix">
-<div class="comm_frame_title_wrap">
-<div class="comm_frame_title">妊婦歯科健診</div>
-</div>
-<p class="tt">実施場所：　<?php the_field('place-05'); ?></p>
-
-<p class="tt">負担金額：　<?php the_field('price-05'); ?></p>
-
-実施要領：<?php the_field('detail-05'); ?>
-
-<p class="tt">問合せ先：<?php the_field('contact-05'); ?></p>
-
-</div>
-<div class="comm_frame clearfix">
-<div class="comm_frame_title_wrap">
-<div class="comm_frame_title">後期高齢者歯科健診</div>
-</div>
-<p class="tt">実施場所：　<?php the_field('place-06'); ?></p>
-
-対象者　：　<?php the_field('target-06'); ?>
-
-実施要領：<?php the_field('detail-06'); ?>
-
-<p class="tt">健診内容：
-<?php the_field('kenshin-06'); ?></p>
-
-<p class="tt">負担金額：　<?php the_field('price-06'); ?></p>
-
-</div>
+</section>
+<section class="ck-card">
+<h3 class="ck-title"><span class="ck-no">3</span><span>歯っぴー検診<small>（歯周病検診）</small></span></h3>
+<dl class="ck-rows">
+<?php ck_row('実施場所', 'place-03'); ?>
+<?php ck_row('対象者', 'target-03'); ?>
+<?php ck_row('負担金額', 'price-03'); ?>
+<?php ck_row('実施要領', 'detail-03'); ?>
+<?php ck_row('健診内容', 'kenshin-03'); ?>
+<?php ck_row('問合せ先', 'contact-03'); ?>
+</dl>
+</section>
+<section class="ck-card">
+<h3 class="ck-title"><span class="ck-no">4</span><span>産業歯科健診</span></h3>
+<dl class="ck-rows">
+<?php ck_row('', 'detail-04'); ?>
+</dl>
+</section>
+<section class="ck-card">
+<h3 class="ck-title"><span class="ck-no">5</span><span>妊婦歯科健診</span></h3>
+<dl class="ck-rows">
+<?php ck_row('実施場所', 'place-05'); ?>
+<?php ck_row('負担金額', 'price-05'); ?>
+<?php ck_row('実施要領', 'detail-05'); ?>
+<?php ck_row('問合せ先', 'contact-05'); ?>
+</dl>
+</section>
+<section class="ck-card">
+<h3 class="ck-title"><span class="ck-no">6</span><span>後期高齢者歯科健診</span></h3>
+<dl class="ck-rows">
+<?php ck_row('実施場所', 'place-06'); ?>
+<?php ck_row('対象者', 'target-06'); ?>
+<?php ck_row('実施要領', 'detail-06'); ?>
+<?php ck_row('健診内容', 'kenshin-06'); ?>
+<?php ck_row('負担金額', 'price-06'); ?>
+</dl>
+</section>
 
 <div class="subtitle_top">
 	<div class="comm_frame_title_wrap">
