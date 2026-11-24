@@ -224,6 +224,16 @@ function ck_row($label, $key) {
     echo '<div class="ck-row">' . ($label !== '' ? '<dt>' . $label . '</dt>' : '') . '<dd>' . $v . '</dd></div>' . "\n";
 }
 
+
+// ---- 訪問歯科診療ページの部品：項目の中の「空行」や、青い下線の文字リンクを、新しい作りにする
+function vd_field($key) {
+    $v = ck_val($key);
+    $v = str_replace('<p>&nbsp;</p>', '', $v);
+    $v = str_replace(' style="text-decoration: underline; text-decoration-color: blue;"', '', $v);
+    $v = str_replace('class="underline"', 'class="vd-btn"', $v);
+    return $v;
+}
+
 // ---- テンプレートの読み込み
 function tpl($file) { global $post, $name, $post_id; include __DIR__ . '/theme/' . $file; }
 function get_header() {

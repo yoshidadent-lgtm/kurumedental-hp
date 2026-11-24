@@ -150,3 +150,46 @@ p.local_dentist_clinic_area { display: inline-block; margin: 0 0 14px; padding: 
 .ck-days li::before { content: counter(d); flex: none; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: #b02c5a; color: #fff; font-size: 13px; font-weight: 800; }
 .ck-days-single { margin: 0 16px; padding: 4px 0; border-top: 1px dashed #f0c3d3; border-bottom: 1px dashed #f0c3d3; }
 @media (max-width: 700px) { .ck-sched { grid-template-columns: 1fr; } }
+
+/* 訪問歯科診療：水色（トップの入口カード「訪問歯科診療」と同じ）。電話は文字のボタン、項目は水色のカード */
+.vd-call { --cd:#1558b0; --cg:rgba(27,114,216,.25); margin: 0 0 26px; padding: 0; }
+.vd-call-btn { display: flex; align-items: center; gap: 16px; padding: 14px 20px; background: linear-gradient(180deg, #eaf6ff, #cfe8ff); border: 2px solid var(--cd); border-radius: 16px; box-shadow: 0 6px 18px var(--cg); color: #0f2a5a; text-decoration: none; transition: transform .15s, box-shadow .15s, filter .15s; }
+.vd-call-btn:hover { transform: translateY(-3px); filter: brightness(1.04) saturate(1.08); box-shadow: 0 10px 24px var(--cg); }
+.vd-call-btn:focus-visible { outline: 3px solid #e07b00; outline-offset: 3px; }
+.vd-call-btn svg { flex: none; width: 58px; height: 58px; padding: 14px; border-radius: 50%; background: var(--cd); color: #fff; }
+.vd-call-btn span { flex: 1; display: flex; flex-direction: column; line-height: 1.3; }
+.vd-call-btn small { font-size: 14px; font-weight: 700; color: #1b4a8a; }
+.vd-call-btn strong { font-size: clamp(26px, 5.4vw, 36px); font-weight: 800; letter-spacing: .02em; color: #0f2a5a; white-space: nowrap; }
+.vd-call-btn em { flex: none; padding: 8px 16px; border-radius: 999px; background: #fff; border: 2px solid var(--cd); color: var(--cd); font-style: normal; font-size: 15px; font-weight: 800; }
+.vd-call-note { margin: 10px 4px 0; font-size: 14px; line-height: 1.8; color: #1f2f43; }
+
+.vd-card { --c1:#eaf6ff; --c2:#cfe8ff; --cd:#1558b0; --cg:rgba(27,114,216,.22); margin: 0 0 18px; padding: 0 !important; background: #fff; border: 2px solid var(--cd); border-radius: 16px; box-shadow: 0 6px 18px var(--cg); overflow: hidden; }
+.vd-h { margin: 0; padding: 11px 18px; background: linear-gradient(180deg, var(--c1), var(--c2)); border: 0; border-bottom: 2px solid var(--cd); border-radius: 0; color: #0f2a5a; font-size: 1.15rem; font-weight: 800; letter-spacing: .04em; line-height: 1.4; }
+.vd-body { padding: 14px 18px 16px; font-size: 15px; line-height: 1.9; color: #1b2733; }
+.vd-body p { margin: 0 0 .7em; font-size: inherit; line-height: inherit; }
+.vd-body p:last-child { margin-bottom: 0; }
+.vd-body .text_orange { padding: 1px 10px; border-radius: 999px; background: #ffe3a0; color: #8a4a00; font-weight: 800; }
+.vd-btn { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; padding: 10px 20px; border-radius: 999px; background: #1558b0; color: #fff !important; font-size: 15px; font-weight: 700; line-height: 1.3; text-decoration: none !important; box-shadow: 0 3px 8px rgba(27,114,216,.3); transition: transform .15s, filter .15s; }
+.vd-btn::after { content: "›"; font-size: 18px; line-height: 1; }
+.vd-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+.vd-btn:focus-visible { outline: 3px solid #e07b00; outline-offset: 2px; }
+
+/* 歯科訪問診療所のみ所在町一覧 */
+.vd-towns { margin: 26px 0 0; padding: 0; }
+.vd-towns h3 { margin: 0 0 14px; padding: 4px 0 4px 14px; background: none; border: 0; border-left: 8px solid var(--sub-blue); border-radius: 2px; color: #0f2a5a; font-size: 1.25rem; font-weight: 800; line-height: 1.4; }
+.vd-towns .table-scroll { overflow: visible; }
+.vd-towns table { display: block; width: 100% !important; height: auto !important; border: 0 !important; background: none; }
+.vd-towns tbody { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.vd-towns tr { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 14px; background: linear-gradient(180deg, #eaf6ff, #cfe8ff); border: 2px solid #1558b0; border-radius: 12px; box-shadow: 0 4px 12px rgba(27,114,216,.2); }
+.vd-towns th, .vd-towns td { display: block; width: auto !important; margin: 0; padding: 0 !important; border: 0 !important; background: none !important; font-size: 15px; line-height: 1.5; color: #1b2733; }
+.vd-towns th { flex: 1; text-align: left !important; font-weight: 700; }
+.vd-towns td { flex: none; padding: 3px 12px !important; border-radius: 999px; background: #1558b0 !important; color: #fff !important; font-weight: 800; text-align: center !important; white-space: nowrap; }
+
+@media (max-width: 700px) {
+  .vd-call, .vd-towns { padding: 0 .9em; }
+  .vd-call-btn { flex-wrap: wrap; justify-content: center; text-align: center; padding: 14px 14px 16px; gap: 10px; }
+  .vd-call-btn span { flex: 1 1 100%; align-items: center; order: 2; }
+  .vd-call-btn svg { order: 1; }
+  .vd-call-btn em { order: 3; }
+  .vd-towns tbody { grid-template-columns: 1fr; }
+}
