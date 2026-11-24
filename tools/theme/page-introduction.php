@@ -35,12 +35,11 @@
           <div class="comm_frame_title">会長のご挨拶</div>
         </div>
       </div>
-      <div id="introduction_image">
-        <img src="<?php the_field('chairman_image'); ?>"><br>
-        久留米歯科医師会<br>
-        会長　  <?php the_field('chairman'); ?>
+      <div id="introduction_image" class="cm-photo">
+        <img src="<?php the_field('chairman_image'); ?>" alt="会長　<?php the_field('chairman'); ?>">
+        <p class="cm-name"><small>久留米歯科医師会</small><span>会長</span><strong><?php the_field('chairman'); ?></strong></p>
       </div>
-      <div id="introduction_text">
+      <div id="introduction_text" class="cm-text">
       <?php the_field('message'); ?>
 				</div>
     </div>
