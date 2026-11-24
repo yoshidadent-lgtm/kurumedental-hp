@@ -263,3 +263,23 @@ p.local_dentist_clinic_area { display: inline-block; margin: 0 0 14px; padding: 
   #itroduction_left_contents table:has(.introduction_post_head) tr:has(> td[rowspan]) { margin-bottom: 0; border-bottom: 0; border-radius: 14px 14px 0 0; box-shadow: none; }
   #itroduction_left_contents table:has(.introduction_post_head) tr:has(> td[rowspan]) + tr { margin-top: 0; border-top: 0; border-radius: 0 0 14px 14px; box-shadow: 0 5px 14px var(--cg); }
 }
+
+/* 案内地図：紫（右のメニュー「案内地図」と同じ）。住所・電話のカードと、角丸の地図 */
+.mp-card { --c1:#f1ebff; --c2:#dccfff; --cd:#5b36b0; --cg:rgba(110,70,200,.22); margin: 0 0 20px; padding: 0; background: #fff; border: 2px solid var(--cd); border-radius: 16px; box-shadow: 0 6px 18px var(--cg); overflow: hidden; }
+.mp-rows { margin: 0; padding: 6px 18px 4px; }
+.mp-row { display: grid; grid-template-columns: 6em 1fr; gap: 4px 14px; align-items: baseline; padding: 12px 0; border-bottom: 1px dashed #cdbfee; }
+.mp-row:last-child { border-bottom: 0; }
+.mp-row dt { justify-self: start; padding: 2px 14px; border-radius: 999px; background: #ebe3ff; border: 1px solid var(--cd); color: #3d1f85; font-size: 13px; font-weight: 800; line-height: 1.6; }
+.mp-row dd { margin: 0; font-size: 16px; line-height: 1.8; color: #1b2733; }
+.mp-card .ck-tel { color: #3d1f85; font-size: 18px; }
+.mp-btns { padding: 4px 18px 18px; }
+.mp-btn { display: inline-flex; align-items: center; gap: 6px; padding: 11px 22px; border-radius: 999px; background: var(--cd); color: #fff !important; font-size: 15px; font-weight: 700; line-height: 1.3; text-decoration: none !important; box-shadow: 0 3px 8px var(--cg); transition: transform .15s, filter .15s; }
+.mp-btn::after { content: "›"; font-size: 18px; line-height: 1; }
+.mp-btn:hover { transform: translateY(-2px); filter: brightness(1.12); }
+.mp-btn:focus-visible { outline: 3px solid #e07b00; outline-offset: 2px; }
+.mp-map iframe { display: block; width: 100%; height: 450px; border: 2px solid #5b36b0 !important; border-radius: 14px; box-shadow: 0 6px 18px rgba(110,70,200,.22); }
+@media (max-width: 700px) {
+  .mp-row { grid-template-columns: 1fr; gap: 6px; }
+  .mp-btn { display: flex; justify-content: space-between; width: 100%; box-sizing: border-box; padding: 13px 20px; }
+  .mp-map iframe { height: 340px; }
+}
