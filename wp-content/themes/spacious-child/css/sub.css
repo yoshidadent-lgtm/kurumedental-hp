@@ -339,3 +339,24 @@ p.local_dentist_clinic_area { display: inline-block; margin: 0 0 14px; padding: 
   .fn-list li { flex-direction: column; align-items: stretch; gap: 10px; padding: 14px 16px; }
   .fn-btn { justify-content: center; padding: 12px 18px; font-size: 15px; }
 }
+
+/* リンク集：2つのグループ（南地区歯科医師会＝水色／もう一つ＝ピンク）。1つのリンク＝1枚のカード（名前＋アドレス＋開く） */
+#link_contents_second.lk-wrap { width: auto !important; margin: 0 !important; padding: 0 !important; float: none !important; }
+.lk-group { padding: 0 !important; --c1:#eaf6ff; --c2:#cfe8ff; --cd:#1558b0; --cg:rgba(27,114,216,.22); margin: 0 0 28px; }
+.lk-g2 { --c1:#ffe9f1; --c2:#ffcfe0; --cd:#b02c5a; --cg:rgba(220,70,120,.22); }
+.lk-h { margin: 0 0 14px; padding: 10px 16px; background: linear-gradient(180deg, var(--c1), var(--c2)); border: 2px solid var(--cd); border-radius: 12px; color: #0f2a5a; font-size: 1.15rem; font-weight: 800; line-height: 1.4; letter-spacing: .04em; }
+.lk-g2 .lk-h { color: #6d1535; }
+.lk-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.lk-list li { display: grid; grid-template-columns: 12em 1fr; align-items: center; gap: 6px 14px; margin: 0; padding: 12px 16px; background: #fff; border: 2px solid var(--cd); border-radius: 14px; box-shadow: 0 5px 14px var(--cg); list-style: none; }
+.lk-name { font-size: 16px; font-weight: 800; line-height: 1.5; color: #1b2733; }
+.lk-link { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-width: 0; text-decoration: none !important; }
+.lk-url { min-width: 0; overflow-wrap: anywhere; font-size: 13px; line-height: 1.6; color: var(--cd); text-decoration: underline; }
+.lk-go { flex: none; display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 999px; background: var(--cd); color: #fff; font-size: 14px; font-weight: 700; line-height: 1.3; box-shadow: 0 3px 8px var(--cg); transition: transform .15s, filter .15s; }
+.lk-go::after { content: "›"; font-size: 18px; line-height: 1; }
+.lk-link:hover .lk-go { transform: translateY(-2px); filter: brightness(1.12); }
+.lk-link:focus-visible { outline: 3px solid #e07b00; outline-offset: 3px; border-radius: 8px; }
+@media (max-width: 700px) {
+  .lk-list li { grid-template-columns: 1fr; padding: 14px 16px; }
+  .lk-link { flex-direction: column; align-items: stretch; gap: 8px; }
+  .lk-go { justify-content: center; padding: 12px 18px; font-size: 15px; }
+}
