@@ -46,8 +46,14 @@ def build_all():
                  'introduction_2/index.html': 'introduction/introduction_2/', 'introduction_3/index.html': 'introduction/introduction_3/',
                  'introduction_4/index.html': 'introduction/introduction_4/', 'introduction_5/index.html': 'introduction/introduction_5/',
                  'introduction/introduction/index.html': 'introduction/'}
+    # 削除した古い記事（data/removed.json）の旧アドレス：イベントはイベント一覧へ、お知らせはトップへ移動
+    for r in json.loads((ROOT/'data/removed.json').read_text(encoding='utf-8'))['paths']:
+        redirects[r['path'] + '/index.html'] = 'event/' if r['type'] == 'event' else ''
     for old, new in redirects.items():
-        rel = os.path.relpath(new, os.path.dirname(old) or '.') + '/' if os.path.dirname(old) else new
+        if new == '':
+            rel = '../' * (old.count('/'))
+        else:
+            rel = os.path.relpath(new, os.path.dirname(old) or '.') + '/' if os.path.dirname(old) else new
         rel = rel if rel != './' else './'
         canon = site['origin'] + '/' + new
         write(old, '<!DOCTYPE html>\n<html lang="ja"><head><meta charset="utf-8"><title>ページが移動しました</title>'

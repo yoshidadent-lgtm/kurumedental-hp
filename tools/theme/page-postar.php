@@ -51,7 +51,7 @@
 			<?php while(have_rows('sp-wrap')): the_row(); ?>
 				 <dl class="special">
 				  <dd>
-				    <div class="special"><span></span><a href="<?php the_sub_field('sp-img'); ?>" data-lightbox="gallery" data-title="<?php the_sub_field('sp-grade'); ?>年 <?php the_sub_field('sp-stdudent-name'); ?>"><img src="<?php the_sub_field('sp-img'); ?>"></a></div>
+				    <div class="special"><span></span><a href="<?php the_sub_field('sp-img'); ?>" target="_blank" rel="noopener noreferrer" title="<?php the_sub_field('sp-grade'); ?>年 <?php the_sub_field('sp-stdudent-name'); ?>"><img src="<?php the_sub_field('sp-img'); ?>"></a></div>
 				    <div><?php the_sub_field('sp-shool-name'); ?>学校<br><?php the_sub_field('sp-grade'); ?>年 <?php the_sub_field('sp-stdudent-name'); ?>
 		</div>
 			  </dd>
@@ -74,7 +74,7 @@
 			<?php while(have_rows('go-wrap')): the_row(); ?>
 			 <dl>
 			  <dd>
-			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" data-lightbox="gallery03" data-title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
+			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" target="_blank" rel="noopener noreferrer" title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
 			    <div>
 			    <?php the_sub_field('go-child-school'); ?>学校<br>
 			    <?php the_sub_field('go-child-name'); ?>
@@ -92,7 +92,7 @@
 			<?php while(have_rows('shi-wrap')): the_row(); ?>
 			 <dl>
 			  <dd>
-			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" data-lightbox="gallery03" data-title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
+			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" target="_blank" rel="noopener noreferrer" title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
 			    <div>
 			    <?php the_sub_field('go-child-school'); ?>学校<br>
 			    <?php the_sub_field('go-child-name'); ?>
@@ -111,7 +111,7 @@
 			<?php while(have_rows('go-wrap02')): the_row(); ?>
 			 <dl>
 			  <dd>
-			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" data-lightbox="gallery03" data-title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
+			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" target="_blank" rel="noopener noreferrer" title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
 			    <div>
 			    <?php the_sub_field('go-child-school'); ?>学校<br>
 			    <?php the_sub_field('go-child-name'); ?>
@@ -129,7 +129,7 @@
 			<?php while(have_rows('shi-wrap02')): the_row(); ?>
 			 <dl>
 			  <dd>
-			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" data-lightbox="gallery03" data-title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
+			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" target="_blank" rel="noopener noreferrer" title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
 			    <div>
 			    <?php the_sub_field('go-child-school'); ?>学校<br>
 			    <?php the_sub_field('go-child-name'); ?>
@@ -148,7 +148,7 @@
 			<?php while(have_rows('go-wrap03')): the_row(); ?>
 			 <dl>
 			  <dd>
-			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" data-lightbox="gallery03" data-title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
+			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" target="_blank" rel="noopener noreferrer" title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
 			    <div>
 			    <?php the_sub_field('go-child-school'); ?>学校<br>
 			    <?php the_sub_field('go-child-name'); ?>
@@ -167,7 +167,7 @@
 			<?php while(have_rows('shi-wrap03')): the_row(); ?>
 			 <dl>
 			  <dd>
-			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" data-lightbox="gallery03" data-title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
+			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" target="_blank" rel="noopener noreferrer" title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
 			    <div>
 			    <?php the_sub_field('go-child-school'); ?>学校<br>
 			    <?php the_sub_field('go-child-name'); ?>
@@ -186,7 +186,7 @@
 			<?php while(have_rows('go-wrap04')): the_row(); ?>
 			 <dl>
 			  <dd>
-			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" data-lightbox="gallery03" data-title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
+			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" target="_blank" rel="noopener noreferrer" title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
 			    <div>
 			    <?php the_sub_field('go-child-school'); ?>学校<br>
 			    <?php the_sub_field('go-child-name'); ?>
@@ -205,7 +205,7 @@
 			<?php while(have_rows('shi-wrap04')): the_row(); ?>
 			 <dl>
 			  <dd>
-			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" data-lightbox="gallery03" data-title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
+			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" target="_blank" rel="noopener noreferrer" title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
 			    <div>
 			    <?php the_sub_field('go-child-school'); ?>学校<br>
 			    <?php the_sub_field('go-child-name'); ?>
@@ -225,7 +225,7 @@
 			<?php while(have_rows('go-wrap05')): the_row(); ?>
 			 <dl>
 			  <dd>
-			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" data-lightbox="gallery03" data-title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
+			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" target="_blank" rel="noopener noreferrer" title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
 			    <div>
 			    <?php the_sub_field('go-child-school'); ?>学校<br>
 			    <?php the_sub_field('go-child-name'); ?>
@@ -244,7 +244,7 @@
 			<?php while(have_rows('shi-wrap05')): the_row(); ?>
 			 <dl>
 			  <dd>
-			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" data-lightbox="gallery03" data-title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
+			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" target="_blank" rel="noopener noreferrer" title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
 			    <div>
 			    <?php the_sub_field('go-child-school'); ?>学校<br>
 			    <?php the_sub_field('go-child-name'); ?>
@@ -264,7 +264,7 @@
 			<?php while(have_rows('go-wrap06')): the_row(); ?>
 			 <dl>
 			  <dd>
-			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" data-lightbox="gallery03" data-title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
+			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" target="_blank" rel="noopener noreferrer" title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
 			    <div>
 			    <?php the_sub_field('go-child-school'); ?>学校<br>
 			    <?php the_sub_field('go-child-name'); ?>
@@ -283,7 +283,7 @@
 			<?php while(have_rows('shi-wrap06')): the_row(); ?>
 			 <dl>
 			  <dd>
-			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" data-lightbox="gallery03" data-title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
+			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" target="_blank" rel="noopener noreferrer" title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
 			    <div>
 			    <?php the_sub_field('go-child-school'); ?>学校<br>
 			    <?php the_sub_field('go-child-name'); ?>
@@ -303,7 +303,7 @@
 			<?php while(have_rows('go-wrap07')): the_row(); ?>
 			 <dl>
 			  <dd>
-			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" data-lightbox="gallery03" data-title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
+			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" target="_blank" rel="noopener noreferrer" title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
 			    <div>
 			    <?php the_sub_field('go-child-school'); ?>学校<br><?php the_sub_field('go-child-grade'); ?>　
 			    <?php the_sub_field('go-child-name'); ?>
@@ -322,7 +322,7 @@
 			<?php while(have_rows('shi-wrap07')): the_row(); ?>
 			 <dl>
 			  <dd>
-			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" data-lightbox="gallery03" data-title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
+			    <div><span></span><a href="<?php the_sub_field('go-child-img'); ?>" target="_blank" rel="noopener noreferrer" title="<?php the_sub_field('go-child-name'); ?>"><img src="<?php the_sub_field('go-child-img'); ?>"></a></div>
 			    <div>
 			    <?php the_sub_field('go-child-school'); ?>学校<br><?php the_sub_field('go-child-grade'); ?>　
 			    <?php the_sub_field('go-child-name'); ?>

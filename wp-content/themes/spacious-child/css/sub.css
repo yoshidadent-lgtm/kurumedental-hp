@@ -386,3 +386,9 @@ p.local_dentist_clinic_area { display: inline-block; margin: 0 0 14px; padding: 
   .art-body { padding: 16px; line-height: 1.95; }
   .art-btn { display: flex; justify-content: center; padding: 13px 20px; }
 }
+
+/* 地域ページ：地図の絵の切り替え（site.js）。切り替わるとき、やわらかく現れる。選んでいるボタンは、少し浮かせる */
+@keyframes map-fade-in { from { opacity: 0; } to { opacity: 1; } }
+#map_navigation #map_image img.map-fade { animation: map-fade-in .25s ease-out; }
+#map_navigation ul#area_btn_list li.area_btn.is-active a { transform: translateY(-2px); box-shadow: 0 8px 20px var(--cg); filter: brightness(1.04) saturate(1.08); }
+@media (prefers-reduced-motion: reduce) { #map_navigation #map_image img.map-fade { animation: none; } }

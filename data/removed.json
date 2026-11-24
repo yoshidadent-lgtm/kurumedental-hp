@@ -1,0 +1,85 @@
+{
+ "note": "削除した古い記事（2025年以前）。旧アドレスは、移動ページに置き換える（event→イベント一覧、post→トップ）",
+ "paths": [
+  {
+   "path": "event/event-458",
+   "type": "event"
+  },
+  {
+   "path": "event/event-459",
+   "type": "event"
+  },
+  {
+   "path": "event/event-700",
+   "type": "event"
+  },
+  {
+   "path": "event/event-702",
+   "type": "event"
+  },
+  {
+   "path": "event/event-707",
+   "type": "event"
+  },
+  {
+   "path": "event/event-708",
+   "type": "event"
+  },
+  {
+   "path": "event/event-710",
+   "type": "event"
+  },
+  {
+   "path": "event/1670-2",
+   "type": "event"
+  },
+  {
+   "path": "event/event-1683",
+   "type": "event"
+  },
+  {
+   "path": "event/event-1834",
+   "type": "event"
+  },
+  {
+   "path": "event/event-1873",
+   "type": "event"
+  },
+  {
+   "path": "event/2118-2",
+   "type": "event"
+  },
+  {
+   "path": "event/event-2325",
+   "type": "event"
+  },
+  {
+   "path": "event/event-2356",
+   "type": "event"
+  },
+  {
+   "path": "event/event-2617",
+   "type": "event"
+  },
+  {
+   "path": "post-1675",
+   "type": "post"
+  },
+  {
+   "path": "post-1877",
+   "type": "post"
+  },
+  {
+   "path": "post-2037",
+   "type": "post"
+  },
+  {
+   "path": "post-2116",
+   "type": "post"
+  },
+  {
+   "path": "post-2333",
+   "type": "post"
+  }
+ ]
+}
