@@ -25,6 +25,8 @@ if ($q['kind'] === 'page' || $q['kind'] === 'post') {
     usort($posts, fn($x, $y) => ($x->menu_order <=> $y->menu_order) ?: strcmp($y->date, $x->date));
 } elseif ($q['kind'] === 'archive') {
     $posts = by_type($spec['type']); sort_date_desc($posts);
+    // イベント一覧は、2026年以降だけを載せる（ユーザー指示）。各イベントの記事ページは、残してある
+    if ($spec['type'] === 'event') $posts = array_values(array_filter($posts, fn($d) => substr($d->date, 0, 4) >= '2026'));
 }
 
 if (in_array($q['kind'], ['page', 'post'])) $post = $posts[0];  // 単体ページでは、最初から現在の投稿が決まっている
