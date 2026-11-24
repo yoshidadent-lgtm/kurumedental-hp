@@ -212,6 +212,11 @@ function is_home() { return false; } function is_front_page() { return false; } 
 // ---- 健診事業ページの部品（新デザイン）
 // 問合せ先の「ＴＥＬ３０－９７３１」を、「TEL 0942-30-9731」（タップで電話がかかる）にする。市外局番0942は、ユーザー指示で補う
 function ck_tel($html) {
+    // 市外局番つき「ＴＥＬ　０９４２－３２－７０６３」
+    $html = preg_replace_callback('/ＴＥＬ\s*([０-９0-9]+)[－\-ー]([０-９0-9]+)[－\-ー]([０-９0-9]+)/u', function ($m) {
+        $d = array_map(function ($x) { return mb_convert_kana($x, 'n'); }, [$m[1], $m[2], $m[3]]);
+        return 'TEL <a class="ck-tel" href="tel:' . $d[0] . $d[1] . $d[2] . '">' . $d[0] . '-' . $d[1] . '-' . $d[2] . '</a>';
+    }, $html);
     return preg_replace_callback('/ＴＥＬ\s*([０-９0-9]+)[－\-ー]([０-９0-9]+)/u', function ($m) {
         $a = mb_convert_kana($m[1], 'n'); $b = mb_convert_kana($m[2], 'n');
         return 'TEL <a class="ck-tel" href="tel:0942' . $a . $b . '">0942-' . $a . '-' . $b . '</a>';
