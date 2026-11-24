@@ -19,6 +19,8 @@ def build_all():
     # トップページは、改良案A（tools/top_page.py）で作る。それ以外のページは、旧テーマのテンプレートで作る。
     import subprocess as _sp
     _sp.run([sys.executable, str(ROOT / 'tools/top_page.py')], check=True)
+    _sp.run([sys.executable, str(ROOT / 'tools/policy_page.py')], check=True)   # プライバシーポリシー（privacy/）
+    n_extra = 1
     n = 1
     suffix = ''  # ページタイトルは、すべてのページで「久留米歯科医師会」
     for d in data:
@@ -57,6 +59,7 @@ def build_all():
         if d['type'] == 'page' and d['slug'] != 'home': urls.append(d['path'].strip('/') + '/')
         elif d['type'] in ('post', 'event', 'finance'): urls.append(d['link'].strip('/') + '/')
     urls.append('event/')
+    urls.append('privacy/')
     for (tax, term), name in names.items():
         if tax.startswith('local_dentist') and '%' not in term: urls.append('local_dentist_top/%s/%s/' % (tax, term))
     write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
