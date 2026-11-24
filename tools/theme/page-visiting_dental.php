@@ -39,7 +39,7 @@
 					</div>
 					<div class="visiting_box">	
 					  <img src="<?php bloginfo('stylesheet_directory'); ?>/images/visiting_dental/image_05.jpg">
-¥					</div>
+					</div>
 
 					<div class="visiting_box">	
 					  <div class="visiting_sub_title">
