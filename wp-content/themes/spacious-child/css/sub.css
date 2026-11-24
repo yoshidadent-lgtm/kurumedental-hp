@@ -283,3 +283,26 @@ p.local_dentist_clinic_area { display: inline-block; margin: 0 0 14px; padding: 
   .mp-btn { display: flex; justify-content: space-between; width: 100%; box-sizing: border-box; padding: 13px 20px; }
   .mp-map iframe { height: 340px; }
 }
+
+/* 入会のご案内：橙（右のメニュー「入会案内」と同じ）。利点を、チェックつきのカードに。入会金は、目立つカード */
+#introduction_image.jn-hero { margin-top: 0 !important; float: none !important; width: auto !important; height: auto !important; --c1:#fff4d6; --c2:#ffe3a0; --cd:#a85a00; --cg:rgba(214,140,0,.24);
+  display: flex; align-items: center; gap: 20px; margin: 0 0 20px; padding: 16px 22px; background: linear-gradient(180deg, var(--c1), var(--c2)); border: 2px solid var(--cd); border-radius: 16px; box-shadow: 0 6px 18px var(--cg); }
+.jn-hero h1 { width: auto !important; height: auto !important; float: none !important; writing-mode: horizontal-tb !important; flex: 1; margin: 0; padding: 0; background: none; border: 0; font-size: 1.35rem; font-weight: 800; line-height: 1.5; letter-spacing: .02em; }
+.jn-hero h1 .style1 { color: #5c3200 !important; font-size: inherit !important; font-weight: 800; }
+.jn-hero > div { flex: none; width: 110px; float: none !important; margin: 0 !important; }
+.jn-hero img { width: 100%; height: auto; border-radius: 10px; mix-blend-mode: multiply; }
+#introduction_text.jn-text { width: 100% !important; float: none !important; margin: 0 !important; padding: 0 !important; }
+.jn-text h3 { margin: 0 0 14px; padding: 4px 0 4px 14px; background: none; border: 0; border-left: 8px solid #d68a00; border-radius: 2px; color: #5c3200; font-size: 1.1rem; font-weight: 800; line-height: 1.6; }
+.jn-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.jn-list li { position: relative; margin: 0; padding: 12px 16px 12px 52px; background: #fffaf0; border: 2px solid #f0d9a6; border-radius: 12px; font-size: 15px; line-height: 1.85; color: #1b2733; list-style: none; }
+.jn-list li::before { content: ""; position: absolute; left: 16px; top: 13px; width: 24px; height: 24px; border-radius: 50%; background: #d68a00; }
+.jn-list li::after { content: ""; position: absolute; left: 24px; top: 20px; width: 6px; height: 11px; border: solid #fff; border-width: 0 3px 3px 0; transform: rotate(45deg); }
+.jn-list li.jn-fee { margin-top: 10px; padding-left: 16px; background: linear-gradient(180deg, #fff4d6, #ffe3a0); border: 2px solid #a85a00; box-shadow: 0 6px 18px rgba(214,140,0,.24); font-weight: 700; }
+.jn-list li.jn-fee::before, .jn-list li.jn-fee::after { display: none; }
+@media (max-width: 700px) {
+  .jn-hero { gap: 12px; padding: 14px; }
+  .jn-hero h1 { font-size: 1.1rem; }
+  .jn-hero > div { width: 84px; }
+  .jn-list li { padding: 12px 14px 12px 48px; font-size: 15.5px; }
+  .jn-list li.jn-fee { padding-left: 14px; }
+}
