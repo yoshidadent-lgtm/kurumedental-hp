@@ -241,3 +241,25 @@ p.local_dentist_clinic_area { display: inline-block; margin: 0 0 14px; padding: 
   .ev-text p:first-child { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }   /* スマホでは、長い抜粋を5行までにして、一覧を短くする */
   .ev-btn { display: flex; justify-content: space-between; padding: 12px 18px; font-size: 15px; }
 }
+
+/* 役員の紹介：緑（右のメニュー「役員紹介」と同じ）。表を、きれいに。スマホでは、役職ごとにカード（空のセルは隠す） */
+#itroduction_left_contents table:has(.introduction_post_head) { --c1:#e5f7ea; --c2:#c4ecd0; --cd:#17692f; --cg:rgba(40,150,80,.22);
+  width: 100%; border-collapse: separate; border-spacing: 0; border: 2px solid var(--cd); border-radius: 14px; overflow: hidden; background: #fff; box-shadow: 0 6px 18px var(--cg); }
+#itroduction_left_contents table:has(.introduction_post_head) td { border: 0; border-bottom: 1px solid #cfe9d7; border-right: 1px solid #e3f2e8; padding: 10px 8px; width: auto !important; font-size: 16px; line-height: 1.5; color: #1b2733; text-align: center; vertical-align: middle; background: #fff; }
+#itroduction_left_contents table:has(.introduction_post_head) td:last-child { border-right: 0; }
+#itroduction_left_contents table:has(.introduction_post_head) tr:last-child td { border-bottom: 0; }
+#itroduction_left_contents table:has(.introduction_post_head) .introduction_head { background: linear-gradient(180deg, var(--c1), var(--c2)); color: #0f4a20; font-weight: 800; font-size: 15px; border-bottom: 2px solid var(--cd); }
+#itroduction_left_contents table:has(.introduction_post_head) .introduction_post_head { width: 7.5em !important; background: #d9f2e0; color: #0f4a20; font-weight: 800; font-size: 15px; letter-spacing: .08em; border-right: 2px solid var(--cd); }
+#itroduction_left_contents table:has(.introduction_post_head) tbody tr:nth-child(even) .introduction_contents { background: #f6fcf8; }
+@media (max-width: 700px) {
+  #itroduction_left_contents table:has(.introduction_post_head), #itroduction_left_contents table:has(.introduction_post_head) tbody { display: block; border: 0; border-radius: 0; box-shadow: none; background: none; }
+  #itroduction_left_contents table:has(.introduction_post_head) tr:first-child { display: none; }
+  #itroduction_left_contents table:has(.introduction_post_head) tr { display: grid; grid-template-columns: repeat(2, 1fr); margin: 0 0 14px; background: #fff; border: 2px solid var(--cd); border-radius: 14px; overflow: hidden; box-shadow: 0 5px 14px var(--cg); }
+  #itroduction_left_contents table:has(.introduction_post_head) td { display: block; border: 0; padding: 10px 8px; font-size: 17px; }
+  #itroduction_left_contents table:has(.introduction_post_head) td:empty { display: none; }
+  #itroduction_left_contents table:has(.introduction_post_head) .introduction_post_head { grid-column: 1 / -1; width: auto !important; padding: 8px 14px; text-align: left; border-right: 0; border-bottom: 2px solid var(--cd); font-size: 16px; }
+  #itroduction_left_contents table:has(.introduction_post_head) tbody tr:nth-child(even) .introduction_contents { background: #fff; }
+  /* 「理事」は、2行にまたがるので、2枚のカードをつないで、1枚に見せる */
+  #itroduction_left_contents table:has(.introduction_post_head) tr:has(> td[rowspan]) { margin-bottom: 0; border-bottom: 0; border-radius: 14px 14px 0 0; box-shadow: none; }
+  #itroduction_left_contents table:has(.introduction_post_head) tr:has(> td[rowspan]) + tr { margin-top: 0; border-top: 0; border-radius: 0 0 14px 14px; box-shadow: 0 5px 14px var(--cg); }
+}
