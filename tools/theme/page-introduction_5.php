@@ -43,38 +43,16 @@
     );
     $posts = get_posts( $args );
     if( $posts ) : foreach( $posts as $post ) : setup_postdata( $post ); ?>
-<div id="link_contents_second">
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody><tr>    
-    <th class="th_01" style="width:40% !important;text-align:left;">・定款</th>
-        <td><a href="<?php the_field('teikan'); ?>" target="_blank"><?php the_field('teikan_text'); ?></a></td>
-      </tr>
-    <tr>    
-    <th class="th_01" style="text-align:left;">・事業報告</th>
-        <td><a href="<?php the_field('int-jigyohoukoku'); ?>" target="_blank"><?php the_field('int-jigyohoukoku_text'); ?></a></td>
-      </tr>
-    <tr>    
-    <th class="th_01" style="text-align:left;">・貸借対照表</th>
-        <td><a href="<?php the_field('int-taisyaku'); ?>" target="_blank"><?php the_field('int-taisyaku_text'); ?></a></td>
-      </tr>
-    <tr>    
-    <th class="th_01" style="text-align:left;">・正味財産増減計算書内訳書</th>
-        <td><a href="<?php the_field('int-zaisanzogen'); ?>" target="_blank"><?php the_field('int-zaisanzogen_text'); ?></a></td>
-      </tr>
-    <tr>    
-    <th class="th_01" style="text-align:left;">・財務諸表に対する注記</th>
-        <td><a href="<?php the_field('int-zaimushohyo'); ?>" target="_blank"><?php the_field('int-zaimushohyo_text'); ?></a></td>
-      </tr>
-    <tr>    
-    <th class="th_01" style="text-align:left;">・財務諸表に対する付属明細書</th>
-        <td><a href="<?php the_field('int-zaimushohyofuzoku'); ?>" target="_blank"><?php the_field('int-zaimushohyofuzoku_text'); ?></a></td>
-      </tr>
-    <tr>    
-    <th class="th_01" style="text-align:left;">・財産目録</th>
-        <td><a href="<?php the_field('int-zaisanmokuroku'); ?>" target="_blank"><?php the_field('int-zaisanmokuroku_text'); ?></a></td>
-      </tr>
-  </tbody></table>
-</div>
+<h2 class="ac-h">業務・財務に関する資料<small>Documents</small></h2>
+<ul class="fn-list">
+<li><span class="fn-label">定款</span><a class="fn-btn" href="<?php the_field('teikan'); ?>" target="_blank" rel="noopener noreferrer"><?php the_field('teikan_text'); ?></a></li>
+<li><span class="fn-label">事業報告</span><a class="fn-btn" href="<?php the_field('int-jigyohoukoku'); ?>" target="_blank" rel="noopener noreferrer"><?php the_field('int-jigyohoukoku_text'); ?></a></li>
+<li><span class="fn-label">貸借対照表</span><a class="fn-btn" href="<?php the_field('int-taisyaku'); ?>" target="_blank" rel="noopener noreferrer"><?php the_field('int-taisyaku_text'); ?></a></li>
+<li><span class="fn-label">正味財産増減計算書内訳書</span><a class="fn-btn" href="<?php the_field('int-zaisanzogen'); ?>" target="_blank" rel="noopener noreferrer"><?php the_field('int-zaisanzogen_text'); ?></a></li>
+<li><span class="fn-label">財務諸表に対する注記</span><a class="fn-btn" href="<?php the_field('int-zaimushohyo'); ?>" target="_blank" rel="noopener noreferrer"><?php the_field('int-zaimushohyo_text'); ?></a></li>
+<li><span class="fn-label">財務諸表に対する付属明細書</span><a class="fn-btn" href="<?php the_field('int-zaimushohyofuzoku'); ?>" target="_blank" rel="noopener noreferrer"><?php the_field('int-zaimushohyofuzoku_text'); ?></a></li>
+<li><span class="fn-label">財産目録</span><a class="fn-btn" href="<?php the_field('int-zaisanmokuroku'); ?>" target="_blank" rel="noopener noreferrer"><?php the_field('int-zaisanmokuroku_text'); ?></a></li>
+</ul>
   		<?php endforeach; ?>
     <?php endif;
     wp_reset_postdata(); ?>
