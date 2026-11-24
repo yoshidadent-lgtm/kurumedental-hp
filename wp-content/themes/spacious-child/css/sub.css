@@ -360,3 +360,29 @@ p.local_dentist_clinic_area { display: inline-block; margin: 0 0 14px; padding: 
   .lk-link { flex-direction: column; align-items: stretch; gap: 8px; }
   .lk-go { justify-content: center; padding: 12px 18px; font-size: 15px; }
 }
+
+/* 記事ページ（イベント・お知らせ・財務の記事）。イベント＝水色、お知らせ・その他＝青 */
+.art-wrap { --c1:#eaf6ff; --c2:#cfe8ff; --cd:#1558b0; --cg:rgba(27,114,216,.22); margin: 0 0 24px; }
+.art-wrap.art-event { --c1:#e6f6f8; --c2:#c3e8ee; --cd:#0f6f86; --cg:rgba(20,130,160,.22); }
+.art-wrap.art-finance { --c1:#e6f6f8; --c2:#c3e8ee; --cd:#0f6f86; --cg:rgba(20,130,160,.22); }
+.art-head { margin: 0; padding: 14px 20px 14px; background: linear-gradient(180deg, var(--c1), var(--c2)); border: 2px solid var(--cd); border-bottom: 0; border-radius: 16px 16px 0 0; }
+.art-date { display: inline-block; margin: 0 0 6px; padding: 2px 14px; border-radius: 999px; background: #fff; border: 1.5px solid var(--cd); color: var(--cd); font-size: 13px; font-weight: 800; line-height: 1.6; }
+.art-title { margin: 0; padding: 0; background: none; border: 0; color: #0f2a5a; font-size: 1.35rem; font-weight: 800; line-height: 1.5; letter-spacing: .02em; word-break: auto-phrase; text-wrap: pretty; }
+.art-body { padding: 20px 22px 22px; background: #fff; border: 2px solid var(--cd); border-top: 2px solid var(--cd); border-radius: 0 0 16px 16px; box-shadow: 0 6px 18px var(--cg); font-size: 16px; line-height: 2; color: #1b2733; }
+.art-body p { margin: 0 0 1.1em; font-size: inherit; line-height: inherit; }
+.art-body p:last-child { margin-bottom: 0; }
+.art-body a { color: var(--cd); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.art-body a:hover { text-decoration-thickness: 2px; }
+.art-body img { max-width: 100%; height: auto; border-radius: 10px; }
+.art-body .tags { margin-top: 1em; font-size: 14px; }
+.art-back { margin: 18px 0 0; }
+.art-btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 999px; background: var(--cd); color: #fff !important; font-size: 15px; font-weight: 700; line-height: 1.3; text-decoration: none !important; box-shadow: 0 3px 8px var(--cg); transition: transform .15s, filter .15s; }
+.art-btn::before { content: "‹"; font-size: 20px; line-height: 1; }
+.art-btn:hover { transform: translateY(-2px); filter: brightness(1.12); }
+.art-btn:focus-visible { outline: 3px solid #e07b00; outline-offset: 2px; }
+@media (max-width: 700px) {
+  .art-head { padding: 14px 16px; }
+  .art-title { font-size: 1.15rem; }
+  .art-body { padding: 16px; line-height: 1.95; }
+  .art-btn { display: flex; justify-content: center; padding: 13px 20px; }
+}
