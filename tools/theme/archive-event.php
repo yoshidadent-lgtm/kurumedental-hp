@@ -26,7 +26,7 @@ get_header(); ?>
 	</section>
 
 <div id="main_contents_second">
-<div><p><img src="<?php bloginfo('stylesheet_directory'); ?>/images/event/title_01.png"></p></div>
+<h2 class="ac-h">イベント<small>Event Info</small></h2>
 
 			<?php if ( have_posts() ) : ?>
 				<?php while ( have_posts() ) : the_post(); ?>
