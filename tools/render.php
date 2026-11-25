@@ -267,7 +267,34 @@ function get_template_part($slug, $n = '') {
     tpl("$slug-$n.php");
 }
 
+// ---- ページ上部のタイトル帯（新デザイン）
+// 旧テンプレートの <section class="page_fv">（題名入りの小さな画像）を、「題名を本物の文字にして、写真を背景にした帯」に置き換える。
+// 写真は images/hero/<キー>.jpg があれば、それを使う（使用許可のある素材）。なければ、仮の写真（images/slider/）を使う。
+function hero_replace($html) {
+    global $T, $ROOT;
+    $defs = [   // 画像の置き場の名前 => [題名, 英語の小さな文字, 色の名前, 仮の写真]
+        'assistant_course' => ['歯科助手講習会のご案内', 'ASSISTANT COURSE', 'green', 'img03.jpg'],
+        'business_checkup' => ['健診事業のご案内', 'BUSINESS CHECKUP', 'pink', 'img05.jpg'],
+        'event'            => ['イベント情報', 'EVENT INFORMATION', 'teal', 'img06.jpg'],
+        'holiday_clinic'   => ['休日診療のご案内', 'HOLIDAY CLINIC', 'orange', 'img03.jpg'],
+        'introduction'     => ['歯科医師会のご案内', 'DENTAL ASSOCIATION', 'blue', 'img02.jpg'],
+        'link'             => ['リンク集', 'LINK', 'blue', 'img06.jpg'],
+        'local_dentist'    => ['地域の歯医者さん', 'LOCAL DENTIST', 'green', 'img07.jpg'],
+        'visiting_dental'  => ['訪問歯科診療のご案内', 'VISITING DENTAL CARE', 'sky', 'img07.jpg'],
+    ];
+    return preg_replace_callback('#<section class="page_fv">(.*?)</section>#s', function ($m) use ($defs, $T, $ROOT) {
+        if (!preg_match('#images/([a-z_]+)/#', $m[1], $k) || !isset($defs[$k[1]])) return $m[0];
+        $key = $k[1]; list($title, $en, $color, $fallback) = $defs[$key];
+        if ($key === 'introduction' && strpos($m[1], 'alt="ポスター"') !== false) { $title = '歯の健康フェスタ ポスター展'; $en = 'POSTER EXHIBITION'; $color = 'teal'; $key = 'poster'; }
+        $photo = file_exists("$ROOT/wp-content/themes/spacious-child/images/hero/$key.jpg") ? "images/hero/$key.jpg" : "images/slider/$fallback";
+        return '<section class="page_fv pg-hero pg-hero--' . $color . '">'
+             . '<div class="pg-hero-photo" style="background-image:url(\'' . $T . '/' . $photo . '\')" role="presentation"></div>'
+             . '<div class="pg-hero-inner"><span class="pg-hero-en">' . $en . '</span><h1 class="pg-hero-title">' . $title . '</h1></div></section>';
+    }, $html);
+}
+
 // ---- テンプレートの選択
+ob_start();
 if ($q['kind'] === 'page') {
     $p = $posts[0]; $f = 'page-' . $p->slug . '.php';
     tpl(file_exists(__DIR__ . "/theme/$f") ? $f : 'page.php');
@@ -275,3 +302,4 @@ if ($q['kind'] === 'page') {
 } elseif ($q['kind'] === 'tax') { tpl('taxonomy-' . $q['tax'] . '.php');
 } elseif ($q['kind'] === 'archive') { tpl('archive-' . $spec['type'] . '.php');
 } else { tpl('404.php'); }
+echo hero_replace(ob_get_clean());

@@ -392,3 +392,22 @@ p.local_dentist_clinic_area { display: inline-block; margin: 0 0 14px; padding: 
 #map_navigation #map_image img.map-fade { animation: map-fade-in .25s ease-out; }
 #map_navigation ul#area_btn_list li.area_btn.is-active a { transform: translateY(-2px); box-shadow: 0 8px 20px var(--cg); filter: brightness(1.04) saturate(1.08); }
 @media (prefers-reduced-motion: reduce) { #map_navigation #map_image img.map-fade { animation: none; } }
+
+/* ページ上部のタイトル帯：題名は本物の文字、右側に写真（render.php の hero_replace が作る）。色は、ページごと */
+.pg-hero { --hc:#1558b0; --hc2:#2f86e8; position: relative; display: flex; align-items: center; min-height: 150px; margin: 0 0 1.5em; border-radius: 14px; overflow: hidden; background: linear-gradient(110deg, var(--hc) 0%, var(--hc2) 100%); box-shadow: 0 8px 24px rgba(15, 42, 90, .18); }
+.pg-hero--green  { --hc:#17692f; --hc2:#2f9a50; }
+.pg-hero--pink   { --hc:#b02c5a; --hc2:#e0578a; }
+.pg-hero--teal   { --hc:#0f6f86; --hc2:#2aa0b8; }
+.pg-hero--orange { --hc:#a85a00; --hc2:#e08a10; }
+.pg-hero--sky    { --hc:#1558b0; --hc2:#3da1f2; }
+.pg-hero-photo { position: absolute; inset: 0; background-position: center; background-size: cover; background-repeat: no-repeat; }
+.pg-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--hc) 0%, var(--hc) 40%, rgba(0,0,0,0) 80%); opacity: .97; }
+.pg-hero-inner { position: relative; z-index: 2; padding: 26px 32px; color: #fff; }
+.pg-hero-en { display: block; margin-bottom: 4px; font-size: 12px; font-weight: 700; letter-spacing: .22em; opacity: .92; text-shadow: 0 1px 3px rgba(0,0,0,.35); }
+.pg-hero-title { margin: 0; padding: 0; background: none; border: 0; color: #fff; font-size: clamp(1.6rem, 3.6vw, 2.2rem); font-weight: 800; line-height: 1.35; letter-spacing: .04em; text-shadow: 0 2px 6px rgba(0,0,0,.35); word-break: auto-phrase; text-wrap: balance; }
+@media (max-width: 700px) {
+  .pg-hero { min-height: 118px; border-radius: 12px; }
+  .pg-hero-photo { inset: 0; }
+  .pg-hero::after { background: linear-gradient(90deg, var(--hc) 0%, var(--hc) 40%, rgba(0,0,0,0) 100%); opacity: .9; }
+  .pg-hero-inner { padding: 18px 18px; }
+}
